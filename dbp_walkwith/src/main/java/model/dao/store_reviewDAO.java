@@ -8,8 +8,6 @@ import model.dto.MenuDTO;
 import model.dto.StoreDTO;
 import model.dto.ReviewDTO;
 
-import util.JDBCUtil;
-
 public class store_reviewDAO {
     private JDBCUtil jdbcUtil = null;
     

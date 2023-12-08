@@ -10,7 +10,6 @@ import model.dto.ReservationDTO;
 
 import java.time.LocalDate;
 
-//import JDBCUtil;
 
 public class ReservaionDAO {
     private JDBCUtil jdbcUtil = null;

@@ -9,7 +9,6 @@ import java.util.List;
 import model.dto.ReservationDTO;
 import model.dto.SellerDTO;
 import model.dto.StoreDTO;
-import util.JDBCUtil;
 
 public class SellerDAO {
 	private JDBCUtil jdbcUtil = null;
@@ -92,7 +91,7 @@ public class SellerDAO {
         				rs.getInt("storeId"),
         				rs.getString("sName"),
         				rs.getString("sPhone"),
-        				rs.getTime("sTime"),
+        				rs.getDate("sTime"),
         				rs.getString("openDate"),
         				rs.getDouble("sStarScore"),
         				rs.getString("sDescription"),
