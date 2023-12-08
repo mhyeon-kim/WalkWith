@@ -4,9 +4,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.store;
 import model.dto.MenuDTO;
 import model.dto.StoreDTO;
+import model.dto.ReviewDTO;
+
 import util.JDBCUtil;
 
 public class store_reviewDAO {
@@ -42,13 +43,13 @@ public class store_reviewDAO {
             while (rs1.next()) {
                 StoreDTO recommand = new StoreDTO();
                 recommand.setsName(rs1.getString("sName"));
-                recommand.setSPhone(rs1.getString("sPhone"));
-                recommand.setSTime(rs1.getDate("sTime"));
-                recommand.setSStarScore(rs1.getFloat("sStarScore"));
-                recommand.setSDetailDescription(rs1.getString("sDescription"));
+                recommand.setsPhone(rs1.getString("sPhone"));
+                recommand.setsTime(rs1.getDate("sTime"));
+                recommand.setsStarScore(rs1.getFloat("sStarScore"));
+                recommand.setsDescription(rs1.getString("sDescription"));
                 recommand.setSellerId(rs1.getString("sellerId"));
                 recommand.setOpenDate(rs1.getString("openDate"));
-                recommand.setSImage_path(rs1.getString("sImage_path"));
+                recommand.setsImage_path(rs1.getString("sImage_path"));
 
                 recommandList.add(recommand);
             }
@@ -65,13 +66,13 @@ public class store_reviewDAO {
             while (rs2.next()) {
                 StoreDTO recommand = new StoreDTO();
                 recommand.setsName(rs2.getString("sName"));
-                recommand.setSPhone(rs2.getString("sPhone"));
-                recommand.setSTime(rs2.getDate("sTime"));
-                recommand.setSStarScore(rs2.getFloat("sStarScore"));
-                recommand.setSDetailDescription(rs2.getString("sDescription"));
+                recommand.setsPhone(rs2.getString("sPhone"));
+                recommand.setsTime(rs2.getDate("sTime"));
+                recommand.setsStarScore(rs2.getFloat("sStarScore"));
+                recommand.setsDescription(rs2.getString("sDescription"));
                 recommand.setSellerId(rs2.getString("sellerId"));
                 recommand.setOpenDate(rs2.getString("openDate"));
-                recommand.setSImage_path(rs2.getString("sImage_path"));
+                recommand.setsImage_path(rs2.getString("sImage_path"));
 
 
                 recommandList.add(recommand);
@@ -146,8 +147,8 @@ public class store_reviewDAO {
 				   + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";    
 		String category = searchCategory(categoryId);
 		Object[] param = new Object[] {store.getsName(), store.getsPhone(), 
-				store.getsTime(), store.getsStarScore(), store.getsDetailDescription(), 
-				store.getSellerId(), store.getOpenDate(), category, store.getSImage_path()};             
+				store.getsTime(), store.getsStarScore(), store.getsDescription(), 
+				store.getSellerId(), store.getOpenDate(), category, store.getsImage_path()};             
 		jdbcUtil.setSqlAndParameters(sql, param);   // JDBCUtil 에 insert문과 매개 변수 설정
 		try {               
 			int result = jdbcUtil.executeUpdate();  // insert 문 실행
@@ -169,8 +170,8 @@ public class store_reviewDAO {
                     + "WHERE storeId=?";
         String category = searchCategory(categoryId);
         Object[] param = new Object[] {store.getsName(), store.getsPhone(), 
-                    store.getsTime(), store.getsStarScore(), store.getsDetailDescription(), 
-                    store.getSellerId(), store.getOpenDate(), category, store.getSImage_path(), store.getStoreId()};              
+                    store.getsTime(), store.getsStarScore(), store.getsDescription(), 
+                    store.getSellerId(), store.getOpenDate(), category, store.getsImage_path(), store.getStoreId()};              
         jdbcUtil.setSqlAndParameters(sql, param);   // JDBCUtil에 update문과 매개 변수 설정
             
         try {               
@@ -320,7 +321,7 @@ public class store_reviewDAO {
     public void readReview() {
         String sql = "SELECT userName, review, rating FROM REVIEW JOIN CUSTOMER USING (userId)  ";       // 작성자 정보도 같이? 그럼 join 해야하나 -> customer rating 2개 조인
         
-        jdbcUtil.setSql(sql);
+        jdbcUtil.setSqlAndParameters(sql, null);
         
         try {               
             ResultSet result = jdbcUtil.executeQuery();  // update 문 실행
@@ -421,8 +422,7 @@ public class store_reviewDAO {
                 store.setStoreId(rs.getInt("storeId"));
                 store.setsName(rs.getString("sName"));
                 store.setsStarScore(rs.getFloat("sStarScore"));
-                store.setsDetailDescription(rs.getString("sDetailDescription"));
-                store.setsAddress(rs.getString("sAddress")); 
+                store.setsDescription(rs.getString("sDetailDescription"));
                 store.setLikeCount(rs.getInt("LikeCount")); 
 
                 storeList.add(store);
@@ -458,8 +458,7 @@ public class store_reviewDAO {
                 store.setStoreId(rs.getInt("storeId"));
                 store.setsName(rs.getString("sName"));
                 store.setsStarScore(rs.getFloat("sStarScore"));
-                store.setsDetailDescription(rs.getString("sDetailDescription"));
-                store.setsAddress(rs.getString("sAddress"));
+                store.setsDescription(rs.getString("sDetailDescription"));
                 store.setLikeCount(rs.getInt("LikeCount")); 
 
                 storeList.add(store);
