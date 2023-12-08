@@ -22,7 +22,7 @@ public class ReservaionDAO {
     // 예약 추가
     public int addReservation(ReservationDTO reservation) {
         String sql = "INSERT INTO Reservation (reservationId, resDaTi, userId, storeId) VALUES (reservationId_seq.nextval, ?, ?, ?)";
-        Object[] parameters = new Object[] {Date.valueOf(reservation.getResDaTi()), reservation.getUserId(), reservation.getStoreId()};
+        Object[] parameters = new Object[] {(reservation.getResDaTi()), reservation.getUserId(), reservation.getStoreId()};
 
         jdbcUtil.setSqlAndParameters(sql, parameters);
 
@@ -110,7 +110,7 @@ public class ReservaionDAO {
             while (rs.next()) {
                 ReservationDTO reservation = new ReservationDTO();
                 reservation.setReservationId(rs.getInt("reservationId"));
-                reservation.setResDaTi(rs.getDate("resDaTi").toLocalDate());
+                reservation.setResDaTi(rs.getDate("resDaTi"));
                 reservation.setUserId(rs.getString("userId"));
                 reservation.setStoreId(rs.getInt("storeId"));
                 reservation.setuName(rs.getString("uName"));  // 사용자 이름
@@ -147,7 +147,7 @@ public List<ReservationDTO> findReservationsByStore(int storeId) {
         while (rs.next()) {
             ReservationDTO reservation = new ReservationDTO();
             reservation.setReservationId(rs.getInt("reservationId"));
-            reservation.setResDaTi(rs.getDate("resDaTi").toLocalDate());
+            reservation.setResDaTi(rs.getDate("resDaTi"));
             reservation.setUserId(rs.getString("userId"));
             reservation.setStoreId(rs.getInt("storeId"));
             reservation.setuName(rs.getString("uName"));  // 사용자 이름 추가
@@ -292,7 +292,7 @@ public List<ReservationDTO> findReservationsByStore(int storeId) {
             while (rsSelect.next()) {
                 ReservationDTO reservation = new ReservationDTO();
                 reservation.setReservationId(rsSelect.getInt("reservationId"));
-                reservation.setResDaTi(rsSelect.getDate("resDaTi").toLocalDate());
+                reservation.setResDaTi(rsSelect.getDate("resDaTi"));
                 reservation.setUserId(rsSelect.getString("userId"));
                 reservation.setStoreId(rsSelect.getInt("storeId"));
                 reservation.setuName(rsSelect.getString("uName")); // 사용자 이름 추가

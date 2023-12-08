@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import model.dto.StoreDTO;
-import util.JDBCUtil;
+import JDBCUtil;
 
 public class CustomerDAO {
 
