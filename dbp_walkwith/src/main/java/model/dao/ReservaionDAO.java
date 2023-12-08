@@ -1,4 +1,4 @@
-package lab4;
+package model.dao;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import model.dto.ReservationDTO;
 
 import java.time.LocalDate;
 
-import util.JDBCUtil;
+//import JDBCUtil;
 
 public class ReservaionDAO {
     private JDBCUtil jdbcUtil = null;
@@ -20,29 +20,22 @@ public class ReservaionDAO {
     }
 
     // 예약 추가
-//<<<<<<< HEAD
-    public int addReservation(ReservationDTO reservation) { // 시퀀스 pk 사용
-        String sql = "INSERT INTO Reservation (reservationId, resDaTi, userId, storeId) VALUES (?, ?, ?, ?)";
-        Object[] parameters = new Object[] {reservation.getReservationId(), Date.valueOf(reservation.getResDaTi()), reservation.getUserId(), reservation.getStoreId()};
-
-//=======
     public int addReservation(ReservationDTO reservation) {
         String sql = "INSERT INTO Reservation (reservationId, resDaTi, userId, storeId) VALUES (reservationId_seq.nextval, ?, ?, ?)";
         Object[] parameters = new Object[] {Date.valueOf(reservation.getResDaTi()), reservation.getUserId(), reservation.getStoreId()};
-    
-//>>>>>>> 2e42574721f42a3869f0f7ccedd0e6253e3af560
+
         jdbcUtil.setSqlAndParameters(sql, parameters);
-    
+
         String key[] = {"reservationId"}; // PK 컬럼의 이름 배열
         try {
             int result = jdbcUtil.executeUpdate(key); // insert 문 실행
-    
+
             ResultSet rs = jdbcUtil.getGeneratedKeys(); // 생성된 PK 값을 포함한 result set 객체 반환
             if(rs.next()) {
                 int generatedKey = rs.getInt(1); // 생성된 PK 컬럼 값
                 reservation.setReservationId(generatedKey); // ReservationDTO 객체에 PK 값을 설정
             }
-    
+
             jdbcUtil.commit();
             return result;
         } catch (Exception ex) {
@@ -51,9 +44,10 @@ public class ReservaionDAO {
         } finally {
             jdbcUtil.close();
         }
-    
+
         return 0;
     }
+
 
     // 예약 취소
     public int deleteReservation(int reservationId) {

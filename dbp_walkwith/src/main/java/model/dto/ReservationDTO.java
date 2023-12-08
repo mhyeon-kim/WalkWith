@@ -1,10 +1,10 @@
 package model.dto;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public class ReservationDTO { // store 이미지 추가...?
     private int reservationId;
-    private Date resDaTi;  // Date 대신 LocalDate 사용
+    private LocalDate resDaTi;  // Date 대신 LocalDate 사용
     private String userId;
     private String uName;
     private int storeId;
@@ -12,11 +12,10 @@ public class ReservationDTO { // store 이미지 추가...?
     private String comment;
 
     // 기본 생성자
-    public ReservationDTO() {
-    }
+    public ReservationDTO() { }
 
     // 모든 필드를 초기화하는 생성자
-    public ReservationDTO(int reservationId, Date resDaTi, String userId, int storeId) {
+    public ReservationDTO(int reservationId, LocalDate resDaTi, String userId, int storeId) {
         this.reservationId = reservationId;
         this.resDaTi = resDaTi;
         this.userId = userId;
@@ -32,11 +31,11 @@ public class ReservationDTO { // store 이미지 추가...?
         this.reservationId = reservationId;
     }
 
-    public Date getResDaTi() {
+    public LocalDate getResDaTi() {
         return resDaTi;
     }
 
-    public void setResDaTi(Date resDaTi) {
+    public void setResDaTi(LocalDate resDaTi) {
         this.resDaTi = resDaTi;
     }
 
