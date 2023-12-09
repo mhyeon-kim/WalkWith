@@ -1,3 +1,5 @@
+package model.dao;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,6 +10,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import model.dto.CustomerDTO;
+import model.dto.PetDTO;
+import model.dto.ReservationDTO;
 import model.dto.StoreDTO;
 
 public class CustomerDAO {
@@ -23,14 +28,14 @@ public class CustomerDAO {
     	StringBuilder query = new StringBuilder();
         query.append("SELECT like FROM CUSTOMER WHERE userId = ? ");
 
-        jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {userId});
+        jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {userID});
 
         List<StoreDTO> LikeList = new ArrayList<>();
         try {
             ResultSet rs = jdbcUtil.executeQuery();
             while (rs.next()) {
             	StoreDTO like = new StoreDTO();
-                like.setsName(rs.getStirng("sName"));
+                like.setsName(rs.getString("sName"));
                 like.setSellerId(rs.getString("sellerId"));
             	
                 LikeList.add(like);                
@@ -133,9 +138,10 @@ public class CustomerDAO {
                 String uName = resultSet.getString("uName");
                 String uPhone = resultSet.getString("uPhone");
                 String uMail = resultSet.getString("uMail");
-				String uPassword = resultSet.getString("uPassword"); // 수정된 부분
+				String uPassword = resultSet.getString("uPassword");
                 List<PetDTO> petList = getAllPets(userId);
-                return new CustomerDTO(userId, uName, uPassword, uPhone, uMail, petList); // 수정된 부분
+                List<StoreDTO> likeList = getLikeListByUserId(userId);
+                return new CustomerDTO(userId, uName, uPassword, uPhone, uMail, petList, likeList);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -151,7 +157,7 @@ public class CustomerDAO {
             Connection connection = JDBCUtil.getConnection();
             String sql = "INSERT INTO customer_table (userId, uName, uPassword, uPhone, uMail) VALUES (?, ?, ?, ?, ?) ";
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-                preparedStatement.setString(1, customer.getUserId()); // userId는 문자열로 바꾸어주어야 합니다.
+                preparedStatement.setString(1, customer.getUserId());
                 preparedStatement.setString(2, customer.getuName());
                 preparedStatement.setString(3, customer.getuPassword());
                 preparedStatement.setString(4, customer.getuPhone());
@@ -211,16 +217,11 @@ public class CustomerDAO {
         try {
             ResultSet rs = jdbcUtil.executeQuery();
             while (rs.next()) {
-                PetDTO pet = new PetDTO();
-               pet.setPId(rs.getInt("petId")); // 수정된 부분
-			   pet.setPAge(rs.getInt("pAge")); // 수정된 부분
-				pet.setPImage(rs.getString("pImage")))
-				pet.setPName(rs.getString("pName")))
-				pet.setPCategory(rs.getString("pCategory")))
-				pet.setPDetailCa(rs.getString("pDetailCa")))
-				pet.setPNeureting(rs.getString("pNeureting")))
-				pet.setUserId(userId)
-
+                PetDTO pet = new PetDTO(rs.getInt("petId"), rs.getString("pImage"), 
+                		rs.getString("pName"), rs.getInt("pAge"), 
+                		rs.getString("pCategory"), rs.getString("pDetailCa"),
+                		rs.getString("pNeureting"), userId);
+              
 				petList.add(pet);
             }
         } catch (Exception ex) {
@@ -229,16 +230,16 @@ public class CustomerDAO {
             jdbcUtil.close();
         }
 
-        return petList;//List<petDTO>객체 반환
+        return petList;
     }
 
-    public int addPet(PetDTO pet) { // 시퀀스 pk 사용
+    public int addPet(PetDTO pet) {
         try {
             Connection connection = JDBCUtil.getConnection();
             String sql = "INSERT INTO pet_table (petId, pImage_path, pName, pAge, pCategory, pDetailCa, pNeureting) VALUES (pet_id_seq.nextval, ?, ?, ?, ?, ?, ?) ";
             String key[] = {"petId"};
             PreparedStatement pstmt = connection.prepareStatement(sql, key);
-            pstmt.setString(1, pet.getpImage_path());
+            pstmt.setString(1, pet.getpImage());
             pstmt.setString(2, pet.getpName());
             pstmt.setInt(3, pet.getpAge());
             pstmt.setString(4, pet.getpCategory());
@@ -266,7 +267,7 @@ public class CustomerDAO {
             Connection connection = JDBCUtil.getConnection();
             String sql = "UPDATE pet_table SET pImage_path=?, pName=?, pAge=?, pCategory=?, pDetailCa=?, pNeureting=? WHERE petId=? ";
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-                preparedStatement.setString(1, pet.getpImage_path());
+                preparedStatement.setString(1, pet.getpImage());
                 preparedStatement.setString(2, pet.getpName());
                 preparedStatement.setInt(3, pet.getpAge());
                 preparedStatement.setString(4, pet.getpCategory());

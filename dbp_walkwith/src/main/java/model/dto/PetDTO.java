@@ -2,18 +2,20 @@ package model.dto;
 
 public class PetDTO {
     private int petId;
-    private String pImage_path;
+    private String pImage;
     private String pName;
     private int pAge;
     private String pCategory;
     private String pDetailCa;
     private String pNeureting;
+    private String userId;
     
-    public PetDTO(int petId, String pImage_path, String pName, int pAge, String pCategory, String pDetailCa,
-            String pNeureting) {
+
+    public PetDTO(int petId, String pImage, String pName, int pAge, String pCategory, String pDetailCa,
+            String pNeureting, String userId) {
         super();
         this.petId = petId;
-        this.pImage_path = pImage_path;
+        this.pImage = pImage;
         this.pName = pName;
         this.pAge = pAge;
         this.pCategory = pCategory;
@@ -21,7 +23,15 @@ public class PetDTO {
         this.pNeureting = pNeureting;
     }
 
-    public int getPetId() {
+    public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public int getPetId() {
         return petId;
     }
 
@@ -29,12 +39,12 @@ public class PetDTO {
         this.petId = petId;
     }
 
-    public String getpImage_path() {
-        return pImage_path;
+    public String getpImage() {
+        return pImage;
     }
 
-    public void setpImage_path(String pImage_path) {
-        this.pImage_path = pImage_path;
+    public void setpImage_path(String pImage) {
+        this.pImage = pImage;
     }
 
     public String getpName() {
