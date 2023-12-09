@@ -7,6 +7,9 @@ public class ReviewDTO {
     private String reContent;
     private Integer starScore;
     
+    public ReviewDTO(){
+    }
+    
     public ReviewDTO(Integer reviewId, Integer storeId, Integer userId, String reContent, Integer starScore) {
         super();
         this.reviewId = reviewId;

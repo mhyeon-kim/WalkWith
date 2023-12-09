@@ -273,6 +273,8 @@ public class store_reviewDAO {
         return 0;
     }
     
+    
+    //리뷰 
 	public int writeReview(ReviewDTO review) {
 		String sql = "INSERT INTO Review (storeId, userId, reContent, starScore) VALUES (?, ?, ?, ?)";  
 		Object[] param = new Object[] {review.getStoreId(), review.getUserId(),review.getReContent(), review.getStarScore()};              
@@ -293,6 +295,25 @@ public class store_reviewDAO {
 		return 0;       
 	}
     
+	public int deleteReview(String reviewId) throws SQLException {
+        String sql = "DELETE FROM review WHERE reviewId=?";     
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {reviewId});   // JDBCUtil에 delete문과 매개 변수 설정
+
+        try {               
+            int result = jdbcUtil.executeUpdate();  // delete 문 실행
+            return result;
+        } catch (Exception ex) {
+            jdbcUtil.rollback();
+            ex.printStackTrace();
+        }
+        finally {
+            jdbcUtil.commit();
+            jdbcUtil.close();   // resource 반환
+        }       
+        
+        return 0;
+    }
+	
     // 그럼 update로 가야하나...
     /*public int writeRating() {
             String sql = "INSERT INTO Review VALUES (?)";    
@@ -355,7 +376,7 @@ public class store_reviewDAO {
         return 0;
     } 
     
-    public void printReiview(String userId) {
+    public void printReview(String userId) {
         StringBuilder query = new StringBuilder();
         query.append("SELECT reContent FROM Review JOIN Costomer USING (userId) ");
         query.append("WHERE userId = ? ");
