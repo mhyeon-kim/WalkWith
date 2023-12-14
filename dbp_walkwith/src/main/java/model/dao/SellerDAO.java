@@ -6,6 +6,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.User;
 import model.dto.ReservationDTO;
 import model.dto.SellerDTO;
 import model.dto.StoreDTO;
@@ -111,8 +112,28 @@ public class SellerDAO {
     	return null;
 	}
 	
-	//사용자 정보 업데이트 함수 Update(sellerName, Password 변경, Phone, Mail / 삭제도 필요한 것 같은데... 시간 상 삭제는 구현 못했습니다,,,ㅜㅜ
-	public SellerDTO sellerInfoUpdate(SellerDTO sel) {
+	//사용자 정보 생성 함수 Insert(성공시 result값 반환)
+	public int createSeller(SellerDTO sel) throws SQLException {
+        String sql = "INSERT INTO USERINFO VALUES (?, ?, ?, ?, ?) ";      
+        Object[] param = new Object[] {sel.getSellerId(), sel.getSePassword(), 
+                        sel.getSeName(), sel.getSePhone(), sel.getSeMail()};              
+        jdbcUtil.setSqlAndParameters(sql, param);   // JDBCUtil 에 insert문과 매개 변수 설정
+                        
+        try {               
+            int result = jdbcUtil.executeUpdate();  // insert 문 실행
+            return result;
+        } catch (Exception ex) {
+            jdbcUtil.rollback();
+            ex.printStackTrace();
+        } finally {     
+            jdbcUtil.commit();
+            jdbcUtil.close();   // resource 반환
+        }       
+        return 0;           
+    }
+	
+	//사용자 정보 업데이트 함수 Update(sellerName, Password 변경, Phone, Mail
+	public SellerDTO updateSeller(SellerDTO sel) {
         String selId = null;
         try {
             String query1 = "SELECT sellerId FROM Seller WHERE sellerId = ?";
@@ -274,5 +295,23 @@ public class SellerDAO {
         }
 
         return 0;
+    }
+    
+    public boolean existingSeller(String selId) throws SQLException {
+        String sql = "SELECT count(*) FROM USERINFO WHERE sellerId=? ";      
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {selId});   // JDBCUtil에 query문과 매개 변수 설정
+
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();     // query 실행
+            if (rs.next()) {
+                int count = rs.getInt(1);
+                return (count == 1 ? true : false);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.close();       // resource 반환
+        }
+        return false;
     }
 }

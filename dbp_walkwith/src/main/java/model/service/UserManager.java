@@ -15,6 +15,7 @@ import model.dao.UserDAO;
  * 비지니스 로직이 복잡한 경우에는 비지니스 로직만을 전담하는 클래스를 
  * 별도로 둘 수 있다.
  */
+
 public class UserManager {
 	private static UserManager userMan = new UserManager();
 	private UserDAO userDAO;

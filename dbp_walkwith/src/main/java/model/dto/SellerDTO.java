@@ -47,6 +47,18 @@ public class SellerDTO {
 		this.seMail = seMail;
 	}
 	
+	/* 비밀번호 검사 */
+    public boolean matchPassword(String password) {
+        if (password == null) {
+            return false;
+        }
+        return sePassword.equals(password);
+    }
+    
+    public boolean isSameUser(String selId) {
+        return sePassword.equals(selId);
+    }
+	
 	@Override
 	public String toString() {
 		return "Seller [sellerId=" + sellerId + ", seName=" + seName + ", sePassword=" + sePassword + ", sePhone="
