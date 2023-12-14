@@ -1,12 +1,7 @@
 package model.service;
 
 import java.sql.SQLException;
-
-import model.Community;
-import model.User;
-import model.dao.CommunityDAO;
 import model.dao.SellerDAO;
-import model.dao.UserDAO;
 import model.dto.SellerDTO;
 
 /**

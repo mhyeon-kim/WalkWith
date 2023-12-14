@@ -12,13 +12,13 @@
     <style>
         @font-face {
             font-family: "museum";
-            src: url("../font/museum.ttf") format("truetype");
+            src: url("../../font/museum.ttf") format("truetype");
             font-weight: normal;
         }
 
         @font-face {
             font-family: "ebs";
-            src: url("../font/ebs.ttf") format("truetype");
+            src: url("../../font/ebs.ttf") format("truetype");
             font-weight: normal;
         }
 
@@ -38,7 +38,7 @@
         }
 
         #left-div{
-            background-image: url("../img/Walkwith-div-left.png");
+            background-image: url("../../img/Walkwith-div-left.png");
             background-repeat: no-repeat;
             width: 230px;
             height: 280px;
@@ -151,10 +151,10 @@
 <body>
     <div class="container">
         <div id="banner">
-            <a href="./home_recommend.html" id="a"><img id="banner-img" src="../img/Walkwith-logo.png"></a>
+            <a href="../home/home.jsp" id="a"><img id="banner-img" src="../../img/Walkwith-logo.png"></a>
         </div>
         <div>
-        	<a href="./login/loginForm.html" id="login"><span>로그인 하기 ></span></a>
+        	<a href="../login/loginForm.jsp" id="login"><span>로그인 하기 ></span></a>
         </div>
         <div id="user">
                 <span>Pet과 함께하는 User님</span>
@@ -162,11 +162,11 @@
         <div class="container" style="display: flex;">
             <div id="left-div">
                 <ul id="menu">
-                    <li><a href="./home_recommend.html" id="a">Home</a></li>
-                    <li><a href="./customer_page.html" id="a">My Page</a></li>
-                    <li><a href="./Reservation/reservation_view.html" id="a">Reservation</a></li>
-                    <li><a href="./Review/review_view.html" id="a">Review</a></li>
-                    <li><a href="./market_menu.html" id="a">Market</a></li>
+                    <li><a href="../home/home.jsp" id="a">Home</a></li>
+					<li><a href="./seller.jsp" id="a">My Page</a></li>
+					<li><a href="../reservation/reservation_view.jsp" id="a">Reservation</a></li>
+					<li><a href="../review/review_view.jsp" id="a">Review</a></li>
+					<li><a href="../market/market_menu.jsp" id="a">Market</a></li>
                 </ul>
             </div>
             <div id="right-div">
@@ -194,7 +194,7 @@
                     <a>수정</a>
                 </div>
                 <div id="store-div">
-                    <img class="store-item" src="../img/Walkwith-market-Image.png"></img>
+                    <img class="store-item" src="../../img/Walkwith-market-Image.png"></img>
                     <div class="info-menu" style="margin-left: 25px;">
                         <div>이름</div>
                         <div>주소</div>

@@ -9,16 +9,14 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <style>
         @font-face {
-            /* 국립박물관문화재단클래식 Light 폰트 적용 */
             font-family: "museum";
-            src: url("../font/museum.ttf") format("truetype");
+            src: url("../../font/museum.ttf") format("truetype");
             font-weight: normal;
         }
 
         @font-face {
-            /* EBS 훈민정음 새론 L 애플산돌고딕 폰트 적용 */
             font-family: "ebs";
-            src: url("../font/ebs.ttf") format("truetype");
+            src: url("../../font/ebs.ttf") format("truetype");
             font-weight: normal;
         }
 
@@ -38,7 +36,7 @@
         }
 
         #left-div {
-            background-image: url("../img/Walkwith-div-left.png");
+            background-image: url("../../img/Walkwith-div-left.png");
             background-repeat: no-repeat;
             width: 230px;
             height: 280px;
@@ -61,7 +59,7 @@
         }
 
         #right-div {
-            background-image: url("../img/walkwith-div-right.png");
+            background-image: url("../../img/walkwith-div-right.png");
             width: 1200px;
             height: auto;
             margin-left: 20px;
@@ -93,7 +91,7 @@
         }
 
         #store-list {
-            background-image: url("../img/Walkwith-recommandedStore.png");
+            background-image: url("../../img/Walkwith-recommandedStore.png");
             background-size: cover;
             border-radius: 10px;
             width: 100%;
@@ -133,7 +131,7 @@
         }
 
         #inside_div {
-            background-image: url("../img/Walkwith-InsideDiv.png");
+            background-image: url("../../img/Walkwith-InsideDiv.png");
             background-size: cover;
             border-radius: 10px;
             width: 100%;
@@ -147,7 +145,7 @@
         }
 
         #review-menu {
-            background-image: url("../img/Walkwith-ReviewMenu.png");
+            background-image: url("../../img/Walkwith-ReviewMenu.png");
             background-size: cover;
             border-radius: 10px;
             width: 180px;
@@ -156,7 +154,7 @@
         }
 
         #star-info {
-            background-image: url("../img/Walkwith-like-star.png");
+            background-image: url("../../img/Walkwith-like-star.png");
             background-size: cover;
             border-radius: 10px;
             width: 180px;
@@ -174,7 +172,7 @@
         }
         
         #description {
-            background-image: url("../img/Walkwith-DescriptImage.png");
+            background-image: url("../../img/Walkwith-DescriptImage.png");
             background-size: cover;
             border-radius: 10px;
             width: 70%;
@@ -266,10 +264,10 @@
 <body>
     <div class="container">
         <div id="banner">
-            <a href="./home_recommend.html" id="a"><img id="banner-img" src="../img/Walkwith-logo.png"></a>
+            <a href="../home/home.jsp" id="a"><img id="banner-img" src="../../img/Walkwith-logo.png"></a>
         </div>
         <div>
-        	<a href="./login/loginForm.html" id="login"><span>로그인 하기 ></span></a>
+        	<a href="../login/loginForm.jsp" id="login"><span>로그인 하기 ></span></a>
         </div>
         <div id="user">
             <span>Pet과 함께하는 User님</span>
@@ -278,45 +276,45 @@
     <div class="container" style="display: flex;">
         <div id="left-div">
             <ul id="menu">
-                <li><a href="./home_recommend.html" id="a">Home</a></li>
-                <li><a href="./customer_page.html" id="a">My Page</a></li>
-                <li><a href="./Reservation/reservation_view.html" id="a">Reservation</a></li>
-                <li><a href="./Review/review_view.html" id="a">Review</a></li>
-                <li><a href="./market_menu.html" id="a">Market</a></li>
+                <li><a href="../home.jsp" id="a">Home</a></li>
+                <li><a href="../user/customer.jsp" id="a">My Page</a></li>
+                <li><a href="../reservation/reservation_view.jsp" id="a">Reservation</a></li>
+                <li><a href="../review/review_view.jsp" id="a">Review</a></li>
+                <li><a href="./market_menu.jsp" id="a">Market</a></li>
             </ul>
         </div>
         <div id="right-div">
             <div id="top-div">
                 <div id="market-token-div">
                     <div>
-                        <img id="market-token" src="../img/Walkwith-marketToken.png">
+                        <img id="market-token" src="../../img/Walkwith-marketToken.png">
                     </div>
                     <div>
                         <div id="btn_div">
-           					<a href="./review_write.html" id="a">
-                            <img id="review_btn" src="../img/Walkwith-Reviewbtn.png"></a>
-                            <a href="./reservation.html" id="a"><img id="reservation_btn" src="../img/Walkwith-Reservationbtn.png"></a> 
+           					<a href="../review/review_write.jsp" id="a">
+                            <img id="review_btn" src="../../img/Walkwith-Reviewbtn.png"></a>
+                            <a href="../reservation/reservation.jsp" id="a"><img id="reservation_btn" src="../img/Walkwith-Reservationbtn.png"></a> 
                         </div>
                     </div>
                 </div>
                 <div id="market-pic-div">
-                    <img id="market-pic" src="../img/Walkwith-MarketPicture.png">
+                    <img id="market-pic" src="../../img/Walkwith-MarketPicture.png">
                 </div>
                 <div id="spic-div">
                     <div id="spic-top-div">
-                        <img id="market-pic_small" src="../img/Walkwith-MarketPicture-Small.png">
-                        <img id="market-pic_small" src="../img/Walkwith-MarketPicture-Small.png">
+                        <img id="market-pic_small" src="../../img/Walkwith-MarketPicture-Small.png">
+                        <img id="market-pic_small" src="../../img/Walkwith-MarketPicture-Small.png">
                     </div>
                     <div id="spic-bottom-div">
-                        <img id="market-pic_small" src="../img/Walkwith-MarketPicture-Small.png">
-                        <img id="market-pic_small" src="../img/Walkwith-MarketPicture-Small.png">
+                        <img id="market-pic_small" src="../../img/Walkwith-MarketPicture-Small.png">
+                        <img id="market-pic_small" src="../../img/Walkwith-MarketPicture-Small.png">
                     </div>
                 </div>
             </div>
             <div id="inside_div">
                 <div id="inner-left-div">
                     <div id="star-info">
-                        <img id="star" src="../img/Walkwith-StarImage.png">
+                        <img id="star" src="../../img/Walkwith-StarImage.png">
                         <span id="star_text">5.0</span>
                         <p/>
                         <span id="star_text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12345 Likes</span>

@@ -9,13 +9,13 @@
     <style>
         @font-face {
             font-family: "museum";
-            src: url("..//font/museum.ttf") format("truetype");
+            src: url("../../font/museum.ttf") format("truetype");
             font-weight: normal;
         }
 
         @font-face {
             font-family: "ebs";
-            src: url("../font/ebs.ttf") format("truetype");
+            src: url("../../font/ebs.ttf") format("truetype");
             font-weight: normal;
         }
 
@@ -36,7 +36,7 @@
         }
 
         #left-div{
-            background-image: url("../img/Walkwith-div-left.png");
+            background-image: url("../../img/Walkwith-div-left.png");
             background-repeat: no-repeat;
             width: 230px;
             height: 280px;
@@ -59,7 +59,7 @@
         }
 
         #right-div{
-            background-image: url("../img/walkwith-div-right.png");
+            background-image: url("../../img/walkwith-div-right.png");
             width: 1200px;
             height: 670px;
             margin-left: 20px;
@@ -92,7 +92,7 @@
         }
 
         #second-right{
-            background-image: url("../img/Walkwith-recommandedStore.png");
+            background-image: url("../../img/Walkwith-recommandedStore.png");
             background-size: cover;
             background-repeat: no-repeat;
             border-radius: 10px;
@@ -122,7 +122,7 @@
         #star-div{
             width: 180px;
             height: 50px;
-            background-image: url("../img/Walkwith-StarDiv.png");
+            background-image: url("../../img/Walkwith-StarDiv.png");
             border-radius: 10px;
             background-size: cover;
             display: flex;
@@ -148,7 +148,7 @@
         }
 
         #store-introduct{
-            background-image: url("../img/Walkwith-MarketIntroduct.png");
+            background-image: url("../../img/Walkwith-MarketIntroduct.png");
             height: 300px;
             margin-top: 10px;
             background-size: cover;
@@ -172,7 +172,7 @@
         }
 
         #sr-second{
-            background-image: url("../img/Walkwith-menuDiv.png");
+            background-image: url("../../img/Walkwith-menuDiv.png");
             background-repeat: no-repeat;
             background-size: cover;
             border-radius: 10px;
@@ -200,7 +200,7 @@
         }
 
         #star-write {
-            background-image: url("../img/star.jpg");
+            background-image: url("../../img/star.jpg");
         }
         
         #a{
@@ -222,10 +222,10 @@
 <body>
     <div class="container">
         <div id="banner">
-            <a href="./home_recommend.html" id="a"><img id="banner-img" src="../img/Walkwith-logo.png"></a>
+            <a href="../home/home.jsp" id="a"><img id="banner-img" src="../../img/Walkwith-logo.png"></a>
         </div>
         <div>
-        	<a href="./login/loginForm.html" id="login"><span>로그인 하기 ></span></a>
+        	<a href="../login/loginForm.jsp" id="login"><span>로그인 하기 ></span></a>
         </div>
         <div id="user">
                 <span>Pet과 함께하는 User님</span>
@@ -233,18 +233,18 @@
         <div class="container" style="display: flex;">
             <div id="left-div">
                 <ul id="menu">
-                    <li><a href="./home_recommend.html" id="a">Home</a></li>
-                    <li><a href="./customer_page.html" id="a">My Page</a></li>
-                    <li><a href="./Reservation/reservation_view.html" id="a">Reservation</a></li>
-                    <li><a href="./Review/review_view.html" id="a">Review</a></li>
-                    <li><a href="./market_menu.html" id="a">Market</a></li>
+                    <li><a href="../home/home.jsp" id="a">Home</a></li>
+					<li><a href="../user/customer.jsp" id="a">My Page</a></li>
+					<li><a href="../reservation/reservation_view.jsp" id="a">Reservation</a></li>
+					<li><a href="./review_view.jsp" id="a">Review</a></li>
+					<li><a href="../market/market_menu.jsp" id="a">Market</a></li>
                 </ul>
             </div>
             <div id="right-div">
                 <div id="second-left">
-                    <img id="store-pic" src="../img/Walkwith-market-Image.png"></img>
+                    <img id="store-pic" src="../../img/Walkwith-market-Image.png"></img>
                     <div id="star-div">
-                        <img id="star-img" src="../img/Walkwith-Reservation-Star.png">
+                        <img id="star-img" src="../../img/Walkwith-Reservation-Star.png">
                         <span id="star-score">5.0</span>
                     </div>
                     <div id="store-introduct"></div>
@@ -254,14 +254,14 @@
                         <div style="display: flex; align-items: center;">
                             <span class="time-set">
                                 <input type="date" class="res-input">
-                                <img src="../img/Walkwith-DateDiv.png">
+                                <img src="../../img/Walkwith-DateDiv.png">
                             </span>
                             <span class="time-set" style="margin-left : 10px;">
                                 <input type="time" class="res-input">
-                                <img src="../img/Walkwith-TimeDiv.png">
+                                <img src="../../img/Walkwith-TimeDiv.png">
                             </span>
                         </div>
-                    <button type="button" id="next-button"><img id="btn-img" src="../img/Walkwith-ReservNext.png"></button>
+                    <button type="button" id="next-button"><img id="btn-img" src="../../img/Walkwith-ReservNext.png"></button>
                     </div>
                     <div id="sr-second">
                         <div class="menu-item">리뷰 내용</div>
@@ -269,7 +269,7 @@
                                 
                         </textarea>
                     </div>
-                    <img src="../img/star.jpg" style="width: 200px;">
+                    <img src="../../img/star.jpg" style="width: 200px;">
                 </div>
             </div>
         </div>

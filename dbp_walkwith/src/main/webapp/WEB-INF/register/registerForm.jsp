@@ -8,12 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>회원가입</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="register_view.css">
+    <link rel="stylesheet" href="../../css/register_view.css">
 </head>
 <body>
     <div class="container">
         <div id="banner" class="d-flex align-items-center justify-content-center">
-            <a href="../home_recommend.html" id="a"><img id="banner-logo" src="../../img/Walkwith-logo.png" alt="Walkwith Logo"></a>
+            <a href="../home/home.jsp" id="a"><img id="banner-logo" src="../../img/Walkwith-logo.png" alt="Walkwith Logo"></a>
         </div>
         <div class="container d-flex content-container">
             <div id="right-div" class="d-flex justify-content-center align-items-center">
@@ -35,7 +35,7 @@
                         <input type="email" id="email" name="email" placeholder="이메일" class="form-control">
                     </div>                    
                     <div>
-                       <a href="../home_recommend.html" id="a"><input type="button" id="btn" style=" margin-top: 25px; width: 100%;" value="회원가입" onclick="userCreate('/user/register')" class="btn btn-primary"></a>
+                       <a href="../home/home.jsp" id="a"><input type="button" id="btn" style=" margin-top: 25px; width: 100%;" value="회원가입" onclick="userCreate('/user/register')" class="btn btn-primary"></a>
                     </div>
                     </div>
                 </form>

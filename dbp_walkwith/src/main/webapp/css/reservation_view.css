@@ -1,12 +1,12 @@
 @font-face {
     font-family: "museum";
-    src: url("../../font/museum.ttf") format("truetype");
+    src: url("../font/museum.ttf") format("truetype");
     font-weight: normal;
 }
 
 @font-face {
     font-family: "ebs";
-    src: url("../../font/ebs.ttf") format("truetype");
+    src: url("../font/ebs.ttf") format("truetype");
     font-weight: normal;
 }
 
@@ -34,7 +34,7 @@
 }
 
 #left-div {
-    background-image: url("../../img/Walkwith-div-left.png");
+    background-image: url("../img/Walkwith-div-left.png");
     background-repeat: no-repeat;
     width: 230px;
     height: 280px;
@@ -52,28 +52,29 @@
     padding-top: 10px;
 }
 
-#a{
-            text-decoration: none;
-            color: #FFFFFF;
-        }
-
 #menu > li {
     padding-bottom: 5px;
 }
 
 #right-div {
-	position: relative;
-    background-image: url("../../img/walkwith-div-right.png");
+    /* 위치 및 레이아웃 관련 속성 */
+    position: relative;
+    display: block;
     width: 100%;
     height: 670px;
-    margin-left: 20px;
-    border-radius: 10px;
-    background-size: cover;
     padding: 1rem 4rem;
+    margin-left: 20px;
+
+    /* 배경 및 테두리 관련 속성 */
+    background-image: url("../img/walkwith-div-right.png");
+    background-size: cover;
+    border-radius: 10px;
+
+    /* 글꼴 및 글자 크기 관련 속성 */
     font-family: 'ebs', serif;
-    display: block;  
-    font-size: 1em;  
+    font-size: 1em;
 }
+
 
 #reser-title {
     position: absolute;  
@@ -82,17 +83,14 @@
     transform: translateX(-50%);  
 }
 
-#review-list {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 10px;
-    padding: 0 20px;  /* 양쪽 공백을 동일하게 설정 */
+#customer-view {
+    width: 90%; 
+    margin: 0 auto;  
 }
 
-.review-list img {
-    width: 100%;
-    height: auto;
+#customer-view td, #customer-view th {
+    border-bottom: 1px solid black;  
+    padding: 10px;
 }
 
 #second-left {
@@ -110,7 +108,7 @@
 #star-div {
     width: 180px;
     height: 50px;
-    background-image: url("../../img/Walkwith-StarDiv.png");
+    background-image: url("../img/Walkwith-StarDiv.png");
     border-radius: 10px;
     background-size: cover;
     display: flex;
@@ -135,7 +133,7 @@
 }
 
 #sr-second {
-    background-image: url("../../img/Walkwith-menuDiv.png");
+    background-image: url("../img/Walkwith-menuDiv.png");
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 10px;
@@ -154,7 +152,7 @@
 
 
 #sr-third {
-    background-image: url("../../img/Walkwith-commentDiv.png");
+    background-image: url("../img/Walkwith-commentDiv.png");
     background-repeat: no-repeat;
     background-size: cover;
     height: 150px;
@@ -167,6 +165,11 @@
     font-size: 30px;
 }
 
+#a{
+            text-decoration: none;
+            color: #FFFFFF;
+        }
+        
 #login {
         	text-decoration: none;
             color: #816959;
