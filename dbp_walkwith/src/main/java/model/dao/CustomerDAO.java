@@ -1,10 +1,6 @@
 package model.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Date;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,38 +19,36 @@ public class CustomerDAO {
         jdbcUtil = new JDBCUtil();
     }
 
-    //customer에 fk:StoreId인 StoreDTO List객체(filed 이름 like) 있다고 가정
-    public List<StoreDTO> getLikeListByUserId(String userID){
-    	StringBuilder query = new StringBuilder();
+    public List<StoreDTO> getLikeListByUserId(String userID) {
+        StringBuilder query = new StringBuilder();
         query.append("SELECT like FROM CUSTOMER WHERE userId = ? ");
 
-        jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {userID});
+        jdbcUtil.setSqlAndParameters(query.toString(), new Object[] { userID });
 
-        List<StoreDTO> LikeList = new ArrayList<>();
+        List<StoreDTO> likeList = new ArrayList<>();
         try {
             ResultSet rs = jdbcUtil.executeQuery();
             while (rs.next()) {
-            	StoreDTO like = new StoreDTO();
+                StoreDTO like = new StoreDTO();
                 like.setsName(rs.getString("sName"));
                 like.setSellerId(rs.getString("sellerId"));
-            	
-                LikeList.add(like);                
+
+                likeList.add(like);
             }
-            return LikeList;
+            return likeList;
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
             jdbcUtil.close();
         }
-    	return null; 
+        return null;
     }
 
-    //reservation talbe에 fk:userId가 존재하기 때문에 별도의 join 필요 없을 것으로 사료
     public int updateReservationByUserId(String userId, Date newDate) {
         StringBuilder query = new StringBuilder();
         query.append("UPDATE Reservation SET resDaTi = ? WHERE userId = ? ");
 
-        Object[] parameters = new Object[] {newDate, userId};
+        Object[] parameters = new Object[] { newDate, userId };
 
         jdbcUtil.setSqlAndParameters(query.toString(), parameters);
 
@@ -72,12 +66,11 @@ public class CustomerDAO {
         return 0;
     }
 
-    //reservation talbe에 fk:userId가 존재하기 때문에 별도의 join 필요 없을 것으로 사료
     public List<ReservationDTO> findReservationsByUserId(String userId) {
         StringBuilder query = new StringBuilder();
         query.append("SELECT * FROM Reservation WHERE userId = ? ");
 
-        Object[] parameters = new Object[] {userId};
+        Object[] parameters = new Object[] { userId };
         jdbcUtil.setSqlAndParameters(query.toString(), parameters);
 
         List<ReservationDTO> reservationList = new ArrayList<>();
@@ -102,7 +95,6 @@ public class CustomerDAO {
         return reservationList;
     }
 
-    //reservation talbe에 fk:userId가 존재하기 때문에 별도의 join 필요 없을 것으로 사료
     public Map<String, Integer> countReservationsByUser() {
         String sql = "SELECT userId, COUNT(*) FROM Reservation GROUP BY userId ";
         Map<String, Integer> countMap = new HashMap<>();
@@ -130,7 +122,7 @@ public class CustomerDAO {
         query.append("SELECT * FROM CUSTOMER ");
         query.append("WHERE userid = ? ");
 
-        jdbcUtil.setSqlAndParameters(query.toString(), new Object[]{userId});
+        jdbcUtil.setSqlAndParameters(query.toString(), new Object[] { userId });
 
         try {
             ResultSet resultSet = jdbcUtil.executeQuery();
@@ -138,7 +130,7 @@ public class CustomerDAO {
                 String uName = resultSet.getString("uName");
                 String uPhone = resultSet.getString("uPhone");
                 String uMail = resultSet.getString("uMail");
-				String uPassword = resultSet.getString("uPassword");
+                String uPassword = resultSet.getString("uPassword");
                 List<PetDTO> petList = getAllPets(userId);
                 List<StoreDTO> likeList = getLikeListByUserId(userId);
                 return new CustomerDTO(userId, uName, uPassword, uPhone, uMail, petList, likeList);
@@ -153,19 +145,18 @@ public class CustomerDAO {
     }
 
     public void addCustomer(CustomerDTO customer) {
-        try {
-            Connection connection = JDBCUtil.getConnection();
-            String sql = "INSERT INTO customer_table (userId, uName, uPassword, uPhone, uMail) VALUES (?, ?, ?, ?, ?) ";
-            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-                preparedStatement.setString(1, customer.getUserId());
-                preparedStatement.setString(2, customer.getuName());
-                preparedStatement.setString(3, customer.getuPassword());
-                preparedStatement.setString(4, customer.getuPhone());
-                preparedStatement.setString(5, customer.getuMail());
+        StringBuilder query = new StringBuilder();
+        query.append("INSERT INTO customer_table (userId, uName, uPassword, uPhone, uMail) VALUES (?, ?, ?, ?, ?)");
 
-                preparedStatement.executeUpdate();
-            }
+        jdbcUtil.setSqlAndParameters(query.toString(),
+                new Object[] { customer.getUserId(), customer.getuName(), customer.getuPassword(),
+                        customer.getuPhone(), customer.getuMail() });
+
+        try {
+            jdbcUtil.executeUpdate();
+            jdbcUtil.commit();
         } catch (Exception ex) {
+            jdbcUtil.rollback();
             ex.printStackTrace();
         } finally {
             jdbcUtil.close();
@@ -173,19 +164,18 @@ public class CustomerDAO {
     }
 
     public void updateCustomer(CustomerDTO customer) {
-        try {
-            Connection connection = JDBCUtil.getConnection();
-            String sql = "UPDATE customer_table SET uName=?, uPassword=?, uPhone=?, uMail=? WHERE userId=? ";
-            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-                preparedStatement.setString(1, customer.getuName());
-                preparedStatement.setString(2, customer.getuPassword());
-                preparedStatement.setString(3, customer.getuPhone());
-                preparedStatement.setString(4, customer.getuMail());
-                preparedStatement.setString(5, customer.getUserId());
+        StringBuilder query = new StringBuilder();
+        query.append("UPDATE customer_table SET uName=?, uPassword=?, uPhone=?, uMail=? WHERE userId=? ");
 
-                preparedStatement.executeUpdate();
-            }
+        jdbcUtil.setSqlAndParameters(query.toString(),
+                new Object[] { customer.getuName(), customer.getuPassword(), customer.getuPhone(),
+                        customer.getuMail(), customer.getUserId() });
+
+        try {
+            jdbcUtil.executeUpdate();
+            jdbcUtil.commit();
         } catch (Exception ex) {
+            jdbcUtil.rollback();
             ex.printStackTrace();
         } finally {
             jdbcUtil.close();
@@ -193,15 +183,16 @@ public class CustomerDAO {
     }
 
     public void deleteCustomer(String userId) {
-        try {
-            Connection connection = JDBCUtil.getConnection();
-            String sql = "DELETE FROM customer_table WHERE userId=? ";
-            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-                preparedStatement.setString(1, userId);
+        StringBuilder query = new StringBuilder();
+        query.append("DELETE FROM customer_table WHERE userId=? ");
 
-                preparedStatement.executeUpdate();
-            }
+        jdbcUtil.setSqlAndParameters(query.toString(), new Object[] { userId });
+
+        try {
+            jdbcUtil.executeUpdate();
+            jdbcUtil.commit();
         } catch (Exception ex) {
+            jdbcUtil.rollback();
             ex.printStackTrace();
         } finally {
             jdbcUtil.close();
@@ -209,20 +200,19 @@ public class CustomerDAO {
     }
 
     public List<PetDTO> getAllPets(String userId) {
-    	StringBuilder query = new StringBuilder();
+        StringBuilder query = new StringBuilder();
         query.append("SELECT * FROM Pet WHERE userId = ? ");
-        jdbcUtil.setSqlAndParameters(query.toString(), new Object[] {userId});
+        jdbcUtil.setSqlAndParameters(query.toString(), new Object[] { userId });
 
         List<PetDTO> petList = new ArrayList<>();
         try {
             ResultSet rs = jdbcUtil.executeQuery();
             while (rs.next()) {
-                PetDTO pet = new PetDTO(rs.getInt("petId"), rs.getString("pImage"), 
-                		rs.getString("pName"), rs.getInt("pAge"), 
-                		rs.getString("pCategory"), rs.getString("pDetailCa"),
-                		rs.getString("pNeureting"), userId);
-              
-				petList.add(pet);
+                PetDTO pet = new PetDTO(rs.getInt("petId"), rs.getString("pImage"), rs.getString("pName"),
+                        rs.getInt("pAge"), rs.getString("pCategory"), rs.getString("pDetailCa"),
+                        rs.getString("pNeureting"), userId);
+
+                petList.add(pet);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -234,26 +224,20 @@ public class CustomerDAO {
     }
 
     public int addPet(PetDTO pet) {
-        try {
-            Connection connection = JDBCUtil.getConnection();
-            String sql = "INSERT INTO pet_table (petId, pImage_path, pName, pAge, pCategory, pDetailCa, pNeureting) VALUES (pet_id_seq.nextval, ?, ?, ?, ?, ?, ?) ";
-            String key[] = {"petId"};
-            PreparedStatement pstmt = connection.prepareStatement(sql, key);
-            pstmt.setString(1, pet.getpImage());
-            pstmt.setString(2, pet.getpName());
-            pstmt.setInt(3, pet.getpAge());
-            pstmt.setString(4, pet.getpCategory());
-            pstmt.setString(5, pet.getpDetailCa());
-            pstmt.setString(6, pet.getpNeureting());
+        StringBuilder query = new StringBuilder();
+        query.append(
+                "INSERT INTO pet_table (petId, pImage_path, pName, pAge, pCategory, pDetailCa, pNeureting) VALUES (pet_id_seq.nextval, ?, ?, ?, ?, ?, ?) ");
 
-            pstmt.executeUpdate();
-            ResultSet rs = pstmt.getGeneratedKeys();
-            int generatedKey = 0;
-            if (rs.next()) {
-                generatedKey = rs.getInt(1);
-            }
-            return generatedKey;
+        jdbcUtil.setSqlAndParameters(query.toString(),
+                new Object[] { pet.getpImage(), pet.getpName(), pet.getpAge(), pet.getpCategory(),
+                        pet.getpDetailCa(), pet.getpNeureting() });
+
+        try {
+            int result = jdbcUtil.executeUpdate();
+            jdbcUtil.commit();
+            return result;
         } catch (Exception ex) {
+            jdbcUtil.rollback();
             ex.printStackTrace();
         } finally {
             jdbcUtil.close();
@@ -261,23 +245,19 @@ public class CustomerDAO {
         return 0;
     }
 
-
     public void updatePet(PetDTO pet) {
-        try {
-            Connection connection = JDBCUtil.getConnection();
-            String sql = "UPDATE pet_table SET pImage_path=?, pName=?, pAge=?, pCategory=?, pDetailCa=?, pNeureting=? WHERE petId=? ";
-            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-                preparedStatement.setString(1, pet.getpImage());
-                preparedStatement.setString(2, pet.getpName());
-                preparedStatement.setInt(3, pet.getpAge());
-                preparedStatement.setString(4, pet.getpCategory());
-                preparedStatement.setString(5, pet.getpDetailCa());
-                preparedStatement.setString(6, pet.getpNeureting());
-                preparedStatement.setInt(7, pet.getPetId());
+        StringBuilder query = new StringBuilder();
+        query.append("UPDATE pet_table SET pImage_path=?, pName=?, pAge=?, pCategory=?, pDetailCa=?, pNeureting=? WHERE petId=? ");
 
-                preparedStatement.executeUpdate();
-            }
+        jdbcUtil.setSqlAndParameters(query.toString(),
+                new Object[] { pet.getpImage(), pet.getpName(), pet.getpAge(), pet.getpCategory(),
+                        pet.getpDetailCa(), pet.getpNeureting(), pet.getPetId() });
+
+        try {
+            jdbcUtil.executeUpdate();
+            jdbcUtil.commit();
         } catch (Exception ex) {
+            jdbcUtil.rollback();
             ex.printStackTrace();
         } finally {
             jdbcUtil.close();
@@ -285,15 +265,16 @@ public class CustomerDAO {
     }
 
     public void deletePet(int petId) {
-        try {
-            Connection connection = JDBCUtil.getConnection();
-            String sql = "DELETE FROM pet_table WHERE petId=? ";
-            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-                preparedStatement.setInt(1, petId);
+        StringBuilder query = new StringBuilder();
+        query.append("DELETE FROM pet_table WHERE petId=? ");
 
-                preparedStatement.executeUpdate();
-            }
+        jdbcUtil.setSqlAndParameters(query.toString(), new Object[] { petId });
+
+        try {
+            jdbcUtil.executeUpdate();
+            jdbcUtil.commit();
         } catch (Exception ex) {
+            jdbcUtil.rollback();
             ex.printStackTrace();
         } finally {
             jdbcUtil.close();
