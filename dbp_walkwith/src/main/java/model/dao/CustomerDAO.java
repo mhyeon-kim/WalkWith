@@ -281,7 +281,7 @@ public class CustomerDAO {
         }
     }
     
-  //이미 있는 반려동물 등록
+  //이미 있는 유저 등록
     public boolean existingCustomer(String userId) throws SQLException {
         String sql = "SELECT count(*) FROM Customer WHERE userId=? ";      
         jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});   // JDBCUtil에 query문과 매개 변수 설정
