@@ -297,8 +297,9 @@ public class SellerDAO {
         return 0;
     }
     
+    //이미 있는 셀러?
     public boolean existingSeller(String selId) throws SQLException {
-        String sql = "SELECT count(*) FROM USERINFO WHERE sellerId=? ";      
+        String sql = "SELECT count(*) FROM Seller WHERE sellerId=? ";      
         jdbcUtil.setSqlAndParameters(sql, new Object[] {selId});   // JDBCUtil에 query문과 매개 변수 설정
 
         try {

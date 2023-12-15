@@ -52,6 +52,7 @@ public class SellerManager {
         return selDAO.updateSeller(sel);
     }   
 
+    //seller delete
     public SellerDTO remove(String selId) throws SQLException, UserNotFoundException {
 //        int commId = findSeller(selId)
         
