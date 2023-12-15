@@ -1,8 +1,16 @@
 package model.service;
 
+import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import model.User;
 import model.dao.SellerDAO;
+import model.dto.ReservationDTO;
 import model.dto.SellerDTO;
+import model.dto.StoreDTO;
 
 /**
  * 사용자 관리 API를 사용하는 개발자들이 직접 접근하게 되는 클래스.
@@ -58,6 +66,28 @@ public class SellerManager {
                 throw new UserNotFoundException(selId + "는 존재하지 않는 아이디입니다.");
             }       
             return sel;
+    }
+    
+    public List<SellerDTO> findSellerList() throws SQLException {
+        return selDAO.getAllSellerInfo();
+    }
+    
+    public List<StoreDTO> findMyStore(String selId) throws SQLException {
+        return selDAO.findMyStore(selId);
+    }
+    
+    public List<ReservationDTO> findReservationByStore(int storeId) throws SQLException {
+        return selDAO.findReservationsByStore(storeId);
+    }
+    
+//    public int countReservation(int sel)
+    
+    public List<ReservationDTO> findReservationByDate(Date date) throws SQLException {
+        return selDAO.findReservationsByDate(date);
+    }
+    
+    public int countReservationByDate(Date date) throws SQLException {
+        return selDAO.countReservationsByDate(date);
     }
     
     public boolean login(String selId, String password)
