@@ -20,9 +20,8 @@ public class ResourceFilter implements Filter {
     private static final List<String> resourcePrefixs = new ArrayList<>();
     static {
         resourcePrefixs.add("/css");
-        resourcePrefixs.add("/js");
         resourcePrefixs.add("/fonts");
-        resourcePrefixs.add("/images");
+        resourcePrefixs.add("/img");
     }
 
     private RequestDispatcher defaultRequestDispatcher;
