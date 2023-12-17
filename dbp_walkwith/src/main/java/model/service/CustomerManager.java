@@ -8,6 +8,7 @@ import model.dao.CustomerDAO;
 import model.dto.CustomerDTO;
 import model.dto.PetDTO;
 import model.dto.ReservationDTO;
+import model.dto.SellerDTO;
 import model.dto.StoreDTO;
 
 public class CustomerManager {
@@ -87,5 +88,15 @@ public class CustomerManager {
     //petList 출력
     public List<PetDTO> petList(String userId) throws SQLException {
         return cusDAO.getAllPets(userId);
+    }
+    
+    public boolean login(String userId, String password)
+            throws SQLException, UserNotFoundException, PasswordMismatchException {
+            CustomerDTO cus = getCustomer(userId);
+
+            if (!cus.matchPassword(password)) {
+                throw new PasswordMismatchException("비밀번호가 일치하지 않습니다.");
+            }
+            return true;
     }
 }

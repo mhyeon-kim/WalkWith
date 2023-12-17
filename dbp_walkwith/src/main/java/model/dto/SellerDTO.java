@@ -55,6 +55,7 @@ public class SellerDTO {
         return sePassword.equals(password);
     }
     
+    /*아이디 비밀번호 일치 검사*/
     public boolean isSameUser(String selId) {
         return sePassword.equals(selId);
     }
