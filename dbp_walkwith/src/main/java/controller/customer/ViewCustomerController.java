@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletResponse;
 import controller.Controller;
 import model.service.CustomerManager;
 import model.service.UserNotFoundException;
-import model.User;
 import model.dto.CustomerDTO;
 
 public class ViewCustomerController implements Controller {
