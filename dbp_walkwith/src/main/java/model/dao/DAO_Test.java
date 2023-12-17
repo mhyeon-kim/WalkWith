@@ -58,7 +58,7 @@ public class DAO_Test {
 
 	    StoreDTO store = new StoreDTO(sellerId2, storeId, sName, sPhone, sTime, openDate, sStarScore, sDescription, likeCount, sImage_path);
 	    try {
-	        stoDao.addStore(store, "음식점");
+	        stoDao.addStore(store, categoryId);
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }
