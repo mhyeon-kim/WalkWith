@@ -5,7 +5,7 @@
 <head>
 <title>Reservation 업데이트</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel=stylesheet href="<c:url value='/css/community.css' />" type="text/css">
+<!-- <link rel=stylesheet href="<c:url value='/css/community.css' />" type="text/css"> -->
 <script>
 function commModify() {
 	if (form.date.value == "") {

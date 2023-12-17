@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.User;
 import model.dao.SellerDAO;
 import model.dto.ReservationDTO;
 import model.dto.SellerDTO;

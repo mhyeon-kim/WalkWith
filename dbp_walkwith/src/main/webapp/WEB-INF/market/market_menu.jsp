@@ -173,7 +173,7 @@
                 <span>추천 매장</span>
             </div>
             <div id="market_div_top" align="center">
-            <a href="./market.jsp" id="a">
+            <a href="<c:url value ='/market/market' />" id="a">
                 <img id="market_token_top" src="<c:url value='/img/Walkwith-marketToken.png' />"></a>
                 <img id="market_token_top" src="<c:url value='/img/Walkwith-marketToken.png' />">
                 <img id="market_token_top" src="<c:url value='/img/Walkwith-marketToken.png' />">

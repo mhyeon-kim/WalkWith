@@ -3,8 +3,6 @@ package model.service;
 import java.sql.SQLException;
 import java.util.List;
 
-import model.Community;
-import model.User;
 import model.dto.ReviewDTO;
 import model.dao.store_reviewDAO;
 

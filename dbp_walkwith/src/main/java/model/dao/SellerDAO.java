@@ -6,7 +6,6 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.User;
 import model.dto.ReservationDTO;
 import model.dto.SellerDTO;
 import model.dto.StoreDTO;

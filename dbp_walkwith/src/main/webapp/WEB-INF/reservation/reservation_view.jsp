@@ -36,7 +36,7 @@
             
 			<div id="right-div">
 				<div id="banner">
-					<img id="reser-title" src="/img/Reservation-title.png" alt="Reservation Title">
+					<img id="reser-title" src="<c:url value ='/img/Reservation-title.png' />" alt="Reservation Title">
 				</div>
 			    <!-- 소비자 입장의 예약 내역 -->
 				<div id="customer-view">

@@ -12,13 +12,13 @@
     <style>
         @font-face {
             font-family: "museum";
-            src: url("../../font/museum.ttf") format("truetype");
+            src: url("/font/museum.ttf") format("truetype");
             font-weight: normal;
         }
 
         @font-face {
             font-family: "ebs";
-            src: url("../../font/ebs.ttf") format("truetype");
+            src: url("/font/ebs.ttf") format("truetype");
             font-weight: normal;
         }
 
@@ -39,7 +39,7 @@
         }
 
         #left-div{
-            background-image: url("../../img/Walkwith-div-left.png");
+            background-image: url("/img/Walkwith-div-left.png");
             background-repeat: no-repeat;
             width: 230px;
             height: 280px;
@@ -62,7 +62,7 @@
         }
 
         #right-div{
-            background-image: url("../../img/walkwith-div-right.png");
+            background-image: url("/img/walkwith-div-right.png");
             width: 1200px;
             height: 670px;
             margin-left: 20px;
@@ -95,7 +95,7 @@
         }
 
         #second-right{
-            background-image: url("../../img/Walkwith-recommandedStore.png");
+            background-image: url("/img/Walkwith-recommandedStore.png");
             background-size: cover;
             background-repeat: no-repeat;
             border-radius: 10px;
@@ -125,7 +125,7 @@
         #star-div{
             width: 180px;
             height: 50px;
-            background-image: url("../../img/Walkwith-StarDiv.png");
+            background-image: url("/img/Walkwith-StarDiv.png");
             border-radius: 10px;
             background-size: cover;
             display: flex;
@@ -151,7 +151,7 @@
         }
 
         #store-introduct{
-            background-image: url("../../img/Walkwith-MarketIntroduct.png");
+            background-image: url("/img/Walkwith-MarketIntroduct.png");
             height: 300px;
             margin-top: 10px;
             background-size: cover;
@@ -175,7 +175,7 @@
         }
 
         #sr-second{
-            background-image: url("../../img/Walkwith-menuDiv.png");
+            background-image: url("/img/Walkwith-menuDiv.png");
             background-repeat: no-repeat;
             background-size: cover;
             border-radius: 10px;
@@ -203,7 +203,7 @@
         }
 
         #star-write {
-            background-image: url("../../img/star.jpg");
+            background-image: url("/img/star.jpg");
         }
         
         #a{
@@ -224,11 +224,11 @@
 
 <body>
     <div class="container">
-        <div id="banner">		
-            <a href="../home/home.jsp" id="a"><img id="banner-img" src="<c:url value='/img/Walkwith-logo.png' />"></a>
+        <div id="banner">           
+            <a href="<c:url value='/home'/>" id="a"><img id="banner-img" src="<c:url value='/img/Walkwith-logo.png' />"></a>
         </div>
         <div>
-        	<a href="../login/loginForm.jsp" id="login"><span>로그인 하기 ></span></a>
+        	<a href="<c:url value='/login/loginForm' />" id="login"><span>로그인 하기 ></span></a>
         </div>
         <div id="user">
                 <span>Pet과 함께하는 User님</span>
@@ -236,11 +236,11 @@
         <div class="container" style="display: flex;">
             <div id="left-div">
                 <ul id="menu">
-                    <li><a href="../home/home.jsp" id="a">Home</a></li>
-					<li><a href="../user/customer.jsp" id="a">My Page</a></li>
-					<li><a href="../reservation/reservation_view.jsp" id="a">Reservation</a></li>
-					<li><a href="./review_view.jsp" id="a">Review</a></li>
-					<li><a href="../market/market_menu.jsp" id="a">Market</a></li>
+                    <li><a href="<c:url value='/home' />" id="a">Home</a></li>
+                    <li><a href="<c:url value='/login/loginForm' />" id="a">My Page</a></li>
+                    <li><a href="<c:url value='/reservation/reservation_view' />" id="a">Reservation</a></li>
+                    <li><a href="<c:url value='/review/review_view' />" id="a">Review</a></li>
+                    <li><a href="<c:url value='/market/market_menu' />" id="a">Market</a></li>
                 </ul>
             </div>
             <div id="right-div">
