@@ -16,10 +16,10 @@
 <body>
     <div class="container">
         <div id="banner">           
-            <a href="/home" id="a"><img id="banner-img" src="<c:url value='/img/Walkwith-logo.png' />"></a>
+            <a href="<c:url value='/home'/>" id="a"><img id="banner-img" src="<c:url value='/img/Walkwith-logo.png' />"></a>
         </div>
         <div>
-        	<a href="../login/loginForm.jsp" id="login"><span>로그인 하기 ></span></a>
+        	<a href="<c:url value='/login/loginForm' />" id="login"><span>로그인 하기 ></span></a>
         </div>
         <div id="user">
                 <span>Pet과 함께하는 User님</span>
