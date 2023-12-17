@@ -150,11 +150,11 @@
 
 <body>
     <div class="container">
-        <div id="banner">
-            <a href="../home/home.jsp" id="a"><img id="banner-img" src="../../img/Walkwith-logo.png"></a>
+        <div id="banner">           
+            <a href="<c:url value='/home'/>" id="a"><img id="banner-img" src="<c:url value='/img/Walkwith-logo.png' />"></a>
         </div>
         <div>
-        	<a href="../login/loginForm.jsp" id="login"><span>로그인 하기 ></span></a>
+        	<a href="<c:url value='/login/loginForm' />" id="login"><span>로그인 하기 ></span></a>
         </div>
         <div id="user">
                 <span>Pet과 함께하는 User님</span>
@@ -162,11 +162,11 @@
         <div class="container" style="display: flex;">
             <div id="left-div">
                 <ul id="menu">
-                    <li><a href="../home/home.jsp" id="a">Home</a></li>
-					<li><a href="./seller.jsp" id="a">My Page</a></li>
-					<li><a href="../reservation/reservation_view.jsp" id="a">Reservation</a></li>
-					<li><a href="../review/review_view.jsp" id="a">Review</a></li>
-					<li><a href="../market/market_menu.jsp" id="a">Market</a></li>
+                    <li><a href="<c:url value='/home' />" id="a">Home</a></li>
+                    <li><a href="<c:url value='/user/customer' />" id="a">My Page</a></li>
+                    <li><a href="<c:url value='/reservation/reservation_view' />" id="a">Reservation</a></li>
+                    <li><a href="<c:url value='/review/review_view' />" id="a">Review</a></li>
+                    <li><a href="<c:url value='/market/market_menu' />" id="a">Market</a></li>
                 </ul>
             </div>
             <div id="right-div">

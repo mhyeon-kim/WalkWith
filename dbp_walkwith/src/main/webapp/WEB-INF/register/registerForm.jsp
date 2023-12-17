@@ -35,7 +35,7 @@
                         <input type="email" id="email" name="email" placeholder="이메일" class="form-control">
                     </div>                    
                     <div>
-                       <a href="../home/home.jsp" id="a"><input type="button" id="btn" style=" margin-top: 25px; width: 100%;" value="회원가입" onclick="userCreate('/user/register')" class="btn btn-primary"></a>
+                       <a href="<c:url value='/home' />" id="a"><input type="button" id="btn" style=" margin-top: 25px; width: 100%;" value="회원가입" onclick="userCreate('/user/register')" class="btn btn-primary"></a>
                     </div>
                     </div>
                 </form>
