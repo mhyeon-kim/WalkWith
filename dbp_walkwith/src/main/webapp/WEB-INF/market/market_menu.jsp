@@ -174,25 +174,25 @@
             </div>
             <div id="market_div_top" align="center">
             <a href="./market.jsp" id="a">
-                <img id="market_token_top" src="/img/Walkwith-marketToken.png"></a>
-                <img id="market_token_top" src="/img/Walkwith-marketToken.png">
-                <img id="market_token_top" src="/img/Walkwith-marketToken.png">
-                <img id="market_token_top" src="/img/Walkwith-marketToken.png">
-                <img id="market_token_top" src="/img/Walkwith-marketToken.png">
+                <img id="market_token_top" src="<c:url value='/img/Walkwith-marketToken.png' />"></a>
+                <img id="market_token_top" src="<c:url value='/img/Walkwith-marketToken.png' />">
+                <img id="market_token_top" src="<c:url value='/img/Walkwith-marketToken.png' />">
+                <img id="market_token_top" src="<c:url value='/img/Walkwith-marketToken.png' />">
+                <img id="market_token_top" src="<c:url value='/img/Walkwith-marketToken.png' />">
             </div>
             <div id="market_div" align="center">
-                <img id="market_token" src="/img/Walkwith-marketToken.png">
-                <img id="market_token" src="/img/Walkwith-marketToken.png">
-                <img id="market_token" src="/img/Walkwith-marketToken.png">                    
-                <img id="market_token" src="/img/Walkwith-marketToken.png">
-                <img id="market_token" src="/img/Walkwith-marketToken.png">
+                <img id="market_token" src="<c:url value='/img/Walkwith-marketToken.png' />">
+                <img id="market_token" src="<c:url value='/img/Walkwith-marketToken.png' />">
+                <img id="market_token" src="<c:url value='/img/Walkwith-marketToken.png' />">                    
+                <img id="market_token" src="<c:url value='/img/Walkwith-marketToken.png' />">
+                <img id="market_token" src="<c:url value='/img/Walkwith-marketToken.png' />">
             </div>
             <div id="market_div" align="center">
-                <img id="market_token" src="/img/Walkwith-marketToken.png">
-                <img id="market_token" src="/img/Walkwith-marketToken.png">
-                <img id="market_token" src="/img/Walkwith-marketToken.png">                    
-                <img id="market_token" src="/img/Walkwith-marketToken.png">
-                <img id="market_token" src="/img/Walkwith-marketToken.png">
+                <img id="market_token" src="<c:url value='/img/Walkwith-marketToken.png' />">
+                <img id="market_token" src="<c:url value='/img/Walkwith-marketToken.png' />">
+                <img id="market_token" src="<c:url value='/img/Walkwith-marketToken.png' />">                    
+                <img id="market_token" src="<c:url value='/img/Walkwith-marketToken.png' />">
+                <img id="market_token" src="<c:url value='/img/Walkwith-marketToken.png' />">
             </div>
         </div>
     </div>
