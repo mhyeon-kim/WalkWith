@@ -9,132 +9,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel=stylesheet href="<c:url value='/css/home.css' />" type="text/css">
     <title>홈</title>
-    <style>
-        @font-face { /* 국립박물관문화재단클래식 Light 폰트 적용 */
-        font-family: "museum";
-        src: url("../../font/museum.ttf") format("truetype");
-        font-weight: normal;
-        }
-        
-        @font-face { /* EBS 훈민정음 새론 L 애플산돌고딕 폰트 적용 */
-        font-family: "ebs";
-        src: url("../../font/ebs.ttf") format("truetype");
-        font-weight: normal;
-        }
-
-        #banner{
-            height: 9rem;
-            max-width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #user{
-            color: #A99A8F;
-            margin-left: 17px;
-            font-size: 15px;
-            font-family: 'ebs';
-        }
-
-        #left-div{
-            background-image: url("../../img/Walkwith-div-left.png");
-            background-repeat: no-repeat;
-            width: 230px;
-            height: 280px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            margin-top: 5px;
-            font-family: 'museum', serif;
-        }
-
-        #menu{
-            list-style: none;
-            color: white;
-            font-size: 1.5rem;
-            padding-top: 10px;
-        }
-
-        #menu > li{
-            padding-bottom: 5px;
-        }
-
-        #right-div{
-            background-image: url("../../img/walkwith-div-right.png");
-            width: 1200px;
-            height: 670px;
-            margin-left: 20px;
-            border-radius: 10px;
-            background-size: cover;
-            padding-left: 4rem;
-            padding-right: 4rem;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-            font-family: 'ebs', serif;
-        }
-
-        #ad-img{
-            width: 100%;
-        }
-
-        #store{
-            color: #816959;
-            margin-top: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
-
-        #recommend{
-            font-size: 20px;
-        }
-
-        #more{
-            text-decoration: none;
-            color: #816959;
-            float: right;
-        }
-        
-        #a{
-            text-decoration: none;
-            color: #FFFFFF;
-        }
-
-        #store-list{
-            background-image: url("../../img/imgWalkwith-AdvertisingBanner.png");
-            background-size: cover;
-            border-radius: 10px;
-            width : 100%;
-            height : 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 5px;
-        }
-
-        .store-item{
-            width: 180px;
-            height: 200px;
-            background-size: cover;
-            border-radius: 10px;
-        }
-        
-        #login {
-        	text-decoration: none;
-            color: #816959;
-            float: right;
-            font-family: 'ebs', serif;
-            font-size: 20px;
-        }
-    </style>
 </head>
 
 <body>
     <div class="container">
-        <div id="banner">
-            <a href="../home/home.jsp" id="a"><img id="banner-img" src="../../img/Walkwith-logo.png"></a>
+        <div id="banner">           
+            <a href="/home" id="a"><img id="banner-img" src="<c:url value='/img/Walkwith-logo.png' />"></a>
         </div>
         <div>
         	<a href="../login/loginForm.jsp" id="login"><span>로그인 하기 ></span></a>
@@ -153,17 +35,17 @@
                 </ul>
             </div>
             <div id="right-div">
-                <img id="ad-img" src="../../img/Walkwith-AdvertisingBanner.png">
+                <img id="ad-img" src="<c:url value='/img/Walkwith-AdvertisingBanner.png' />"></img>
                 <div id="store">
                     <span id="recommend">추천매장</span>
                     <a href="../market/market_menu.jsp" id="more">더 많은 매장 ></a>
                 </div>
                 <div id="store-list">
-                    <img class="store-item" src="../../img/Walkwith-market-Image.png"></img>
-                    <img class="store-item" src="../../img/Walkwith-market-Image.png"></img>
-                    <img class="store-item" src="../../img/Walkwith-market-Image.png"></img>
-                    <img class="store-item" src="../../img/Walkwith-market-Image.png"></img>
-                    <img class="store-item" src="../../img/Walkwith-market-Image.png"></img>
+                    <img class="store-item" src="<c:url value='/img/Walkwith-market-Image.png' />"></img>
+                    <img class="store-item" src="<c:url value='/img/Walkwith-market-Image.png' />"></img>
+                    <img class="store-item" src="<c:url value='/img/Walkwith-market-Image.png' />"></img>
+                    <img class="store-item" src="<c:url value='/img/Walkwith-market-Image.png' />"></img>
+                    <img class="store-item" src="<c:url value='/img/Walkwith-market-Image.png' />"></img>
                 </div>
             </div>
         </div>
