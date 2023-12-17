@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>내 리뷰</title>
+    <title>좋아요 누른 매장</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/review_view.css">
 </head>
@@ -35,8 +35,8 @@
             </div>
             
 			<div id="right-div">
-				<div id="banner">
-					<img id="reser-title" src="<c:url value='/img/ReviewTitle.png' />" alt="Reservation Title">
+				<div id="banner" style="font-size: 60px;">
+					LIKE
 				</div>
 				<div id="review-list">		
 				    <div class="review-list"><img src="<c:url value='/Walkwith-marketToken.png' />" alt="review 1"></div>

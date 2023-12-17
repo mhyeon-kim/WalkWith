@@ -26,9 +26,11 @@ public class CreateReviewController implements Controller {
             log.debug("Write Review : {}", review);
             return "/review/review_view.jsp";  // 성공 시 review_view 페이지로 이동 (forwarding) 
             
-        } catch (Exception e) {     // 예외 발생 시 어디로 가지...
-            
-            return "";
+        } catch (Exception e) {    
+            request.setAttribute("creationFailed", true);
+            request.setAttribute("exception", e);
+            request.setAttribute("review", review);
+            return "/review/reivew_write.jsp";
         }
 
     

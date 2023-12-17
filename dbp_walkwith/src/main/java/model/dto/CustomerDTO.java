@@ -78,4 +78,17 @@ public class CustomerDTO {
     public void setPetList(List<PetDTO> petList) {
         this.petList = petList;
     }
+    
+    /* 비밀번호 검사 */
+    public boolean matchPassword(String password) {
+        if (password == null) {
+            return false;
+        }
+        return uPassword.equals(password);
+    }
+    
+    /*아이디 비밀번호 일치 검사*/
+    public boolean isSameUser(String userId) {
+        return uPassword.equals(userId);
+    }
 }

@@ -224,8 +224,8 @@
 
 <body>
     <div class="container">
-        <div id="banner">
-            <a href="../home/home.jsp" id="a"><img id="banner-img" src="../../img/Walkwith-logo.png"></a>
+        <div id="banner">		
+            <a href="../home/home.jsp" id="a"><img id="banner-img" src="<c:url value='/img/Walkwith-logo.png' />"></a>
         </div>
         <div>
         	<a href="../login/loginForm.jsp" id="login"><span>로그인 하기 ></span></a>
@@ -244,35 +244,35 @@
                 </ul>
             </div>
             <div id="right-div">
-                <div id="second-left">
-                    <img id="store-pic" src="../../img/Walkwith-market-Image.png"></img>
-                    <div id="star-div">
-                        <img id="star-img" src="../../img/Walkwith-Reservation-Star.png">
+                <div id="second-left">		
+                    <img id="store-pic" src="<c:url value='/img/Walkwith-market-Image.png' />"></img>
+                    <div id="star-div">			
+                        <img id="star-img" src="<c:url value='/img/Walkwith-Reservation-Star.png' />">
                         <span id="star-score">5.0</span>
                     </div>
                     <div id="store-introduct"></div>
                 </div>
-                <div id="second-right">
-                    <div id="sr-first">
+                <div id="second-right">			
+                    <div id="sr-first">			
                         <div style="display: flex; align-items: center;">
                             <span class="time-set">
                                 <input type="date" class="res-input">
-                                <img src="../../img/Walkwith-DateDiv.png">
+                                <img src="<c:url value='/img/Walkwith-DateDiv.png' />">
                             </span>
                             <span class="time-set" style="margin-left : 10px;">
                                 <input type="time" class="res-input">
-                                <img src="../../img/Walkwith-TimeDiv.png">
-                            </span>
+                                <img src="<c:url value='/img/Walkwith-TimeDiv.png' />">
+                            </span>				
                         </div>
-                    <button type="button" id="next-button"><img id="btn-img" src="../../img/Walkwith-ReservNext.png"></button>
+                    <button type="button" id="next-button"><img id="btn-img" src="<c:url value='/img/Walkwith-ReservNext.png' />"></button>
                     </div>
                     <div id="sr-second">
                         <div class="menu-item">리뷰 내용</div>
                         <textarea>
                                 
-                        </textarea>
+                        </textarea>			
                     </div>
-                    <img src="../../img/star.jpg" style="width: 200px;">
+                    <img src="<c:url value='/img/star.jpg' />" style="width: 200px;">
                 </div>
             </div>
         </div>
