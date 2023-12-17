@@ -25,19 +25,33 @@ public class RequestMapping {
         
         //user
         mappings.put("/user/customer", new ForwardController("/user/customer.jsp"));
+        mappings.put("/user/cutomer_update", new ForwardController("/user/cutomer_update.jsp"));
+        mappings.put("/user/seller", new ForwardController("/user/seller.jsp"));
+        mappings.put("/user/seller_update", new ForwardController("/user/seller_update.jsp"));
+        mappings.put("user/list", new ForwardController("/user/list.jsp"));
         
+        //pet
+        mappings.put("/user/pet_RegisterForm", new ForwardController("/user/pet_RegisterForm.jsp"));
+        mappings.put("/user/pet_update", new ForwardController("/user/pet_update.jsp"));
+        
+        //like
+        mappings.put("/user/like_view", new ForwardController("/user/like_view.jsp"));
         
         //market
+        mappings.put("/market/market", new ForwardController("/market/market.jsp"));
         mappings.put("/market/market_menu", new ForwardController("/market/market_menu.jsp"));
-        
+        mappings.put("/market/market_update", new ForwardController("/market/market_update.jsp"));
         
         //reservation
+        mappings.put("/reservation/reservation", new ForwardController("/reservation/reservation.jsp"));
         mappings.put("/reservation/reservation_view", new ForwardController("/reservation/reservation_view.jsp"));
-        
+        mappings.put("/reservation/reservation_update", new ForwardController("/reservation/reservation_update.jsp"));
         
         //review
         mappings.put("/review/review_view", new ForwardController("/review/review_view.jsp"));
-       
+        mappings.put("/review/review_detail", new ForwardController("/review/review_detail.jsp"));
+        mappings.put("/review/review_update", new ForwardController("/review/review_update.jsp"));
+        mappings.put("/review/review_write", new ForwardController("/review/review_write.jsp"));
         
         //기본틀 복붙해서 쓰세요
         mappings.put("/", new ForwardController("/.jsp"));
