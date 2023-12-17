@@ -146,7 +146,7 @@ public class CustomerDAO {
 
     public void addCustomer(CustomerDTO customer) {
         StringBuilder query = new StringBuilder();
-        query.append("INSERT INTO customer_table (userId, uName, uPassword, uPhone, uMail) VALUES (?, ?, ?, ?, ?)");
+        query.append("INSERT INTO CUSTOMER (userId, uName, uPassword, uPhone, uMail) VALUES (?, ?, ?, ?, ?)");
 
         jdbcUtil.setSqlAndParameters(query.toString(),
                 new Object[] { customer.getUserId(), customer.getuName(), customer.getuPassword(),
@@ -165,7 +165,7 @@ public class CustomerDAO {
 
     public void updateCustomer(CustomerDTO customer) {
         StringBuilder query = new StringBuilder();
-        query.append("UPDATE customer_table SET uName=?, uPassword=?, uPhone=?, uMail=? WHERE userId=? ");
+        query.append("UPDATE CUSTOMER SET uName=?, uPassword=?, uPhone=?, uMail=? WHERE userId=? ");
 
         jdbcUtil.setSqlAndParameters(query.toString(),
                 new Object[] { customer.getuName(), customer.getuPassword(), customer.getuPhone(),
@@ -184,7 +184,7 @@ public class CustomerDAO {
 
     public void deleteCustomer(String userId) {
         StringBuilder query = new StringBuilder();
-        query.append("DELETE FROM customer_table WHERE userId=? ");
+        query.append("DELETE FROM CUSTOMER WHERE userId=? ");
 
         jdbcUtil.setSqlAndParameters(query.toString(), new Object[] { userId });
 
@@ -226,7 +226,7 @@ public class CustomerDAO {
     public int addPet(PetDTO pet) {
         StringBuilder query = new StringBuilder();
         query.append(
-                "INSERT INTO pet_table (petId, pImage_path, pName, pAge, pCategory, pDetailCa, pNeureting) VALUES (pet_id_seq.nextval, ?, ?, ?, ?, ?, ?) ");
+                "INSERT INTO PET (petId, pImage_path, pName, pAge, pCategory, pDetailCa, pNeureting) VALUES (pet_seq.nextval, ?, ?, ?, ?, ?, ?) ");
 
         jdbcUtil.setSqlAndParameters(query.toString(),
                 new Object[] { pet.getpImage(), pet.getpName(), pet.getpAge(), pet.getpCategory(),
@@ -247,7 +247,7 @@ public class CustomerDAO {
 
     public void updatePet(PetDTO pet) {
         StringBuilder query = new StringBuilder();
-        query.append("UPDATE pet_table SET pImage_path=?, pName=?, pAge=?, pCategory=?, pDetailCa=?, pNeureting=? WHERE petId=? ");
+        query.append("UPDATE PET SET pImage_path=?, pName=?, pAge=?, pCategory=?, pDetailCa=?, pNeureting=? WHERE petId=? ");
 
         jdbcUtil.setSqlAndParameters(query.toString(),
                 new Object[] { pet.getpImage(), pet.getpName(), pet.getpAge(), pet.getpCategory(),
@@ -266,7 +266,7 @@ public class CustomerDAO {
 
     public void deletePet(int petId) {
         StringBuilder query = new StringBuilder();
-        query.append("DELETE FROM pet_table WHERE petId=? ");
+        query.append("DELETE FROM PET WHERE petId=? ");
 
         jdbcUtil.setSqlAndParameters(query.toString(), new Object[] { petId });
 

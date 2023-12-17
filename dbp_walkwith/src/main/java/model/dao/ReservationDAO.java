@@ -276,11 +276,11 @@ public List<ReservationDTO> findReservationsByStore(int storeId) {
 
     // 전체 예약 보기
     public List<ReservationDTO> viewAllReservations() {
-        StringBuilder sqlSelect = new StringBuilder();
-        sqlSelect.append("SELECT r.*, c.uName, s.sName");
-        sqlSelect.append("FROM Reservation r ");
-        sqlSelect.append("JOIN Customer c ON r.userId = c.userId ");
-        sqlSelect.append("JOIN Store s ON r.storeId = s.storeId");
+    	StringBuilder sqlSelect = new StringBuilder();
+    	sqlSelect.append("SELECT r.*, c.uName, s.sName ");
+    	sqlSelect.append("FROM Reservation r ");
+    	sqlSelect.append("JOIN Customer c ON r.userId = c.userId ");
+    	sqlSelect.append("JOIN Store s ON r.storeId = s.storeId");
 
         jdbcUtil.setSqlAndParameters(sqlSelect.toString(), null);
         List<ReservationDTO> reservationList = new ArrayList<>();

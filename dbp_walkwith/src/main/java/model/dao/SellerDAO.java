@@ -114,7 +114,7 @@ public class SellerDAO {
 	
 	//사용자 정보 생성 함수 Insert(성공시 result값 반환)
 	public int createSeller(SellerDTO sel) throws SQLException {
-        String sql = "INSERT INTO USERINFO VALUES (?, ?, ?, ?, ?) ";      
+        String sql = "INSERT INTO SELLER INFO VALUES (?, ?, ?, ?, ?) ";      
         Object[] param = new Object[] {sel.getSellerId(), sel.getSePassword(), 
                         sel.getSeName(), sel.getSePhone(), sel.getSeMail()};              
         jdbcUtil.setSqlAndParameters(sql, param);   // JDBCUtil 에 insert문과 매개 변수 설정
