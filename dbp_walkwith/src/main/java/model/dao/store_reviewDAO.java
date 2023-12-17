@@ -141,8 +141,8 @@ public class store_reviewDAO {
         return 0;           
     }
 	public int addStore(StoreDTO store, Integer categoryId) throws SQLException {
-		String sql = "INSERT INTO store (sName, sPhone, sTime, sStarScore, sDetailDescription, sellerId, openDate,sImage) "
-				   + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";    
+		String sql = "INSERT INTO store (storeId, sName, sPhone, sTime, sStarScore, sDetailDescription, sellerId, openDate,sImage) "
+				   + "VALUES (store_seq.nextval, ?, ?, ?, ?, ?, ?, ?)";    
 		String category = searchCategory(categoryId);
 		Object[] param = new Object[] {store.getsName(), store.getsPhone(), 
 				store.getsTime(), store.getsStarScore(), store.getsDescription(), 

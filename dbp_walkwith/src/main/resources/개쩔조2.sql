@@ -99,7 +99,7 @@ CREATE TABLE Store
 	sStarScore           FLOAT  NULL ,
 	sDetailDescription   VARCHAR2(1000)  NULL ,
 	sellerId             VARCHAR2(20)  NOT NULL ,
-	openDate            TIMESTAMP  NOT NULL ,
+	openDate            VARCHAR(20)  NOT NULL ,
 	likeCount            INTEGER  NULL ,
 	sImage               VARCHAR(500)  NULL 
 );

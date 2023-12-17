@@ -256,7 +256,7 @@ public class CustomerDAO {
     public int addPet(PetDTO pet) {
         StringBuilder query = new StringBuilder();
         query.append(
-                "INSERT INTO PET (petId, pImage_path, pName, pAge, pCategory, pDetailCa, pNeureting) VALUES (pet_seq.nextval, ?, ?, ?, ?, ?, ?) ");
+                "INSERT INTO PET (petId, pImage_path, pName, pAge, pCategory, pDetailCategory, pNeureting) VALUES (pet_seq.nextval, ?, ?, ?, ?, ?, ?) ");
 
         jdbcUtil.setSqlAndParameters(query.toString(),
                 new Object[] { pet.getpImage(), pet.getpName(), pet.getpAge(), pet.getpCategory(),
