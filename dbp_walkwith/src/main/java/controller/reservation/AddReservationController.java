@@ -22,13 +22,29 @@ public class AddReservationController implements Controller {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String dateParam = request.getParameter("date");
+        String userIdParam = request.getParameter("userId");
+        String storeIdParam = request.getParameter("storeId");
+
+        if (dateParam == null || userIdParam == null || storeIdParam == null) {
+            request.setAttribute("creationFailed", true);
+            request.setAttribute("errorReason", "Missing required parameters");
+            return "/reservation/creationForm.jsp";
+        }
+
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = format.parse(request.getParameter("date"));
-        
+        Date date = format.parse(dateParam);
+
+        int storeId = Integer.parseInt(storeIdParam);
+
         ReservationDTO reservation = new ReservationDTO(
                 0, date,
-                request.getParameter("userId"),
-                Integer.parseInt(request.getParameter("storeId")));
+                userIdParam,
+                null, // uName
+                storeId,
+                null, // sName
+                null  // comment
+        );
 
         try {
             reservationManager.addReservation(reservation);
