@@ -28,7 +28,7 @@ public class RequestMapping {
         
         
         //market
-        mappings.put("/market/menu", new ForwardController("/market/menu.jsp"));
+        mappings.put("/market/market_menu", new ForwardController("/market/market_menu.jsp"));
         
         
         //reservation
