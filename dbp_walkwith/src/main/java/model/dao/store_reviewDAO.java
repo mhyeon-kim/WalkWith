@@ -129,7 +129,7 @@ public class store_reviewDAO {
         jdbcUtil.setSqlAndParameters(sql, param);   // JDBCUtil 에 insert문과 매개 변수 설정
                         
         try {               
-            int result = jdbcUtil.executeUpdate();  // update 문 실행
+            int result = jdbcUtil.executeUpdate();  // insert 문 실행
             return result;
         } catch (Exception ex) {
             jdbcUtil.rollback();
