@@ -129,7 +129,7 @@ public class store_reviewDAO {
         jdbcUtil.setSqlAndParameters(sql, param);   // JDBCUtil 에 insert문과 매개 변수 설정
                         
         try {               
-            int result = jdbcUtil.executeUpdate();  // update 문 실행
+            int result = jdbcUtil.executeUpdate();  // insert 문 실행
             return result;
         } catch (Exception ex) {
             jdbcUtil.rollback();
@@ -141,8 +141,8 @@ public class store_reviewDAO {
         return 0;           
     }
 	public int addStore(StoreDTO store, Integer categoryId) throws SQLException {
-		String sql = "INSERT INTO store (sName, sPhone, sTime, sStarScore, sDetailDescription, sellerId, openDate, category, sImage_path) "
-				   + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";    
+		String sql = "INSERT INTO store (sName, sPhone, sTime, sStarScore, sDetailDescription, sellerId, openDate,sImage) "
+				   + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";    
 		String category = searchCategory(categoryId);
 		Object[] param = new Object[] {store.getsName(), store.getsPhone(), 
 				store.getsTime(), store.getsStarScore(), store.getsDescription(), 

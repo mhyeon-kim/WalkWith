@@ -26,7 +26,7 @@ public class UpdateReservationController implements Controller {
             String userId = (String) request.getSession().getAttribute("userId");
             List<ReservationDTO> reservations = reservationManager.findReservationsByUser(userId);
             request.setAttribute("reservations", reservations);
-            return "/reservation/updateForm.jsp";
+            return "/reservation/reservation_view.jsp";
         }
         
      // POST...?
