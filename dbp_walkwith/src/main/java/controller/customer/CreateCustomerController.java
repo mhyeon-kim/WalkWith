@@ -50,9 +50,4 @@ public class CreateCustomerController implements Controller {
             return "/register/registerForm.jsp";
         }
     }
-
-    private List<PetDTO> List(Object attribute) {
-        // TODO Auto-generated method stub
-        return null;
-    }
 }

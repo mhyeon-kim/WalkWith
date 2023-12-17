@@ -9,6 +9,7 @@ import java.util.Map;
 import model.dto.CustomerDTO;
 import model.dto.PetDTO;
 import model.dto.ReservationDTO;
+import model.dto.SellerDTO;
 import model.dto.StoreDTO;
 
 public class CustomerDAO {
@@ -93,6 +94,35 @@ public class CustomerDAO {
         }
 
         return reservationList;
+    }
+    
+    //reservationId로 예약 찾기
+    public ReservationDTO getReservation(int reservationId) {
+        StringBuilder query = new StringBuilder();
+        query.append("SELECT * FROM Reservation ");
+        query.append("WHERE reservationId = ? ");
+
+        jdbcUtil.setSqlAndParameters(query.toString(), new Object[] { reservationId });
+
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();  
+            ReservationDTO res = new ReservationDTO(
+                    rs.getInt("reservationId"),
+                    rs.getDate("resDaTi"),
+                    rs.getString("userId"),
+                    rs.getString("uName"),
+                    rs.getInt("storeId"),
+                    rs.getString("sName"),
+                    rs.getString("comment")
+                    );
+            return res;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.close();
+        }
+
+        return null;
     }
 
     public Map<String, Integer> countReservationsByUser() {
@@ -279,6 +309,36 @@ public class CustomerDAO {
         } finally {
             jdbcUtil.close();
         }
+    }
+    
+    //petId로 찾기
+    public PetDTO getPet(int petId) {
+        StringBuilder query = new StringBuilder();
+        query.append("SELECT * FROM Pet ");
+        query.append("WHERE petId = ? ");
+
+        jdbcUtil.setSqlAndParameters(query.toString(), new Object[] { petId });
+
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();  
+            PetDTO pet = new PetDTO(
+                    rs.getInt("petId"),
+                    rs.getString("pImage"),
+                    rs.getString("pName"),
+                    rs.getInt("pAge"),
+                    rs.getString("pCategory"),
+                    rs.getString("pDetailCa"),
+                    rs.getString("pNeureting"),
+                    rs.getString("userId")
+                    );
+            return pet;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.close();
+        }
+
+        return null;
     }
     
   //이미 있는 유저 등록

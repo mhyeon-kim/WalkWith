@@ -27,6 +27,6 @@ public class ViewLikeController implements Controller {
         }   
         
         request.setAttribute("user", cus);     // 사용자 정보 저장                
-        return "/.jsp";                // like 모아보기 페이지로 이동
+        return "/user/like_view.jsp";                // like 모아보기 페이지로 이동
     }
 }

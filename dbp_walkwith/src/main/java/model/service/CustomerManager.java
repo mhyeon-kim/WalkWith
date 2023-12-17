@@ -60,11 +60,19 @@ public class CustomerManager {
         return cusDAO.updateReservationByUserId(userId, date);
     }
     
-    //예약 count?
+    //예약Id로 찾기
+    public ReservationDTO getReservation(int reservationId) throws SQLException, ReservationNotFoundException {
+        return cusDAO.getReservation(reservationId);
+    }
     
     //내가 좋아요 한 가게
     public List<StoreDTO> myLike(String userId) throws SQLException, UserNotFoundException {
         return cusDAO.getLikeListByUserId(userId);
+    }
+    
+    //petId로 찾기
+    public PetDTO getPet(int petId) throws SQLException, PetNotFoundException {
+        return cusDAO.getPet(petId);
     }
     
     //pet 추가

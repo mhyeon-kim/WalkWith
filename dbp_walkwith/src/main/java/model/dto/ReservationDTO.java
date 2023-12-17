@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class ReservationDTO { // store 이미지 추가...?
     private int reservationId;
-    private Date resDaTi;  // Date 대신 LocalDate 사용
+    private Date resDaTi;
     private String userId;
     private String uName;
     private int storeId;
@@ -15,11 +15,16 @@ public class ReservationDTO { // store 이미지 추가...?
     public ReservationDTO() { }
 
     // 모든 필드를 초기화하는 생성자
-    public ReservationDTO(int reservationId, Date resDaTi, String userId, int storeId) {
+    public ReservationDTO(int reservationId, Date resDaTi, String userId, String uName, int storeId, String sName,
+            String comment) {
+        super();
         this.reservationId = reservationId;
         this.resDaTi = resDaTi;
         this.userId = userId;
+        this.uName = uName;
         this.storeId = storeId;
+        this.sName = sName;
+        this.comment = comment;
     }
 
     // 각 필드에 대한 getter 및 setter

@@ -27,6 +27,6 @@ public class ViewReservationController implements Controller {
         }   
         
         request.setAttribute("user", cus);     // 사용자 정보 저장                
-        return "/.jsp";                // reservation 모아보기 페이지로 이동
+        return "/reservation/reservation_view.jsp";                // reservation 모아보기 페이지로 이동
     }
 }

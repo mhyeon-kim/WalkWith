@@ -62,6 +62,6 @@ public class UpdateCustomerController implements Controller {
 
         CustomerManager manager = CustomerManager.getInstance();
         manager.update(updateCustomer);         
-        return "redirect:/user/list";           
+        return "redirect:/user/customer";           
     }
 }
