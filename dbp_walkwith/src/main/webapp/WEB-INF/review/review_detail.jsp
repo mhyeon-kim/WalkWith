@@ -39,14 +39,10 @@
 					<img id="reser-title" src="<c:url value='/img/ReviewTitle.png' />" alt="Reservation Title">
 				</div>
 				<div id="review-list">		
-				    <div class="review-list"><img src="<c:url value='/Walkwith-marketToken.png' />" alt="review 1"></div>
-				    <div class="review-list"><img src="<c:url value='/Walkwith-marketToken.png' />" alt="review 2"></div>
-				    <div class="review-list"><img src="<c:url value='/Walkwith-marketToken.png' />" alt="review 3"></div>
-				    <div class="review-list"><img src="<c:url value='/Walkwith-marketToken.png' />" alt="review 4"></div>
-				    <div class="review-list"><img src="<c:url value='/Walkwith-marketToken.png' />" alt="review 5"></div>
-				    <div class="review-list"><img src="<c:url value='/Walkwith-marketToken.png' />" alt="review 6"></div>
-				    <div class="review-list"><img src="<c:url value='/Walkwith-marketToken.png' />" alt="review 7"></div>
-				    <div class="review-list"><img src="<c:url value='/Walkwith-marketToken.png' />" alt="review 8"></div>
+				    <li>가게 이름</li>
+				    <li>유저 아이디</li>
+				    <li>리뷰 내용</li>
+				    <li>별점</li>
 				</div>
 			</div>
                     
