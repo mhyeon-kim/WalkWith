@@ -40,7 +40,7 @@ public class AddReservationController implements Controller {
         ReservationDTO reservation = new ReservationDTO(
                 0, date,
                 userIdParam,
-                null, // uName
+                null, // uName  
                 storeId,
                 null, // sName
                 null  // comment

@@ -240,7 +240,8 @@ public class CustomerDAO {
             while (rs.next()) {
                 PetDTO pet = new PetDTO(rs.getInt("petId"), rs.getString("pImage"), rs.getString("pName"),
                         rs.getInt("pAge"), rs.getString("pCategory"), rs.getString("pDetailCa"),
-                        rs.getString("pNeureting"), userId);
+                        rs.getInt("pNeureting"), // 'Y'는 true, 'N'는 false로 변환
+                        userId);
 
                 petList.add(pet);
             }
@@ -256,15 +257,29 @@ public class CustomerDAO {
     public int addPet(PetDTO pet) {
         StringBuilder query = new StringBuilder();
         query.append(
-                "INSERT INTO PET (petId, pImage_path, pName, pAge, pCategory, pDetailCategory, pNeureting) VALUES (pet_seq.nextval, ?, ?, ?, ?, ?, ?) ");
+                "INSERT INTO PET (petId, pName, pAge, pCategory, pDetailCategory, userId, pNeureting, pImage) VALUES (pet_seq.nextval, ?, ?, ?, ?, ?, ?, ?)");
 
         jdbcUtil.setSqlAndParameters(query.toString(),
-                new Object[] { pet.getpImage(), pet.getpName(), pet.getpAge(), pet.getpCategory(),
-                        pet.getpDetailCa(), pet.getpNeureting() });
+                new Object[] {pet.getpName(), pet.getpAge(), pet.getpCategory(), pet.getpDetailCa(), pet.getUserId(), pet.getpNeureting(), pet.getpImage()});
 
         try {
             int result = jdbcUtil.executeUpdate();
             jdbcUtil.commit();
+
+            if (result == 1) { // 애완동물 정보가 성공적으로 추가된 경우
+                // 새로 추가된 애완동물의 petId를 조회하는 쿼리를 실행합니다.
+                // 이 쿼리는 실제 데이터베이스와 테이블, 시퀀스 구조에 따라 약간 수정이 필요할 수 있습니다.
+                String idQuery = "SELECT pet_seq.currval FROM dual";
+                jdbcUtil.setSqlAndParameters(idQuery, null);
+
+                ResultSet rs = jdbcUtil.executeQuery();
+                if (rs.next()) {
+                    int petId = rs.getInt(1);
+                    pet.setPetId(petId); // PetDTO에 petId를 설정합니다.
+                }
+                rs.close();
+            }
+
             return result;
         } catch (Exception ex) {
             jdbcUtil.rollback();
@@ -277,11 +292,11 @@ public class CustomerDAO {
 
     public void updatePet(PetDTO pet) {
         StringBuilder query = new StringBuilder();
-        query.append("UPDATE PET SET pImage_path=?, pName=?, pAge=?, pCategory=?, pDetailCa=?, pNeureting=? WHERE petId=? ");
+        query.append("UPDATE PET SET pImage=?, pName=?, pAge=?, pCategory=?, pDetailCa=?, pNeureting=? WHERE petId=? ");
 
         jdbcUtil.setSqlAndParameters(query.toString(),
-                new Object[] { pet.getpImage(), pet.getpName(), pet.getpAge(), pet.getpCategory(),
-                        pet.getpDetailCa(), pet.getpNeureting(), pet.getPetId() });
+        	    new Object[] {pet.getpName(), pet.getpAge(), pet.getpCategory(), pet.getpDetailCa(), pet.getpNeureting(), pet.getUserId(), pet.getpImage()});
+
 
         try {
             jdbcUtil.executeUpdate();
@@ -328,7 +343,7 @@ public class CustomerDAO {
                     rs.getInt("pAge"),
                     rs.getString("pCategory"),
                     rs.getString("pDetailCa"),
-                    rs.getString("pNeureting"),
+                    rs.getInt("pNeureting"), 
                     rs.getString("userId")
                     );
             return pet;
@@ -340,6 +355,7 @@ public class CustomerDAO {
 
         return null;
     }
+
     
   //이미 있는 유저 등록
     public boolean existingCustomer(String userId) throws SQLException {

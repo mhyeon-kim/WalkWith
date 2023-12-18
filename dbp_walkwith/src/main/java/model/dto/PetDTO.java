@@ -7,13 +7,12 @@ public class PetDTO {
     private int pAge;
     private String pCategory;
     private String pDetailCa;
-    private String pNeureting;
+    private int pNeureting; 
     private String userId;
     
 
-    public PetDTO(int petId, String pImage, String pName, int pAge, String pCategory, String pDetailCa,
-            String pNeureting, String userId) {
-        super();
+    // petId를 포함한 생성자
+    public PetDTO(int petId, String pImage, String pName, int pAge, String pCategory, String pDetailCa, int pNeureting, String userId) {
         this.petId = petId;
         this.pImage = pImage;
         this.pName = pName;
@@ -21,6 +20,18 @@ public class PetDTO {
         this.pCategory = pCategory;
         this.pDetailCa = pDetailCa;
         this.pNeureting = pNeureting;
+        this.userId = userId;
+    }
+
+    // petId를 제외한 생성자
+    public PetDTO(String pImage, String pName, int pAge, String pCategory, String pDetailCa, int pNeureting, String userId) {
+        this.pImage = pImage;
+        this.pName = pName;
+        this.pAge = pAge;
+        this.pCategory = pCategory;
+        this.pDetailCa = pDetailCa;
+        this.pNeureting = pNeureting;
+        this.userId = userId;
     }
 
     public String getUserId() {
@@ -79,11 +90,11 @@ public class PetDTO {
         this.pDetailCa = pDetailCa;
     }
 
-    public String getpNeureting() {
+    public int getpNeureting() {
         return pNeureting;
     }
 
-    public void setpNeureting(String pNeureting) {
+    public void setpNeureting(int pNeureting) {
         this.pNeureting = pNeureting;
     }
 }

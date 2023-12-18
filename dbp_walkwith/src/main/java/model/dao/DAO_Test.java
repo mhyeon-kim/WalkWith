@@ -20,53 +20,35 @@ public class DAO_Test {
 	private static store_reviewDAO stoDao = new store_reviewDAO();
 	
 	public static void main(String[] args) throws SQLException {
-	    Scanner scanner = new Scanner(System.in);
+        String testUserId = "user1"; // 테스트할 사용자 ID 설정
+        CustomerDTO customer = compDao.getCustomer(testUserId); // getCustomer 메소드 호출
 
-
-	 // 상점 추가
-	    System.out.println("상점을 추가합니다.");
-
-	    String sellerId = "seller001"; // 판매자 ID
-	    int storeId = 1; // 상점 ID
-	    String sName = "상점이름"; // 상점 이름
-	    String sPhone = "010-1234-5678"; // 상점 전화번호
-
-	    // 상점 운영 시간
-	    Date sTime = Date.valueOf(09:00:00);
-
-	    // 영업 요일
-	    String openDate = "월,화,수,목,금,토,일";
-	    double sStarScore = 4.5; // 상점 평점
-	    String sDescription = "상점 설명"; // 상점 설명
-	    int likeCount = 0; // 좋아요 수
-	    String sImage_path = "상점 이미지 경로"; // 상점 이미지 경로
-	    Integer categoryId = 1; // 카테고리 ID
-
-	    StoreDTO store = new StoreDTO(sellerId, storeId, sName, sPhone, sTime, openDate, sStarScore, sDescription, likeCount, sImage_path);
-	    try {
-	        stoDao.addStore(store, categoryId);
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
-	    System.out.println("상점이 추가되었습니다.");
-
+        if (customer != null) {
+            System.out.println("사용자 ID: " + customer.getUserId());
+            System.out.println("이름: " + customer.getuName());
+            System.out.println("전화번호: " + customer.getuPhone());
+            System.out.println("이메일: " + customer.getuMail());
+            System.out.println("비밀번호: " + customer.getuPassword());
+        } else {
+            System.out.println("해당 사용자를 찾을 수 없습니다.");
+        }
 
 
 	 // 애완동물 추가
 	    System.out.println("애완동물을 추가합니다.");
 
-	    int petId = 1; // 애완동물 ID
 	    String pImage = "애완동물 이미지 경로"; // 애완동물 이미지 경로
 	    String pName = "멍멍이"; // 애완동물 이름
-	    int pAge = 3; // 애완동물 나이
+	    int pAge = 2016; // 애완동물 나이
 	    String pCategory = "강아지"; // 애완동물 종류
 	    String pDetailCa = "푸들"; // 애완동물 세부 종류
-	    String pNeureting = "중성화"; // 중성화 여부
-	    String userId2 = "user001"; // 사용자 ID
+	    int pNeureting = 0; // 중성화 여부
+	    String userId = "user1"; // 사용자 ID
 
-	    PetDTO pet = new PetDTO(petId, pImage, pName, pAge, pCategory, pDetailCa, pNeureting, userId2);
+	    PetDTO pet = new PetDTO(pImage, pName, pAge, pCategory, pDetailCa, pNeureting, userId);
 	    compDao.addPet(pet);
-	    System.out.println("애완동물 정보가 추가되었습니다.");
+	    System.out.println("새 애완동물의 petId는 " + pet.getPetId() + "입니다.");
+
 
 	}
 

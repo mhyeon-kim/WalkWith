@@ -24,15 +24,15 @@ public class CreatePetController implements Controller {
 
         // POST request (pet 정보 parameter로 전송됨)
         PetDTO pet = new PetDTO(
-                Integer.parseInt(request.getParameter("petId")),
-                request.getParameter("pImage"),
-                request.getParameter("pName"),
-                Integer.parseInt(request.getParameter("pAge")),
-                request.getParameter("pCategory"),
-                request.getParameter("pDatailCa"),
-                request.getParameter("pNeureting"),
-                request.getParameter("userId")
-                );
+        	    Integer.parseInt(request.getParameter("petId")),
+        	    request.getParameter("pImage"),
+        	    request.getParameter("pName"),
+        	    Integer.parseInt(request.getParameter("pAge")),
+        	    request.getParameter("pCategory"),
+        	    request.getParameter("pDatailCa"),
+        	    Integer.parseInt("pNeureting"), // 'Y'는 true, 'N'는 false로 변환
+        	    request.getParameter("userId")
+        	);
                 
         
         log.debug("Create Pet : {}", pet);

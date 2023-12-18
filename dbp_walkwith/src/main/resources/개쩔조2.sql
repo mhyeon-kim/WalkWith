@@ -19,6 +19,15 @@ DROP TABLE Seller CASCADE CONSTRAINTS PURGE;
 
 DROP TABLE Customer CASCADE CONSTRAINTS PURGE;
 
+DROP SEQUENCE category_seq;
+DROP SEQUENCE pet_seq;
+DROP SEQUENCE store_seq;
+DROP SEQUENCE likelist_seq;
+DROP SEQUENCE storecategory_seq;
+DROP SEQUENCE menu_seq;
+DROP SEQUENCE reservation_seq;
+DROP SEQUENCE review_seq;
+
 CREATE TABLE Category
 (
 	categoryId           INTEGER  NOT NULL ,
@@ -95,11 +104,11 @@ CREATE TABLE Store
 	storeId              INTEGER  NOT NULL ,
 	sName                VARCHAR2(200)  NOT NULL ,
 	sPhone               VARCHAR2(20)  NOT NULL ,
-	sTime                DATE  NOT NULL ,
+	sTime                DATE  NULL ,
 	sStarScore           FLOAT  NULL ,
 	sDetailDescription   VARCHAR2(1000)  NULL ,
 	sellerId             VARCHAR2(20)  NOT NULL ,
-	openDate            VARCHAR(20)  NOT NULL ,
+	openDays             VARCHAR(100)  NOT NULL ,
 	likeCount            INTEGER  NULL ,
 	sImage               VARCHAR(500)  NULL 
 );
@@ -257,27 +266,33 @@ CONSTRAINT R_14 FOREIGN KEY (storeId) REFERENCES Store (storeId));
 
 
 -- Category 데이터 입력
-INSERT INTO Category VALUES(category_seq.nextval, '카테고리명1', 10);
-INSERT INTO Category VALUES(category_seq.nextval, '카테고리명2', 15);
-INSERT INTO Category VALUES(category_seq.nextval, '카테고리명3', 5);
+INSERT INTO Category VALUES(category_seq.nextval, '음식점', 10);
+INSERT INTO Category VALUES(category_seq.nextval, '병원', 15);
 
 -- Customer 데이터 입력
 INSERT INTO Customer VALUES('user1', '이름1', 'password1', '010-1234-5678', 'user1@example.com');
 INSERT INTO Customer VALUES('user2', '이름2', 'password2', '010-2345-6789', 'user2@example.com');
 INSERT INTO Customer VALUES('user3', '이름3', 'password3', '010-3456-7890', 'user3@example.com');
+INSERT INTO Customer VALUES('user4', '이름4', 'password4', '010-4567-8901', 'user4@example.com');
+INSERT INTO Customer VALUES('user5', '이름5', 'password5', '010-5678-9012', 'user5@example.com');
 
 -- Pet 데이터 입력
 INSERT INTO Pet VALUES(pet_seq.nextval, 'Max', 3, 'Dog', 'Poodle', 'user1', 1, NULL);
 INSERT INTO Pet VALUES(pet_seq.nextval, 'Bella', 2, 'Cat', 'Persian', 'user2', 0, NULL);
 INSERT INTO Pet VALUES(pet_seq.nextval, 'Charlie', 1, 'Bird', 'Parrot', 'user3', 1, NULL);
+INSERT INTO Pet VALUES(pet_seq.nextval, 'Lucy', 4, 'Dog', 'Labrador', 'user4', 1, NULL);
+INSERT INTO Pet VALUES(pet_seq.nextval, 'Milo', 2, 'Cat', 'Siamese', 'user5', 0, NULL);
 
 -- Seller 데이터 입력
 INSERT INTO Seller VALUES('seller1', '판매자1', 'password1', '010-4567-8901', 'seller1@example.com');
 INSERT INTO Seller VALUES('seller2', '판매자2', 'password2', '010-5678-9012', 'seller2@example.com');
 INSERT INTO Seller VALUES('seller3', '판매자3', 'password3', '010-6789-0123', 'seller3@example.com');
+INSERT INTO Seller VALUES('seller4', '판매자4', 'password4', '010-7890-1234', 'seller4@example.com');
+INSERT INTO Seller VALUES('seller5', '판매자5', 'password5', '010-8901-2345', 'seller5@example.com');
 
 -- Store 데이터 입력
-INSERT INTO Store VALUES(store_seq.nextval, 'Store1', '02-123-4567', TO_DATE('09:00:00', 'HH24:MI:SS'), 4.5, '상점설명1', 'seller1', CURRENT_TIMESTAMP, 100, NULL);
-INSERT INTO Store VALUES(store_seq.nextval, 'Store2', '02-234-5678', TO_DATE('10:00:00', 'HH24:MI:SS'), 4.3, '상점설명2', 'seller2', CURRENT_TIMESTAMP, 200, NULL);
-INSERT INTO Store VALUES(store_seq.nextval, 'Store3', '02-345-6789', TO_DATE('11:00:00', 'HH24:MI:SS'), 4.7, '상점설명3', 'seller3', CURRENT_TIMESTAMP, 300, NULL);
-
+INSERT INTO Store VALUES(store_seq.nextval, 'Store1', '02-123-4567', TO_DATE('09:00:00', 'HH24:MI:SS'), 4.5, '상점설명1', 'seller1', '월,화,수,목', 100, NULL);
+INSERT INTO Store VALUES(store_seq.nextval, 'Store2', '02-234-5678', TO_DATE('10:00:00', 'HH24:MI:SS'), 4.3, '상점설명2', 'seller2', '화,수,목,금', 200, NULL);
+INSERT INTO Store VALUES(store_seq.nextval, 'Store3', '02-345-6789', TO_DATE('11:00:00', 'HH24:MI:SS'), 4.7, '상점설명3', 'seller3', '수,목,금,토', 300, NULL);
+INSERT INTO Store VALUES(store_seq.nextval, 'Store4', '02-456-7890', TO_DATE('12:00:00', 'HH24:MI:SS'), 4.2, '상점설명4', 'seller4', '목,금,토,일', 400, NULL);
+INSERT INTO Store VALUES(store_seq.nextval, 'Store5', '02-567-8901', TO_DATE('13:00:00', 'HH24:MI:SS'), 4.8, '상점설명5', 'seller5', '금,토,일,월', 500, NULL);
