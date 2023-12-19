@@ -266,16 +266,14 @@ public class CustomerDAO {
             int result = jdbcUtil.executeUpdate();
             jdbcUtil.commit();
 
-            if (result == 1) { // 애완동물 정보가 성공적으로 추가된 경우
-                // 새로 추가된 애완동물의 petId를 조회하는 쿼리를 실행합니다.
-                // 이 쿼리는 실제 데이터베이스와 테이블, 시퀀스 구조에 따라 약간 수정이 필요할 수 있습니다.
+            if (result == 1) { 
                 String idQuery = "SELECT pet_seq.currval FROM dual";
                 jdbcUtil.setSqlAndParameters(idQuery, null);
 
                 ResultSet rs = jdbcUtil.executeQuery();
                 if (rs.next()) {
                     int petId = rs.getInt(1);
-                    pet.setPetId(petId); // PetDTO에 petId를 설정합니다.
+                    pet.setPetId(petId);
                 }
                 rs.close();
             }

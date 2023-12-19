@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.dao.CustomerDAO;
+import model.dao.store_reviewDAO;
 import model.dto.CustomerDTO;
 import model.dto.PetDTO;
 import model.dto.ReservationDTO;
@@ -14,6 +15,7 @@ import model.dto.StoreDTO;
 public class CustomerManager {
     private static CustomerManager cusMan = new CustomerManager();
     private CustomerDAO cusDAO;
+    private store_reviewDAO storeDAO;
     
     private CustomerManager() {
         try {
@@ -96,6 +98,11 @@ public class CustomerManager {
     //petList 출력
     public List<PetDTO> petList(String userId) throws SQLException {
         return cusDAO.getAllPets(userId);
+    }
+    
+    //추천매장 출력
+    public List<StoreDTO> mySelectionStore(String userId) throws SQLException {
+        return storeDAO.selectionStore(userId);
     }
     
     public boolean login(String userId, String password)
