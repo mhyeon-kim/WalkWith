@@ -249,11 +249,6 @@ public class store_reviewDAO {
         return null;       
     }
     
-    // 가게 검색
-    public void searchStore() {     
-        //like %name%
-    }
-    
     public int deleteStore(String storeId) throws SQLException {
         String sql = "DELETE FROM store WHERE storeId=?";     
         jdbcUtil.setSqlAndParameters(sql, new Object[] {storeId});   // JDBCUtil에 delete문과 매개 변수 설정

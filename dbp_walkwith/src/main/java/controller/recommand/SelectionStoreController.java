@@ -38,7 +38,6 @@ public class SelectionStoreController implements Controller {
             String successRedirectUrl = determineSuccessRedirectUrl();
             return successRedirectUrl;
         } catch (Exception e) {
-            request.setAttribute("UpdateFailed", true);
             request.setAttribute("exception", e);
             return "/home/home.jsp";
         }
