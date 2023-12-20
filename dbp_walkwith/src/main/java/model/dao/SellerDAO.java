@@ -200,7 +200,7 @@ public class SellerDAO {
             while (rs.next()) {   // 검색 결과가 있으면
                 ReservationDTO reservation = new ReservationDTO();
                 reservation.setReservationId(rs.getInt("reservationId"));
-                reservation.setResDaTi(rs.getDate("resDaTi"));
+                reservation.setResDaTi(rs.getTimestamp("resDaTi"));
                 reservation.setUserId(rs.getString("userId"));
                 reservation.setStoreId(rs.getInt("storeId"));
 

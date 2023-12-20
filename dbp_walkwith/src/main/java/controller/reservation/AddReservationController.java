@@ -1,5 +1,6 @@
 package controller.reservation;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -32,8 +33,9 @@ public class AddReservationController implements Controller {
             return "/reservation/creationForm.jsp";
         }
 
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = format.parse(dateParam);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  // 시간까지 포함된 형식으로 변경
+        Date parsedDate = format.parse(dateParam);
+        Timestamp date = new Timestamp(parsedDate.getTime());  // Date를 Timestamp로 변환
 
         int storeId = Integer.parseInt(storeIdParam);
 
@@ -59,4 +61,5 @@ public class AddReservationController implements Controller {
             return "/reservation/creationForm.jsp";
         }
     }
+
 }

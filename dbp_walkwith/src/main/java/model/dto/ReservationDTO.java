@@ -1,10 +1,11 @@
 package model.dto;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class ReservationDTO { // store 이미지 추가...?
     private int reservationId;
-    private Date resDaTi;
+    private Timestamp resDaTi;
     private String userId;
     private String uName;
     private int storeId;
@@ -15,7 +16,7 @@ public class ReservationDTO { // store 이미지 추가...?
     public ReservationDTO() { }
 
     // 모든 필드를 초기화하는 생성자
-    public ReservationDTO(int reservationId, Date resDaTi, String userId, String uName, int storeId, String sName,
+    public ReservationDTO(int reservationId, Timestamp resDaTi, String userId, String uName, int storeId, String sName,
             String comment) {
         super();
         this.reservationId = reservationId;
@@ -24,6 +25,14 @@ public class ReservationDTO { // store 이미지 추가...?
         this.uName = uName;
         this.storeId = storeId;
         this.sName = sName;
+        this.comment = comment;
+    }
+    
+    public ReservationDTO(Timestamp resDaTi, String userId, int storeId, String comment) {
+        super();
+        this.resDaTi = resDaTi;
+        this.userId = userId;
+        this.storeId = storeId;
         this.comment = comment;
     }
 
@@ -36,11 +45,11 @@ public class ReservationDTO { // store 이미지 추가...?
         this.reservationId = reservationId;
     }
 
-    public Date getResDaTi() {
+    public Timestamp getResDaTi() {
         return resDaTi;
     }
 
-    public void setResDaTi(Date resDaTi) {
+    public void setResDaTi(Timestamp resDaTi) {
         this.resDaTi = resDaTi;
     }
 

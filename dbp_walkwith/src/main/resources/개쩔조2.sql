@@ -161,10 +161,11 @@ ALTER TABLE StoreCategory
 
 CREATE TABLE Reservation
 (
-	reservationId        INTEGER  NOT NULL ,
-	resDaTi              DATE  NOT NULL ,
-	userId               VARCHAR2(20)  NOT NULL ,
-	storeId              INTEGER  NOT NULL 
+    reservationId        INTEGER  NOT NULL,
+    resDaTi              DATE  NOT NULL,
+    userId               VARCHAR2(20)  NOT NULL,
+    storeId              INTEGER  NOT NULL,
+    reComment            VARCHAR2(1000) NULL
 );
 
 -- Reservation 테이블 시퀀스 생성
@@ -306,11 +307,11 @@ INSERT INTO LikeList VALUES('user4', 4);
 INSERT INTO LikeList VALUES('user5', 5);
 
 -- Reservation 테이블에 넣을 데이터
-INSERT INTO Reservation VALUES(reservation_seq.nextval, TO_DATE('2023-12-25 19:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'user1', 1);
-INSERT INTO Reservation VALUES(reservation_seq.nextval, TO_DATE('2023-12-26 20:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'user2', 2);
-INSERT INTO Reservation VALUES(reservation_seq.nextval, TO_DATE('2023-12-27 21:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'user3', 3);
-INSERT INTO Reservation VALUES(reservation_seq.nextval, TO_DATE('2023-12-28 22:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'user4', 4);
-INSERT INTO Reservation VALUES(reservation_seq.nextval, TO_DATE('2023-12-29 23:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'user5', 5);
+INSERT INTO Reservation VALUES(reservation_seq.nextval, TO_DATE('2023-12-25 19:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'user1', 1, '첫번째 예약');
+INSERT INTO Reservation VALUES(reservation_seq.nextval, TO_DATE('2023-12-26 20:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'user2', 2, '두번째 예약');
+INSERT INTO Reservation VALUES(reservation_seq.nextval, TO_DATE('2023-12-27 21:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'user3', 3, '세번째 예약');
+INSERT INTO Reservation VALUES(reservation_seq.nextval, TO_DATE('2023-12-28 22:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'user4', 4, '네번째 예약');
+INSERT INTO Reservation VALUES(reservation_seq.nextval, TO_DATE('2023-12-29 23:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'user5', 5, '다섯번째 예약');
 
 -- Review 테이블에 넣을 데이터
 INSERT INTO Review VALUES(review_seq.nextval, '매우 만족합니다.', 5.0, 'user1', 1);

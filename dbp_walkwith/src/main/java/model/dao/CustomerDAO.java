@@ -81,7 +81,7 @@ public class CustomerDAO {
             while (rs.next()) {
                 ReservationDTO reservation = new ReservationDTO();
                 reservation.setReservationId(rs.getInt("reservationId"));
-                reservation.setResDaTi(rs.getDate("resDaTi"));
+                reservation.setResDaTi(rs.getTimestamp("resDaTi"));
                 reservation.setUserId(rs.getString("userId"));
                 reservation.setStoreId(rs.getInt("storeId"));
 
@@ -108,7 +108,7 @@ public class CustomerDAO {
             ResultSet rs = jdbcUtil.executeQuery();  
             ReservationDTO res = new ReservationDTO(
                     rs.getInt("reservationId"),
-                    rs.getDate("resDaTi"),
+                    rs.getTimestamp("resDaTi"),
                     rs.getString("userId"),
                     rs.getString("uName"),
                     rs.getInt("storeId"),

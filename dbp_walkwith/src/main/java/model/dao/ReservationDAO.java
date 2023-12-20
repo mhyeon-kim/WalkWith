@@ -18,24 +18,29 @@ public class ReservationDAO {
         jdbcUtil = new JDBCUtil();
     }
 
-    // 예약 추가
+ // 예약 추가
     public int addReservation(ReservationDTO reservation) {
-        String sql = "INSERT INTO Reservation (reservationId, resDaTi, userId, storeId) VALUES (reservationId_seq.nextval, ?, ?, ?)";
-        Object[] parameters = new Object[] {(reservation.getResDaTi()), reservation.getUserId(), reservation.getStoreId()};
+        String sql = "INSERT INTO Reservation (reservationId, resDaTi, userId, storeId, reComment) VALUES (reservation_seq.nextval, ?, ?, ?, ?)";
+        Object[] parameters = new Object[] {reservation.getResDaTi(), reservation.getUserId(), reservation.getStoreId(), reservation.getComment()};
 
-        jdbcUtil.setSqlAndParameters(sql, parameters);
+        jdbcUtil.setSqlAndParameters(sql, parameters); 
 
-        String key[] = {"reservationId"}; // PK 컬럼의 이름 배열
         try {
-            int result = jdbcUtil.executeUpdate(key); // insert 문 실행
+            int result = jdbcUtil.executeUpdate(); // insert 문 실행
+            jdbcUtil.commit();
+            
+            if (result == 1) { 
+                String idQuery = "SELECT reservation_seq.currval FROM dual";
+                jdbcUtil.setSqlAndParameters(idQuery, null);
 
-            ResultSet rs = jdbcUtil.getGeneratedKeys(); // 생성된 PK 값을 포함한 result set 객체 반환
-            if(rs.next()) {
-                int generatedKey = rs.getInt(1); // 생성된 PK 컬럼 값
-                reservation.setReservationId(generatedKey); // ReservationDTO 객체에 PK 값을 설정
+                ResultSet rs = jdbcUtil.executeQuery();
+                if (rs.next()) {
+                    int reservationId = rs.getInt(1);
+                    reservation.setReservationId(reservationId);
+                }
+                rs.close();
             }
 
-            jdbcUtil.commit();
             return result;
         } catch (Exception ex) {
             jdbcUtil.rollback();
@@ -109,7 +114,7 @@ public class ReservationDAO {
             while (rs.next()) {
                 ReservationDTO reservation = new ReservationDTO();
                 reservation.setReservationId(rs.getInt("reservationId"));
-                reservation.setResDaTi(rs.getDate("resDaTi"));
+                reservation.setResDaTi(rs.getTimestamp("resDaTi"));
                 reservation.setUserId(rs.getString("userId"));
                 reservation.setStoreId(rs.getInt("storeId"));
                 reservation.setuName(rs.getString("uName"));  // 사용자 이름
@@ -146,7 +151,7 @@ public List<ReservationDTO> findReservationsByStore(int storeId) {
         while (rs.next()) {
             ReservationDTO reservation = new ReservationDTO();
             reservation.setReservationId(rs.getInt("reservationId"));
-            reservation.setResDaTi(rs.getDate("resDaTi"));
+            reservation.setResDaTi(rs.getTimestamp("resDaTi"));
             reservation.setUserId(rs.getString("userId"));
             reservation.setStoreId(rs.getInt("storeId"));
             reservation.setuName(rs.getString("uName"));  // 사용자 이름 추가
@@ -291,7 +296,7 @@ public List<ReservationDTO> findReservationsByStore(int storeId) {
             while (rsSelect.next()) {
                 ReservationDTO reservation = new ReservationDTO();
                 reservation.setReservationId(rsSelect.getInt("reservationId"));
-                reservation.setResDaTi(rsSelect.getDate("resDaTi"));
+                reservation.setResDaTi(rsSelect.getTimestamp("resDaTi"));
                 reservation.setUserId(rsSelect.getString("userId"));
                 reservation.setStoreId(rsSelect.getInt("storeId"));
                 reservation.setuName(rsSelect.getString("uName")); // 사용자 이름 추가
