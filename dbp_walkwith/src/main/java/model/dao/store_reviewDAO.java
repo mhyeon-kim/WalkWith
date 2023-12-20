@@ -2,6 +2,7 @@ package model.dao;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import model.dto.MenuDTO;
@@ -42,11 +43,11 @@ public class store_reviewDAO {
                 StoreDTO recommand = new StoreDTO();
                 recommand.setsName(rs1.getString("sName"));
                 recommand.setsPhone(rs1.getString("sPhone"));
-                recommand.setsTime(rs1.getDate("sTime"));
+                recommand.setsTime(rs1.getString("sTime"));
                 recommand.setsStarScore(rs1.getFloat("sStarScore"));
                 recommand.setsDescription(rs1.getString("sDescription"));
                 recommand.setSellerId(rs1.getString("sellerId"));
-                recommand.setOpenDate(rs1.getString("openDate"));
+                recommand.setopenDays(rs1.getString("openDays"));
                 recommand.setsImage_path(rs1.getString("sImage_path"));
 
                 recommandList.add(recommand);
@@ -65,11 +66,11 @@ public class store_reviewDAO {
                 StoreDTO recommand = new StoreDTO();
                 recommand.setsName(rs2.getString("sName"));
                 recommand.setsPhone(rs2.getString("sPhone"));
-                recommand.setsTime(rs2.getDate("sTime"));
+                recommand.setsTime(rs2.getString("sTime"));
                 recommand.setsStarScore(rs2.getFloat("sStarScore"));
                 recommand.setsDescription(rs2.getString("sDescription"));
                 recommand.setSellerId(rs2.getString("sellerId"));
-                recommand.setOpenDate(rs2.getString("openDate"));
+                recommand.setopenDays(rs2.getString("openDays"));
                 recommand.setsImage_path(rs2.getString("sImage_path"));
 
 
@@ -140,36 +141,48 @@ public class store_reviewDAO {
         }       
         return 0;           
     }
-	public int addStore(StoreDTO store, Integer categoryId) throws SQLException {
-		String sql = "INSERT INTO store (storeId, sName, sPhone, sTime, sStarScore, sDetailDescription, sellerId, openDate,sImage) "
-				   + "VALUES (store_seq.nextval, ?, ?, ?, ?, ?, ?, ?)";    
-		String category = searchCategory(categoryId);
-		Object[] param = new Object[] {store.getsName(), store.getsPhone(), 
-				store.getsTime(), store.getsStarScore(), store.getsDescription(), 
-				store.getSellerId(), store.getOpenDate(), category, store.getsImage_path()};             
-		jdbcUtil.setSqlAndParameters(sql, param);   // JDBCUtil 에 insert문과 매개 변수 설정
-		try {               
-			int result = jdbcUtil.executeUpdate();  // insert 문 실행
-			return result;
-		} catch (Exception ex) {
-			jdbcUtil.rollback();
-			ex.printStackTrace();
-		} finally {     
-			jdbcUtil.commit();
-			jdbcUtil.close();   // resource 반환
-		}       
-		return 0;           
-	}
-
     
+    public int addStore(StoreDTO storeDTO) throws SQLException {
+        String sql = "INSERT INTO store(sellerId, storeId, sName, sPhone, sTime, openDays, sStarScore, sDetailDescription, likeCount, sImage) "
+                    + "VALUES (?, store_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        // StoreDTO 객체의 정보를 SQL 문의 파라미터로 설정
+        Object[] param = new Object[] {
+            storeDTO.getSellerId(), 
+            storeDTO.getsName(), 
+            storeDTO.getsPhone(), 
+            storeDTO.getsTime(), 
+            storeDTO.getopenDays(), 
+            storeDTO.getsStarScore(), 
+            storeDTO.getsDescription(), 
+            storeDTO.getLikeCount(), 
+            storeDTO.getsImage_path()
+        };
+        
+        jdbcUtil.setSqlAndParameters(sql, param); // JDBCUtil에 SQL 문과 매개변수 설정
+
+        try {
+            int result = jdbcUtil.executeUpdate(); // SQL 문 실행
+            jdbcUtil.commit(); // 변경 사항 커밋
+            return result;
+        } catch (Exception ex) {
+            jdbcUtil.rollback(); // 에러 발생 시 롤백
+            ex.printStackTrace();
+            return 0; // 예외 발생 시 0 반환
+        } finally {
+            jdbcUtil.close(); // 자원 반환
+        }
+    }
+
+
     public int updateStore(StoreDTO store, Integer categoryId) throws SQLException {
         String sql = "UPDATE store "
-                    + "SET sName=?, sPhone=?, sTime=?, sStarScore=?, sDetailDescription=?, sellerId=?, openDate=?, category=?, sImage_path=? "
+                    + "SET sName=?, sPhone=?, sTime=?, sStarScore=?, sDetailDescription=?, sellerId=?, openDays=?, category=?, sImage_path=? "
                     + "WHERE storeId=?";
         String category = searchCategory(categoryId);
         Object[] param = new Object[] {store.getsName(), store.getsPhone(), 
                     store.getsTime(), store.getsStarScore(), store.getsDescription(), 
-                    store.getSellerId(), store.getOpenDate(), category, store.getsImage_path(), store.getStoreId()};              
+                    store.getSellerId(), store.getopenDays(), category, store.getsImage_path(), store.getStoreId()};              
         jdbcUtil.setSqlAndParameters(sql, param);   // JDBCUtil에 update문과 매개 변수 설정
             
         try {               
@@ -205,15 +218,17 @@ public class store_reviewDAO {
     }
     
     public void printStore(Integer storeId) {
-        String sql = "SELECT sName, SPhone, STime, openDate, sStarScore, sDescription, LikeCount, sImage_path "
+        String sql = "SELECT sName, SPhone, STime, openDays, sStarScore, sDetailDescription, LikeCount, sImage "
                 + "FROM Store WHERE storeId=?";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {storeId});
-        
+
         try {               
             ResultSet result = jdbcUtil.executeQuery();  
-            // 기타 코드들...
-            String imagePath = result.getString("sImage_path");
-            // imagePath를 사용하여 이미지를 출력하거나 사용자에게 제공.
+            if (result.next()) {  // ResultSet.next가 호출되도록 수정
+                // 기타 코드들...
+                String imagePath = result.getString("sImage_path");
+                // imagePath를 사용하여 이미지를 출력하거나 사용자에게 제공.
+            }
         } catch (Exception ex) {
             jdbcUtil.rollback();
             ex.printStackTrace();
@@ -223,6 +238,7 @@ public class store_reviewDAO {
             jdbcUtil.close();   // resource 반환
         }       
     }
+
 
     
     public String searchCategory(Integer cateId) {
@@ -417,40 +433,40 @@ public class store_reviewDAO {
     }*/
     
  // ===== 카테고리명을 통한 검색 =====
-    public List<StoreDTO> searchStoreByCategory(String categoryName) {
-        StringBuilder sqlSelect = new StringBuilder();
-        sqlSelect.append("SELECT s.storeId, s.sName, s.sStarScore, s.sDetailDescription, s.sAddress, s.LikeCount ")
-                 .append("FROM Store s ")
-                 .append("JOIN StoreCategory sc ON s.storeId = sc.storeId ")
-                 .append("JOIN Category c ON sc.categoryId = c.categoryId ")
-                 .append("WHERE c.caName = ?");
-
-        jdbcUtil.setSqlAndParameters(sqlSelect.toString(), new Object[] {categoryName});
-
-        try {
-            List<StoreDTO> storeList = new ArrayList<>();
-            ResultSet rs = jdbcUtil.executeQuery();
-
-            while (rs.next()) {
-                StoreDTO store = new StoreDTO();
-                store.setStoreId(rs.getInt("storeId"));
-                store.setsName(rs.getString("sName"));
-                store.setsStarScore(rs.getFloat("sStarScore"));
-                store.setsDescription(rs.getString("sDetailDescription"));
-                store.setLikeCount(rs.getInt("LikeCount")); 
-
-                storeList.add(store);
-            }
-
-            return storeList;
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        } finally {
-            jdbcUtil.close();
-        }
-
-        return null;
-    }
+//    public List<StoreDTO> searchStoreByCategory(String categoryName) {
+//        StringBuilder sqlSelect = new StringBuilder();
+//        sqlSelect.append("SELECT s.storeId, s.sName, s.sStarScore, s.sDetailDescription, s.sAddress, s.LikeCount ")
+//                 .append("FROM Store s ")
+//                 .append("JOIN StoreCategory sc ON s.storeId = sc.storeId ")
+//                 .append("JOIN Category c ON sc.categoryId = c.categoryId ")
+//                 .append("WHERE c.caName = ?");
+//
+//        jdbcUtil.setSqlAndParameters(sqlSelect.toString(), new Object[] {categoryName});
+//
+//        try {
+//            List<StoreDTO> storeList = new ArrayList<>();
+//            ResultSet rs = jdbcUtil.executeQuery();
+//
+//            while (rs.next()) {
+//                StoreDTO store = new StoreDTO();
+//                store.setStoreId(rs.getInt("storeId"));
+//                store.setsName(rs.getString("sName"));
+//                store.setsStarScore(rs.getFloat("sStarScore"));
+//                store.setsDescription(rs.getString("sDetailDescription"));
+//                store.setLikeCount(rs.getInt("LikeCount")); 
+//
+//                storeList.add(store);
+//            }
+//
+//            return storeList;
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//        } finally {
+//            jdbcUtil.close();
+//        }
+//
+//        return null;
+//    }
 
 
 

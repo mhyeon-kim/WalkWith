@@ -91,7 +91,7 @@ public class SellerDAO {
         				rs.getInt("storeId"),
         				rs.getString("sName"),
         				rs.getString("sPhone"),
-        				rs.getDate("sTime"),
+        				rs.getString("sTime"),
         				rs.getString("openDate"),
         				rs.getDouble("sStarScore"),
         				rs.getString("sDescription"),

@@ -9,25 +9,40 @@ public class StoreDTO {
 	private int storeId;
 	private String sName;
 	private String sPhone;
-	private Date sTime;
-	private String openDate; // 영업 요일 저장 ex)월,화, 수, 목... 이런 형식 
+	private String sTime;
+	private String openDays; // 영업 요일 저장 ex)월,화, 수, 목... 이런 형식 
 	private double sStarScore;
 	private String sDescription;
 	private int likeCount;  // 좋아요 수 필드 추가
 	private String sImage_path; // 가게 이미지 추가
 	
-	public StoreDTO() {
+    // 기본 생성자 추가
+    public StoreDTO() {
     }
-	
-	public StoreDTO(String sellerId, int storeId, String sName, String sPhone, Date sTime, String openDate, double sStarScore,
-			String sDescription, int likeCoun, String sImage_path) {
+		
+	public StoreDTO(String sellerId, int storeId, String sName, String sPhone, String sTime, String openDays, double sStarScore,
+			String sDescription, int likeCount, String sImage_path) {
 		super();
 		this.sellerId = sellerId;
 		this.storeId = storeId;
 		this.sName = sName;
 		this.sPhone = sPhone;
 		this.sTime = sTime;
-		this.openDate = openDate;
+		this.openDays = openDays;
+		this.sStarScore = sStarScore;
+		this.sDescription = sDescription;
+		this.likeCount = likeCount;  // 좋아요 수 초기화
+		this.sImage_path = sImage_path;
+	}
+	
+	public StoreDTO(String sellerId, String sName, String sPhone, String sTime, String openDays, double sStarScore,
+			String sDescription, int likeCount, String sImage_path) {
+		super();
+		this.sellerId = sellerId;
+		this.sName = sName;
+		this.sPhone = sPhone;
+		this.sTime = sTime;
+		this.openDays = openDays;
 		this.sStarScore = sStarScore;
 		this.sDescription = sDescription;
 		this.likeCount = likeCount;  // 좋아요 수 초기화
@@ -60,18 +75,18 @@ public class StoreDTO {
 	public void setsPhone(String sPhone) {
 		this.sPhone = sPhone;
 	}
-	public Date getsTime() {
+	public String getsTime() {
 		return sTime;
 	}
-	public void setsTime(Date date) {
+	public void setsTime(String date) {
 		this.sTime = date;
 ;
 	}
-	public String getOpenDate() {
-		return openDate;
+	public String getopenDays() {
+		return openDays;
 	}
-	public void setOpenDate(String openDate) {
-		this.openDate = openDate;
+	public void setopenDays(String openDays) {
+		this.openDays = openDays;
 	}
 	public double getsStarScore() {
 		return sStarScore;
@@ -106,7 +121,7 @@ public class StoreDTO {
 	@Override
 	public String toString() {
 		return "Store [sellerId=" + sellerId + ", storeId=" + storeId + ", sName=" + sName + ", sPhone=" + sPhone
-				+ ", sTime=" + sTime + ", openDate=" + openDate + ", sStarScore=" + sStarScore + ", sDescription="
+				+ ", sTime=" + sTime + ", openDays=" + openDays + ", sStarScore=" + sStarScore + ", sDescription="
 				+ sDescription + ", likeCount=" + likeCount + "]";
 	}
 	
