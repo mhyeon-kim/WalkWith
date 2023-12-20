@@ -142,11 +142,9 @@ public class store_reviewDAO {
         return 0;           
     }
     
-    public int addStore(StoreDTO storeDTO) throws SQLException {
+    public int addStore(StoreDTO storeDTO) {
         String sql = "INSERT INTO store(sellerId, storeId, sName, sPhone, sTime, openDays, sStarScore, sDetailDescription, likeCount, sImage) "
                     + "VALUES (?, store_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-        // StoreDTO 객체의 정보를 SQL 문의 파라미터로 설정
         Object[] param = new Object[] {
             storeDTO.getSellerId(), 
             storeDTO.getsName(), 
@@ -158,21 +156,33 @@ public class store_reviewDAO {
             storeDTO.getLikeCount(), 
             storeDTO.getsImage_path()
         };
-        
-        jdbcUtil.setSqlAndParameters(sql, param); // JDBCUtil에 SQL 문과 매개변수 설정
+        jdbcUtil.setSqlAndParameters(sql, param);
 
         try {
-            int result = jdbcUtil.executeUpdate(); // SQL 문 실행
-            jdbcUtil.commit(); // 변경 사항 커밋
+            int result = jdbcUtil.executeUpdate();
+            jdbcUtil.commit();
+
+            if (result == 1) { 
+                String idQuery = "SELECT store_seq.currval FROM dual";
+                jdbcUtil.setSqlAndParameters(idQuery, null);
+
+                ResultSet rs = jdbcUtil.executeQuery();
+                if (rs.next()) {
+                    int storeId = rs.getInt(1);
+                    storeDTO.setStoreId(storeId);
+                }
+                rs.close();
+            }
+
             return result;
         } catch (Exception ex) {
-            jdbcUtil.rollback(); // 에러 발생 시 롤백
+            jdbcUtil.rollback();
             ex.printStackTrace();
-            return 0; // 예외 발생 시 0 반환
         } finally {
-            jdbcUtil.close(); // 자원 반환
+            jdbcUtil.close();
         }
-    }
+        return 0;
+    } // seq 사용 가능하도록 수정
 
 
     public int updateStore(StoreDTO store, Integer categoryId) throws SQLException {
@@ -238,8 +248,6 @@ public class store_reviewDAO {
             jdbcUtil.close();   // resource 반환
         }       
     }
-
-
     
     public String searchCategory(Integer cateId) {
         String sql = "SELECT caName FROM Category WHERE categoryId=?";
@@ -286,25 +294,42 @@ public class store_reviewDAO {
     
     
     //리뷰 
-	public int writeReview(ReviewDTO review) {
-		String sql = "INSERT INTO Review (storeId, userId, reContent, starScore) VALUES (?, ?, ?, ?)";  
-		Object[] param = new Object[] {review.getStoreId(), review.getUserId(),review.getReContent(), review.getStarScore()};              
-		jdbcUtil.setSqlAndParameters(sql, param);   // JDBCUtil 에 insert문과 매개 변수 설정
+    public int writeReview(ReviewDTO review) {
+        String sql = "INSERT INTO review(reviewId, userId, storeId, starScore, reContent) "
+                    + "VALUES (review_seq.nextval, ?, ?, ?, ?)";
+        Object[] param = new Object[] {
+            review.getUserId(), 
+            review.getStoreId(), 
+            review.getStarScore(), 
+            review.getReContent()
+        };
+        jdbcUtil.setSqlAndParameters(sql, param);
 
-		try {               
-			int result = jdbcUtil.executeUpdate();  // delete 문 실행
-			return result;
-		} catch (Exception ex) {
-			jdbcUtil.rollback();
-			ex.printStackTrace();
-		}
-		finally {
-			jdbcUtil.commit();
-			jdbcUtil.close();   // resource 반환
-		}       
+        try {
+            int result = jdbcUtil.executeUpdate();
+            jdbcUtil.commit();
 
-		return 0;       
-	}
+            if (result == 1) { 
+                String idQuery = "SELECT review_seq.currval FROM dual";
+                jdbcUtil.setSqlAndParameters(idQuery, null);
+
+                ResultSet rs = jdbcUtil.executeQuery();
+                if (rs.next()) {
+                    int reviewId = rs.getInt(1);
+                    review.setReviewId(reviewId);
+                }
+                rs.close();
+            }
+
+            return result;
+        } catch (Exception ex) {
+            jdbcUtil.rollback();
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.close();
+        }
+        return 0;
+    }
     
 	public int deleteReview(String reviewId) throws SQLException {
         String sql = "DELETE FROM review WHERE reviewId=?";     

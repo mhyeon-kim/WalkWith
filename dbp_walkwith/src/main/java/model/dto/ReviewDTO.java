@@ -3,16 +3,24 @@ package model.dto;
 public class ReviewDTO {
     private Integer reviewId;
     private Integer storeId;
-    private Integer userId;
+    private String userId;
     private String reContent;
-    private Integer starScore;
+    private double starScore;
     
     public ReviewDTO(){
     }
     
-    public ReviewDTO(Integer reviewId, Integer storeId, Integer userId, String reContent, Integer starScore) {
+    public ReviewDTO(Integer reviewId, Integer storeId, String userId, String reContent, double starScore) {
         super();
         this.reviewId = reviewId;
+        this.storeId = storeId;
+        this.userId = userId;
+        this.reContent = reContent;
+        this.starScore = starScore;
+    }
+    
+    public ReviewDTO(Integer storeId, String userId, String reContent, double starScore) {
+        super();
         this.storeId = storeId;
         this.userId = userId;
         this.reContent = reContent;
@@ -35,11 +43,11 @@ public class ReviewDTO {
         this.storeId = storeId;
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -51,11 +59,11 @@ public class ReviewDTO {
         this.reContent = reContent;
     }
 
-    public Integer getStarScore() {
+    public double getStarScore() {
         return starScore;
     }
 
-    public void setStarScore(Integer starScore) {
+    public void setStarScore(double starScore) {
         this.starScore = starScore;
     }
 

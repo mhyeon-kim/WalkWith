@@ -16,8 +16,13 @@ public class CreateReviewController implements Controller {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        ReviewDTO review = new ReviewDTO(
-                0,0,0, request.getParameter("reContent"), 0);   // DTO는 다 String..?
+    	ReviewDTO review = new ReviewDTO(
+    		    0, // 리뷰 ID
+    		    0, // 가게 ID
+    		    "0", // 사용자 ID (문자열로 변환)
+    		    request.getParameter("reContent"), // 리뷰 내용
+    		    0.0 // 별점 점수 (double 형식)
+    		);
         
         try {
             ReviewManager manager = ReviewManager.getInstance();

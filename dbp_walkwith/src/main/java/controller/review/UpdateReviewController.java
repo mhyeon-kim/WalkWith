@@ -17,7 +17,12 @@ public class UpdateReviewController implements Controller {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ReviewDTO review = new ReviewDTO(
-                0,0,0, request.getParameter("reContent"), 0);   // DTO는 다 String..?
+                0, // 리뷰 ID
+                0, // 가게 ID
+                request.getParameter("userId"), // 사용자 ID (문자열로 처리)
+                request.getParameter("reContent"), // 리뷰 내용
+                Double.parseDouble(request.getParameter("starScore")) // 별점 점수 (문자열을 double로 변환)
+            );   // DTO는 다 String..?
         
         try {
             ReviewManager manager = ReviewManager.getInstance();
