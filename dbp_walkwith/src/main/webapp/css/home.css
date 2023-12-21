@@ -1,12 +1,12 @@
 @font-face { /* 국립박물관문화재단클래식 Light 폰트 적용 */
         font-family: "museum";
-        src: url("/font/museum.ttf") format("truetype");
+        src: url("../font/museum.ttf") format("truetype");
         font-weight: normal;
         }
         
         @font-face { /* EBS 훈민정음 새론 L 애플산돌고딕 폰트 적용 */
         font-family: "ebs";
-        src: url("/font/ebs.ttf") format("truetype");
+        src: url("../font/ebs.ttf") format("truetype");
         font-weight: normal;
         }
 
@@ -26,7 +26,7 @@
         }
 
         #left-div{
-            background-image: url("/img/Walkwith-div-left.png");
+            background-image: url("../img/Walkwith-div-left.png");
             background-repeat: no-repeat;
             width: 230px;
             height: 280px;
@@ -49,7 +49,7 @@
         }
 
         #right-div{
-            background-image: url("/img/walkwith-div-right.png");
+            background-image: url("../img/walkwith-div-right.png");
             width: 1200px;
             height: 670px;
             margin-left: 20px;
@@ -90,7 +90,7 @@
         }
 
         #store-list{
-            background-image: url("/img/imgWalkwith-AdvertisingBanner.png");
+            background-image: url("../img/imgWalkwith-AdvertisingBanner.png");
             background-size: cover;
             border-radius: 10px;
             width : 100%;

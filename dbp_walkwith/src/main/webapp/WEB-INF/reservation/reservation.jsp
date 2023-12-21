@@ -12,13 +12,13 @@
     <style>
         @font-face {
             font-family: "museum";
-            src: url("/font/museum.ttf") format("truetype");
+            src: url("../../font/museum.ttf") format("truetype");
             font-weight: normal;
         }
 
         @font-face {
             font-family: "ebs";
-            src: url("/font/ebs.ttf") format("truetype");
+            src: url("../../font/ebs.ttf") format("truetype");
             font-weight: normal;
         }
 
@@ -38,7 +38,7 @@
         }
 
         #left-div{
-            background-image: url("/img/Walkwith-div-left.png");
+            background-image: url("../../img/Walkwith-div-left.png");
             background-repeat: no-repeat;
             width: 230px;
             height: 280px;
@@ -61,7 +61,7 @@
         }
 
         #right-div{
-            background-image: url("/img/walkwith-div-right.png");
+            background-image: url("../../img/walkwith-div-right.png");
             width: 1200px;
             height: 670px;
             margin-left: 20px;
@@ -94,7 +94,7 @@
         }
 
         #second-right{
-            background-image: url("/img/Walkwith-recommandedStore.png");
+            background-image: url("../../img/Walkwith-recommandedStore.png");
             background-size: cover;
             background-repeat: no-repeat;
             border-radius: 10px;
@@ -123,7 +123,7 @@
         #star-div{
             width: 180px;
             height: 50px;
-            background-image: url("/img/Walkwith-StarDiv.png");
+            background-image: url("../../img/Walkwith-StarDiv.png");
             border-radius: 10px;
             background-size: cover;
             display: flex;
@@ -149,7 +149,7 @@
         }
 
         #store-introduct{
-            background-image: url("/img/Walkwith-MarketIntroduct.png");
+            background-image: url("../../img/Walkwith-MarketIntroduct.png");
             height: 300px;
             margin-top: 10px;
             background-size: cover;
@@ -173,7 +173,7 @@
         }
 
         #sr-second{
-            background-image: url("/img/Walkwith-menuDiv.png");
+            background-image: url("../../img/Walkwith-menuDiv.png");
             background-repeat: no-repeat;
             background-size: cover;
             border-radius: 10px;
@@ -196,7 +196,7 @@
         }
 
         #sr-third{
-            background-image: url("/img/Walkwith-commentDiv.png");
+            background-image: url("../../img/Walkwith-commentDiv.png");
             background-repeat: no-repeat;
             background-size: cover;
             height: 150px;
