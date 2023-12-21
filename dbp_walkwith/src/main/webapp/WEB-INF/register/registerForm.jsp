@@ -45,7 +45,7 @@
     	}
     	form.submit();
     }
-
+    
     function userList(targetUri) {
     	form.action = targetUri;
     	form.submit();
@@ -75,6 +75,10 @@
                     </div>
                     <div id="text" class="position-relative">
                         <input type="email" id="email" name="email" placeholder="이메일" class="form-control">
+                    </div>
+                    <div>
+                        <label><input type="radio" name="userType" value="consumer" checked> 소비자</label>
+                        <label><input type="radio" name="userType" value="seller"> 사업자</label>
                     </div>                    
                     <div>
                        <a href="<c:url value='/home' />" id="a"><input type="button" id="btn" style=" margin-top: 25px; width: 100%;" value="회원가입" onclick="userCreate('/user/register')" class="btn btn-primary"></a>

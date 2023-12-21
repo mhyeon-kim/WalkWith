@@ -36,7 +36,7 @@
 <body>
     <div class="container">
         <div id="banner" class="d-flex align-items-center justify-content-center">
-            <a href="<c:url value = '/home' />" id="a"><img id="banner-logo" src="../img/Walkwith-logo.png" alt="Walkwith Logo"></a>
+            <a href="<c:url value = '/home' />" id="a"><img id="banner-logo" src="<c:url value='/img/Walkwith-logo.png' />" alt="Walkwith Logo"></a>
         </div>
         <div class="container d-flex content-container">
             <div id="right-div" class="d-flex justify-content-center align-items-center">
@@ -44,11 +44,11 @@
                 <h1 class="text-center">로그인</h1>
                     <div id="text" class="position-relative">
                         <input type="text" id="ID" style="width: 100%;" name="userId" maxlength="9" placeholder="아이디" class="form-control">
-                        <img id="img" src="../../img/Walkwith-User-Icon.png" alt="person" class="position-absolute" style="top: 10px;">
+                        <img id="img" src="<c:url value='../img/Walkwith-User-Icon.png'/>" alt="person" class="position-absolute" style="top: 10px;">
                     </div>
                     <div id="text" class="position-relative">
                         <input type="password" id="PW" style="width: 100%;" name="password" maxlength="9" placeholder="비밀번호" class="form-control">
-                        <img id="img" src="../../img/Walkwith-key-Icon.png" alt="lock" class="position-absolute" style="top: 10px;">
+                        <img id="img" src="<c:url value='../img/Walkwith-key-Icon.png' />" alt="lock" class="position-absolute" style="top: 10px;">
                     </div>
                      <div>
                         <label><input type="radio" name="userType" value="consumer" checked> 소비자</label>
