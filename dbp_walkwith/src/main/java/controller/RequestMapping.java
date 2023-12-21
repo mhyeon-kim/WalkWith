@@ -31,13 +31,13 @@ public class RequestMapping {
         mappings.put("/user/cutomer_update", new ForwardController("/user/cutomer_update.jsp"));
         mappings.put("/user/seller", new ForwardController("/user/seller.jsp"));
         mappings.put("/user/seller_update", new ForwardController("/user/seller_update.jsp"));
-        mappings.put("user/list", new ForwardController("/user/list.jsp"));
+        mappings.put("/user/list", new ForwardController("/user/list.jsp"));
         
         //customer
-        mappings.put("customer/register", new CreateCustomerController());
+        mappings.put("/customer/register", new CreateCustomerController());
         
         //seller
-        mappings.put("seller/register", new CreateSellerController());
+        mappings.put("/seller/register", new CreateSellerController());
         
         //pet
         mappings.put("/user/pet_RegisterForm", new ForwardController("/user/pet_RegisterForm.jsp"));
