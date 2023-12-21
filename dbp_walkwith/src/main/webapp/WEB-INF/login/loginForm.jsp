@@ -55,8 +55,8 @@
                         <label><input type="radio" name="userType" value="seller"> 사업자</label>
                     </div>                   
                     <div>
-                       <a href="<c:url value = '/user/customer' />" id="a"><input type="button" id="btn" style="margin-top: 25px; width: 100%;" value="로그인" onclick="login()" class="btn btn-primary"></a>
-                       <a href="<c:url value = '/register/registerForm' />" id="a"><input type="button" id="btn" style="margin-top: 25px; width: 100%;" value="회원가입" onclick="userCreate('/user/register')" class="btn btn-secondary"></a>
+                       <a href="<c:url value = '/user/customer' />" id="a"><input type="submit" id="btn" style="margin-top: 25px; width: 100%;" value="로그인" onclick="login()" class="btn btn-primary"></a>
+                       <a href="<c:url value = '/register/registerForm' />" id="a"><input type="submit" id="btn" style="margin-top: 25px; width: 100%;" value="회원가입" onclick="userCreate('/user/register')" class="btn btn-secondary"></a>
                     </div>
                     </div>
                 </form>

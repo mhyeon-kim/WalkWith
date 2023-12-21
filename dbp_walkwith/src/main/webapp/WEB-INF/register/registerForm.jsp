@@ -44,15 +44,6 @@
     		return false;
     	}
     	
-    	var targetUri;
-    	
-    	if(form.userType.value.equals("customer") {
-    		targetUri = "/customer/register"
-    	}
-    	if(form.userType.value.equals("seller")) {
-    		targetUri = "/seller/regsiter"
-    	}
-    	form.action = targetUri;
     	form.submit();
     }
 
@@ -77,7 +68,7 @@
                         <input type="name" id="name" name="name" placeholder="이름" class="form-control">
                     </div>
                     <div id="text" class="position-relative">
-                        <input type="phone" id="phon" name="phone" placeholder="전화번호" class="form-control">
+                        <input type="phone" id="phone" name="phone" placeholder="전화번호" class="form-control">
                     </div>
                     <div id="text" class="position-relative">
                         <input type="email" id="email" name="email" placeholder="이메일" class="form-control">
@@ -87,7 +78,7 @@
                         <label><input type="radio" name="userType" value="seller"> 사업자</label>
                     </div>                    
                     <div>
-                       <input type="button" id="btn" style=" margin-top: 25px; width: 100%;" value="회원가입" onclick="userCreate()" class="btn btn-primary"></a>
+                       <input type="submit" id="btn" style=" margin-top: 25px; width: 100%;" value="회원가입" onclick="userCreate()" class="btn btn-primary"></a>
                     </div>
                     </div>
                 </form>

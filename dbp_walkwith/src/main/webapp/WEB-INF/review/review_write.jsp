@@ -274,7 +274,7 @@
                             			
                         </div>
                     <form name="form" method="POST" action="/review/review_view">
-	                    <input type="button" value="리뷰 작성" onClick="reviewCreate()">
+	                    <input type="submit" value="리뷰 작성" onClick="reviewCreate()">
 	                    </div>
 	                    <div id="sr-second">
 	                        <div class="menu-item">리뷰 내용</div>
