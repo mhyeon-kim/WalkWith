@@ -220,6 +220,22 @@
         }
 
     </style>
+    <script>
+    function reviewCreate() {
+    	if (form.recontent.value == "") {
+    		alert("리뷰 내용을 입력하십시오.");
+    		form.recontent.focus();
+    		return false;
+    	} 
+    	if (form.star.value == "") {
+    		alert("비밀번호를 입력하십시오.");
+    		form.star.focus();
+    		return false;
+    	}
+    	
+    	form.submit();
+    }
+    </script>
 </head>
 
 <body>
@@ -255,23 +271,19 @@
                 <div id="second-right">			
                     <div id="sr-first">			
                         <div style="display: flex; align-items: center;">
-                            <span class="time-set">
-                                <input type="date" class="res-input">
-                                <img src="<c:url value='../img/Walkwith-DateDiv.png' />">
-                            </span>
-                            <span class="time-set" style="margin-left : 10px;">
-                                <input type="time" class="res-input">
-                                <img src="<c:url value='../img/Walkwith-TimeDiv.png' />">
-                            </span>				
+                            			
                         </div>
-                    <button type="button" id="next-button"><img id="btn-img" src="<c:url value='../img/Walkwith-ReservNext.png' />"></button>
-                    </div>
-                    <div id="sr-second">
-                        <div class="menu-item">리뷰 내용</div>
-                        <textarea>
-                                
-                        </textarea>			
-                    </div>
+                    <form name="form" method="POST" action="/review/review_view">
+	                    <input type="button" value="리뷰 작성" onClick="reviewCreate()">
+	                    </div>
+	                    <div id="sr-second">
+	                        <div class="menu-item">리뷰 내용</div>
+	                        <textarea id="recontent" name="recontent">
+	                                
+	                        </textarea>			
+	                    </div>
+                    </form>
+                    <input name="star" id="star" type="number" step="0.1">
                     <img src="<c:url value='../img/star.jpg' />" style="width: 200px;">
                 </div>
             </div>

@@ -1,5 +1,7 @@
 package controller.review;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -16,13 +18,23 @@ public class CreateReviewController implements Controller {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    	ReviewDTO review = new ReviewDTO(
-    		    0, // 리뷰 ID
-    		    0, // 가게 ID
-    		    "0", // 사용자 ID (문자열로 변환)
-    		    request.getParameter("reContent"), // 리뷰 내용
-    		    0.0 // 별점 점수 (double 형식)
-    		);
+        if (request.getMethod().equals("GET")) {   
+            // GET request: 회원정보 등록 form 요청 
+            log.debug("RegisterForm Request");
+
+            
+            return "/review/review_write.jsp";   //    
+        }
+        
+        String st = request.getParameter("star");
+        Double s = Double.parseDouble(st);
+        ReviewDTO review = new ReviewDTO(
+                6, // 리뷰 ID
+                0, // 가게 ID
+                "0", // 사용자 ID (문자열로 변환)
+                request.getParameter("reContent"), // 리뷰 내용
+                s // 별점 점수 (double 형식)
+            );
         
         try {
             ReviewManager manager = ReviewManager.getInstance();
