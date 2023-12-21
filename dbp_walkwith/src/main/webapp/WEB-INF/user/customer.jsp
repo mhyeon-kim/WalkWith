@@ -1,7 +1,6 @@
 <%@page contentType="text/html; charset=utf-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="model.dto.*" %>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -138,6 +137,11 @@
             color: #FFFFFF;
         }
         
+        #ac{
+            text-decoration: none;
+            color: #BAAA9C;
+        }
+        
         #login {
         	text-decoration: none;
             color: #816959;
@@ -172,7 +176,9 @@
             </div>
             <div id="right-div">
                 <div class="info-head">사용자 정보</div>
-                <div class="ra"><a>수정</a></div>
+                <div class="ra"><a id="ac" href="<c:url value='/user/cutomer_update' />">수정</a>
+                <a id="ac" href="<c:url value='/customer/delete' />">삭제</a>
+                </div>
                 <div id="customer-div">   
                     <div class="info-menu"  style="margin-left: 15px;">
                         <div>이름</div>
@@ -182,17 +188,17 @@
                         <div>E-Mail</div>
                     </div>
                     <div class="info">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                        <div>기</div>
+                        <div>본</div>
+                        <div>값</div>
+                        <div>넣</div>
+                        <div>어둠</div>
                     </div>
                 </div>
-                <div class="info-head">반려동물 정보</div>
+                <div class="info-head" >반려동물 정보</div>
                 <div class="ra">
-                    <a style="margin-right: 20px;">추가</a>
-                    <a>수정</a>
+                    <a style="margin-right: 20px;" id="ac" href="<c:url value='/pet/register'/>">추가</a>
+                    <a id="ac" href="<c:url value='/pet/update'/>">수정</a>
                 </div>
                 <div id="pet-div">
                     <img class="store-item" src="../img/Walkwith-market-Image.png"></img>
@@ -208,6 +214,10 @@
                         <div>개</div>
                         <div>진돗개</div>
                     </div>
+                </div>
+                <br>
+                <div class="info-head">
+                	<a id="a" href="<c:url value='/like/view' />">내 좋아요 모아보기</a>
                 </div>
             </div>
         </div>

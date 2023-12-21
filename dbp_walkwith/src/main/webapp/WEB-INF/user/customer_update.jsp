@@ -87,7 +87,7 @@ function commList(targetUri) {
 		  <tr>
 			<td align="left">
 			<input type="button" value="수정" onClick="commModify()"> &nbsp;
-			<input type="button" value="목록" onClick="commList('<c:url value='/user/customer_page.jsp' />')">
+			<input type="button" value="목록" onClick="commList('<c:url value='/user/customer' />')">
 			</td>
 		  </tr>
 	    </table>
