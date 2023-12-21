@@ -184,11 +184,11 @@
                         <div>E-Mail</div>
                     </div>
                     <div class="info">
-                        <div><% cus.getuName(); %></div>
-                        <div><% cus.getUserId(); %></div>
-                        <div><% cus.getuPassword(); %></div>
-                        <div><% cus.getuPhone(); %></div>
-                        <div><% cus.getuMail(); %></div>
+                        <div><%= cus.getuName() %></div>
+                        <div><%= cus.getUserId() %></div>
+                        <div><%= cus.getuPassword() %></div>
+                        <div><%= cus.getuPhone() %></div>
+                        <div><%= cus.getuMail() %></div>
                     </div>
                 </div>
                 <div class="info-head">반려동물 정보</div>

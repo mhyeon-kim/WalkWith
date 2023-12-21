@@ -40,7 +40,7 @@
         </div>
         <div class="container d-flex content-container">
             <div id="right-div" class="d-flex justify-content-center align-items-center">
-                <form name="form" method="POST" action="/customer/login" class="login-form">
+                <form name="form" method="POST" action="<c:url value='/customer/login' /> " class="login-form">
                 <h1 class="text-center">로그인</h1>
                     <div id="text" class="position-relative">
                         <input type="text" id="ID" style="width: 100%;" name="userId" maxlength="9" placeholder="아이디" class="form-control">
