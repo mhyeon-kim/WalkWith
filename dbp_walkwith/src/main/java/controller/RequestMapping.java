@@ -5,6 +5,9 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import controller.customer.CreateCustomerController;
+import controller.seller.CreateSellerController;
+
 public class RequestMapping {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
     
@@ -29,6 +32,12 @@ public class RequestMapping {
         mappings.put("/user/seller", new ForwardController("/user/seller.jsp"));
         mappings.put("/user/seller_update", new ForwardController("/user/seller_update.jsp"));
         mappings.put("user/list", new ForwardController("/user/list.jsp"));
+        
+        //customer
+        mappings.put("customer/register", new CreateCustomerController());
+        
+        //seller
+        mappings.put("seller/register", new CreateSellerController());
         
         //pet
         mappings.put("/user/pet_RegisterForm", new ForwardController("/user/pet_RegisterForm.jsp"));

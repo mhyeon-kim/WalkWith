@@ -81,7 +81,7 @@
                         <label><input type="radio" name="userType" value="seller"> 사업자</label>
                     </div>                    
                     <div>
-                       <a href="<c:url value='/home' />" id="a"><input type="button" id="btn" style=" margin-top: 25px; width: 100%;" value="회원가입" onclick="userCreate('/user/register')" class="btn btn-primary"></a>
+                       <a href="<c:url value='/login/loginForm' />" id="a"><input type="button" id="btn" style=" margin-top: 25px; width: 100%;" value="회원가입" onclick="userCreate('/user/register')" class="btn btn-primary"></a>
                     </div>
                     </div>
                 </form>
