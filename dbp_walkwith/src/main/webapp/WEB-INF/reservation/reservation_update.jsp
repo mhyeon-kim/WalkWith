@@ -25,7 +25,7 @@ function commList(targetUri) {
 <body>
 <br>
 <!-- Update Form  -->
-<form name="form" method="POST" action="<c:url value='/reservation/update' />">
+<form name="form" method="POST" action="<c:url value='/reservation/reservation_update' />">
   <input type="hidden" name="commId" value="${ReservationDTO.reservationId}"/>	  
   <table style="width: 100%">
 	<tr>
@@ -76,7 +76,7 @@ function commList(targetUri) {
 		  <tr>
 			<td align="left">
 			<input type="button" value="수정" onClick="commModify()"> &nbsp;
-			<input type="button" value="목록" onClick="commList('<c:url value='/user/customer_page.jsp' />')">
+			<input type="button" value="목록" onClick="commList('<c:url value='/reservation/reservation_view.jsp' />')">
 			</td>
 		  </tr>
 	    </table>
