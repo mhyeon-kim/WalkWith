@@ -9,10 +9,10 @@ import controller.Controller;
 import model.dto.ReservationDTO;
 import model.service.ReservationManager;
 
-public class ViewReservationController implements Controller {
+public class ViewReservationByStoreController implements Controller {
     private ReservationManager reservationManager;
 
-    public ViewReservationController() {
+    public ViewReservationByStoreController() {
         reservationManager = ReservationManager.getInstance();
     }
 
