@@ -11,6 +11,7 @@ import controller.recommand.SelectionStoreController;
 import controller.reservation.ReservationController;
 import controller.seller.CreateSellerController;
 import controller.seller.LoginSellerController;
+import controller.review.*;
 
 public class RequestMapping {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
@@ -19,7 +20,7 @@ public class RequestMapping {
     private Map<String, Controller> mappings = new HashMap<String, Controller>();
 
     public void initMapping() {
-    	// 각 uri에 대응되는 controller 객체를 생성 및 저장
+        // 각 uri에 대응되는 controller 객체를 생성 및 저장
         
         //home
         mappings.put("/home", new ForwardController("/home/home.jsp"));
@@ -68,7 +69,7 @@ public class RequestMapping {
         mappings.put("/review/review_view", new ForwardController("/review/review_view.jsp"));
         mappings.put("/review/review_detail", new ForwardController("/review/review_detail.jsp"));
         mappings.put("/review/review_update", new ForwardController("/review/review_update.jsp"));
-        mappings.put("/review/review_write", new ForwardController("/review/review_write.jsp"));
+        mappings.put("/review/review_write", new CreateReviewController());
         
         //기본틀 복붙해서 쓰세요
         mappings.put("/", new ForwardController("/.jsp"));
@@ -76,8 +77,8 @@ public class RequestMapping {
         logger.info("Initialized Request Mapping!");
     }
 
-    public Controller findController(String uri) {	
-    	// 주어진 uri에 대응되는 controller 객체를 찾아 반환
+    public Controller findController(String uri) {  
+        // 주어진 uri에 대응되는 controller 객체를 찾아 반환
         return mappings.get(uri);
     }
 }

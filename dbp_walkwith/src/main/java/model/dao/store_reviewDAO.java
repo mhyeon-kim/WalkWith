@@ -20,12 +20,12 @@ public class store_reviewDAO {
     //**********
     //추천 매장 출력
     
-	//if 예약했던 가게 존재할 시 최대 5개까지 넣기 + 나머지 recommand 매장으로 채우기
-	// 추천매장 총 10개 반환 -> 필요시 숫자 조정할 것!
-	// 추천매장은 좋아요 수 기준 상위 10개 뽑았는데 필요시 수정할 것
-	//customer랑 reservation join해서 storeId 받아오기
-	//reservation에 fk:(storeId, userId) 존재 -> reservation이랑 store만 join
-	//List<store> 객체 반환
+    //if 예약했던 가게 존재할 시 최대 5개까지 넣기 + 나머지 recommand 매장으로 채우기
+    // 추천매장 총 10개 반환 -> 필요시 숫자 조정할 것!
+    // 추천매장은 좋아요 수 기준 상위 10개 뽑았는데 필요시 수정할 것
+    //customer랑 reservation join해서 storeId 받아오기
+    //reservation에 fk:(storeId, userId) 존재 -> reservation이랑 store만 join
+    //List<store> 객체 반환
     public List<StoreDTO> selectionStore(String userId) {
         List<StoreDTO> recommandList = new ArrayList<>();
         try {
@@ -88,23 +88,23 @@ public class store_reviewDAO {
     //**********
     
     
-	public int addMenuItem(MenuDTO menu) throws SQLException {
-		String sql = "INSERT INTO MenuItem (storeId, menuName, menuDescrip, mePrice) VALUES (?, ?, ?, ?)";      
-		Object[] param = new Object[] {menu.getStoreId(), menu.getMenuName(), menu.getMenuDescrip(), menu.getMePrice()};             
-		jdbcUtil.setSqlAndParameters(sql, param);   // JDBCUtil 에 insert문과 매개 변수 설정
+    public int addMenuItem(MenuDTO menu) throws SQLException {
+        String sql = "INSERT INTO MenuItem (storeId, menuName, menuDescrip, mePrice) VALUES (?, ?, ?, ?)";      
+        Object[] param = new Object[] {menu.getStoreId(), menu.getMenuName(), menu.getMenuDescrip(), menu.getMePrice()};             
+        jdbcUtil.setSqlAndParameters(sql, param);   // JDBCUtil 에 insert문과 매개 변수 설정
 
-		try {               
-			int result = jdbcUtil.executeUpdate();  // insert 문 실행
-			return result;
-		} catch (Exception ex) {
-			jdbcUtil.rollback();
-			ex.printStackTrace();
-		} finally {     
-			jdbcUtil.commit();
-			jdbcUtil.close();   // resource 반환
-		}       
-		return 0;           
-	}
+        try {               
+            int result = jdbcUtil.executeUpdate();  // insert 문 실행
+            return result;
+        } catch (Exception ex) {
+            jdbcUtil.rollback();
+            ex.printStackTrace();
+        } finally {     
+            jdbcUtil.commit();
+            jdbcUtil.close();   // resource 반환
+        }       
+        return 0;           
+    }
 
      
     public int removeMenuItem(Integer menuId) throws SQLException {
@@ -272,32 +272,14 @@ public class store_reviewDAO {
         
         return null;       
     }
-    
-    public int deleteStore(String storeId) throws SQLException {
-        String sql = "DELETE FROM store WHERE storeId=?";     
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {storeId});   // JDBCUtil에 delete문과 매개 변수 설정
-
-        try {               
-            int result = jdbcUtil.executeUpdate();  // delete 문 실행
-            return result;
-        } catch (Exception ex) {
-            jdbcUtil.rollback();
-            ex.printStackTrace();
-        }
-        finally {
-            jdbcUtil.commit();
-            jdbcUtil.close();   // resource 반환
-        }       
-        
-        return 0;
-    }
-    
+       
     
     //리뷰 
     public int writeReview(ReviewDTO review) {
         String sql = "INSERT INTO review(reviewId, userId, storeId, starScore, reContent) "
-                    + "VALUES (review_seq.nextval, ?, ?, ?, ?)";
+                    + "VALUES (?, ?, ?, ?, ?)";
         Object[] param = new Object[] {
+            review.getReviewId(),
             review.getUserId(), 
             review.getStoreId(), 
             review.getStarScore(), 
@@ -306,32 +288,21 @@ public class store_reviewDAO {
         jdbcUtil.setSqlAndParameters(sql, param);
 
         try {
-            int result = jdbcUtil.executeUpdate();
-            jdbcUtil.commit();
+            int result = jdbcUtil.executeUpdate();           
 
-            if (result == 1) { 
-                String idQuery = "SELECT review_seq.currval FROM dual";
-                jdbcUtil.setSqlAndParameters(idQuery, null);
-
-                ResultSet rs = jdbcUtil.executeQuery();
-                if (rs.next()) {
-                    int reviewId = rs.getInt(1);
-                    review.setReviewId(reviewId);
-                }
-                rs.close();
-            }
-
-            return result;
+            
+            
         } catch (Exception ex) {
             jdbcUtil.rollback();
             ex.printStackTrace();
         } finally {
+            jdbcUtil.commit();
             jdbcUtil.close();
         }
         return 0;
     }
     
-	public int deleteReview(String reviewId) throws SQLException {
+    public int deleteReview(String reviewId) throws SQLException {
         String sql = "DELETE FROM review WHERE reviewId=?";     
         jdbcUtil.setSqlAndParameters(sql, new Object[] {reviewId});   // JDBCUtil에 delete문과 매개 변수 설정
 
@@ -349,7 +320,7 @@ public class store_reviewDAO {
         
         return 0;
     }
-	
+    
     // 그럼 update로 가야하나...
     /*public int writeRating() {
             String sql = "INSERT INTO Review VALUES (?)";    

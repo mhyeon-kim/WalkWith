@@ -10,7 +10,7 @@ public class ReviewDTO {
     public ReviewDTO(){
     }
     
-    public ReviewDTO(Integer reviewId, Integer storeId, String userId, String reContent, double starScore) {
+    public ReviewDTO(Integer reviewId,  String userId, Integer storeId, String reContent, double starScore) {
         super();
         this.reviewId = reviewId;
         this.storeId = storeId;
@@ -19,13 +19,7 @@ public class ReviewDTO {
         this.starScore = starScore;
     }
     
-    public ReviewDTO(Integer storeId, String userId, String reContent, double starScore) {
-        super();
-        this.storeId = storeId;
-        this.userId = userId;
-        this.reContent = reContent;
-        this.starScore = starScore;
-    }
+
 
     public Integer getReviewId() {
         return reviewId;

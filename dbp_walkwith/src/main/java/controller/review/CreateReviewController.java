@@ -22,17 +22,17 @@ public class CreateReviewController implements Controller {
             // GET request: 회원정보 등록 form 요청 
             log.debug("RegisterForm Request");
 
-            
             return "/review/review_write.jsp";   //    
         }
         
         String st = request.getParameter("star");
         Double s = Double.parseDouble(st);
+        
         ReviewDTO review = new ReviewDTO(
-                6, // 리뷰 ID
-                0, // 가게 ID
-                "0", // 사용자 ID (문자열로 변환)
-                request.getParameter("reContent"), // 리뷰 내용
+                6,
+                "user1", // 사용자 ID (문자열로 변환)
+                2, // 가게 ID
+                request.getParameter("recontent"), // 리뷰 내용
                 s // 별점 점수 (double 형식)
             );
         

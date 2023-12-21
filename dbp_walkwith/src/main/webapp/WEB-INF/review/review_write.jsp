@@ -228,11 +228,11 @@
     		return false;
     	} 
     	if (form.star.value == "") {
-    		alert("비밀번호를 입력하십시오.");
+    		alert("별점을 입력하십시오.");
     		form.star.focus();
     		return false;
     	}
-    	
+    	 	
     	form.submit();
     }
     </script>
@@ -273,17 +273,15 @@
                         <div style="display: flex; align-items: center;">
                             			
                         </div>
-                    <form name="form" method="POST" action="/review/review_view">
-	                    <input type="submit" value="리뷰 작성" onClick="reviewCreate()">
+                    <form name="form" method="POST" action="<c:url value='/review/review_write' />">
+	                    <input type="button" value="리뷰 작성" onClick="reviewCreate()">
 	                    </div>
 	                    <div id="sr-second">
 	                        <div class="menu-item">리뷰 내용</div>
-	                        <textarea id="recontent" name="recontent">
-	                                
-	                        </textarea>			
+	                        <input type="text" id="recontent" name="recontent">	
 	                    </div>
+	                    <input name="star" id="star" type="number" step="0.1">
                     </form>
-                    <input name="star" id="star" type="number" step="0.1">
                     <img src="<c:url value='../img/star.jpg' />" style="width: 200px;">
                 </div>
             </div>
