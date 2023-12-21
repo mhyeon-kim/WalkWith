@@ -40,7 +40,7 @@
         </div>
         <div class="container d-flex content-container">
             <div id="right-div" class="d-flex justify-content-center align-items-center">
-                <form name="form" method="POST" action="/user/login" class="login-form">
+                <form name="form" method="POST" action="/customer/login" class="login-form">
                 <h1 class="text-center">로그인</h1>
                     <div id="text" class="position-relative">
                         <input type="text" id="ID" style="width: 100%;" name="userId" maxlength="9" placeholder="아이디" class="form-control">
@@ -55,8 +55,8 @@
                         <label><input type="radio" name="userType" value="seller"> 사업자</label>
                     </div>                   
                     <div>
-                       <a href="<c:url value = '/user/customer' />" id="a"><input type="submit" id="btn" style="margin-top: 25px; width: 100%;" value="로그인" onclick="login()" class="btn btn-primary"></a>
-                       <a href="<c:url value = '/register/registerForm' />" id="a"><input type="submit" id="btn" style="margin-top: 25px; width: 100%;" value="회원가입" onclick="userCreate('/user/register')" class="btn btn-secondary"></a>
+                       <a href="<c:url value = '/user/customer' />" id="a"><input type="button" id="btn" style="margin-top: 25px; width: 100%;" value="로그인" onclick="login()" class="btn btn-primary"></a>
+                       <a href="<c:url value = '/register/registerForm' />" id="a"><input type="button" id="btn" style="margin-top: 25px; width: 100%;" value="회원가입" onclick="userCreate('/user/register')" class="btn btn-secondary"></a>
                     </div>
                     </div>
                 </form>

@@ -1,6 +1,9 @@
 <%@page contentType="text/html; charset=utf-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@page import="model.dto.*" %>
+<%
+	CustomerDTO cus = (CustomerDTO)request.getAttribute("user");
+%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -181,11 +184,11 @@
                         <div>E-Mail</div>
                     </div>
                     <div class="info">
-                        <div>유저</div>
-                        <div>User123</div>
-                        <div>********</div>
-                        <div>010-1234-1234</div>
-                        <div>adress@dongduk.ac.kr</div>
+                        <div><% cus.getuName(); %></div>
+                        <div><% cus.getUserId(); %></div>
+                        <div><% cus.getuPassword(); %></div>
+                        <div><% cus.getuPhone(); %></div>
+                        <div><% cus.getuMail(); %></div>
                     </div>
                 </div>
                 <div class="info-head">반려동물 정보</div>

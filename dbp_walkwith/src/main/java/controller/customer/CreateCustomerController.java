@@ -32,8 +32,8 @@ public class CreateCustomerController implements Controller {
             request.getParameter("uPassword"),
             request.getParameter("uPhone"),
             request.getParameter("uMail"),
-            (List)request.getAttribute("petList"),
-            (List)request.getAttribute("likeList")
+            null,
+            null
         );
         
         log.debug("Create Customer : {}", cus);
