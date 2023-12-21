@@ -12,13 +12,13 @@
     <style>
         @font-face {
             font-family: "museum";
-            src: url("../../font/museum.ttf") format("truetype");
+            src: url("../font/museum.ttf") format("truetype");
             font-weight: normal;
         }
 
         @font-face {
             font-family: "ebs";
-            src: url("/font/ebs.ttf") format("truetype");
+            src: url("../font/ebs.ttf") format("truetype");
             font-weight: normal;
         }
 
@@ -38,7 +38,7 @@
         }
 
         #left-div{
-            background-image: url("/img/Walkwith-div-left.png");
+            background-image: url("../img/Walkwith-div-left.png");
             background-repeat: no-repeat;
             width: 230px;
             height: 280px;
@@ -151,7 +151,7 @@
 <body>
     <div class="container">
         <div id="banner">           
-            <a href="<c:url value='/home'/>" id="a"><img id="banner-img" src="<c:url value='/img/Walkwith-logo.png' />"></a>
+            <a href="<c:url value='/home'/>" id="a"><img id="banner-img" src="<c:url value='../img/Walkwith-logo.png' />"></a>
         </div>
         <div>
         	<a href="<c:url value='/login/loginForm' />" id="login"><span>로그인 하기 ></span></a>
@@ -194,7 +194,7 @@
                     <a>수정</a>
                 </div>
                 <div id="pet-div">
-                    <img class="store-item" src="/img/Walkwith-market-Image.png"></img>
+                    <img class="store-item" src="../img/Walkwith-market-Image.png"></img>
                     <div class="info-menu" style="margin-left: 25px;">
                         <div>이름</div>
                         <div>나이</div>
