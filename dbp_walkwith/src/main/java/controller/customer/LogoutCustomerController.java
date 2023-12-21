@@ -14,6 +14,6 @@ public class LogoutCustomerController implements Controller {
         session.removeAttribute(CustomerSessionUtils.USER_SESSION_KEY);
         session.invalidate();       
         
-        return "redirect:/home";
+        return "/home";
     }
 }
