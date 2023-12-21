@@ -166,14 +166,31 @@ if (!CustomerSessionUtils.hasLogined(request.getSession())) {
             <div id="rec">
                 <span>추천 매장</span>
             </div>
+              <%-- 
             <div id="market_div_top" align="center">
             	<c:forEach var="store" items="${storeList}">
-            	<a href="<c:url value='' /> id="a">
+            	<a href="<c:url value='/market/market.jsp' /> id="a">
             		<img id="market_token_top" src="<c:url value='${store.sImage_path}'/>" />
             	</a>
             	</c:forEach>
             
             </div>
+			--%>
+			<%-- 
+				01. marketController 구현
+				02. marketManager 구현
+				03. marketController <- store 객체로 storeId 받아오기 // 위쪽 <% %> 태그에 구현
+				04. 실행되는지 확인
+			 --%>
+            <div id="market_div_top" align="center">
+  				<c:forEach var="store" items="${storeList}">
+        			<a href="<c:url value='./market.jsp'/>" id="a">
+            			<img id="market_token_top" src="<c:url value='${store.sImage_path}'/>" />
+            			<input type="hidden" name="storeId" value="${store.storeId}" />
+        			</a>
+    			</c:forEach>
+			</div> 
+            
             <div id="market_div" align="center">
                 <img id="market_token" src="<c:url value='/img/Walkwith-marketToken.png' />">
                 <img id="market_token" src="<c:url value='/img/Walkwith-marketToken.png' />">

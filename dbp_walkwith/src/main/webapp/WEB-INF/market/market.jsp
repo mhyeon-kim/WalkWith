@@ -1,5 +1,9 @@
 <%@page contentType="text/html; charset=utf-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    String storeId = request.getParameter("storeId");
+    //StoreDTO store = StoreManager.getStoreById(storeId);
+%>
 
 <!DOCTYPE html>
 <html>
@@ -288,7 +292,8 @@
         </div>
         <div id="right-div">
             <div id="top-div">
-                <div id="market-token-div">
+            	<%-- 
+            	<div id="market-token-div">
                     <div>
                         <img id="market-token" src="<c:url value='../img/Walkwith-marketToken.png' />">
                     </div>
@@ -300,6 +305,29 @@
                         </div>
                     </div>
                 </div>
+          		--%>
+          		<div id="market-token-div">
+    				<div>
+        				<a href="<c:url value='/market/market.jsp'/>">
+            				<img id="market-token" src="<c:url value='../img/Walkwith-marketToken.png' />">
+            				<input type="hidden" name="storeId" value="${store.storeId}" />
+            				<%-- store.storeId --%>
+        				</a>
+   					</div>
+    			<div>
+        			<div id="btn_div">
+            			<a href="<c:url value='/review/review_write' />" id="a">
+                		<img id="review_btn" src="<c:url value='../img/Walkwith-Reviewbtn.png' />">
+            			</a>
+            			<a href="<c:url value='/reservation/reservation' />" id="a">
+                		<img id="reservation_btn" src="<c:url value='/img/Walkwith-Reservationbtn.png' />">
+            			</a> 
+       				</div>
+    			</div>
+				</div>
+            
+                
+                
                 <div id="market-pic-div">
                     <img id="market-pic" src="<c:url value='../img/Walkwith-MarketPicture.png' />">
                 </div>
