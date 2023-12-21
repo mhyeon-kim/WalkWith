@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>내 리뷰</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/review_view.css">
+    <link rel="stylesheet" href="<c:url value='/css/review_view.css' />"> 
 </head>
 
 <body>
@@ -38,14 +38,14 @@
 					<img id="reser-title" src="<c:url value='/img/ReviewTitle.png' />" alt="Reservation Title">
 				</div>
 				<div id="review-list">		
-				    <div class="review-list"><img src="<c:url value='img/Walkwith-marketToken.png' />" alt="review 1"></div>
-				    <div class="review-list"><img src="<c:url value='img/Walkwith-marketToken.png' />" alt="review 2"></div>
-				    <div class="review-list"><img src="<c:url value='img/Walkwith-marketToken.png' />" alt="review 3"></div>
-				    <div class="review-list"><img src="<c:url value='img/Walkwith-marketToken.png' />" alt="review 4"></div>
-				    <div class="review-list"><img src="<c:url value='img/Walkwith-marketToken.png' />" alt="review 5"></div>
-				    <div class="review-list"><img src="<c:url value='img/Walkwith-marketToken.png' />" alt="review 6"></div>
-				    <div class="review-list"><img src="<c:url value='img/Walkwith-marketToken.png' />" alt="review 7"></div>
-				    <div class="review-list"><img src="<c:url value='img/Walkwith-marketToken.png' />" alt="review 8"></div>
+				    <div class="review-list"><img src="<c:url value='../img/Walkwith-marketToken.png' />" alt="review 1"></div>
+				    <div class="review-list"><img src="<c:url value='../img/Walkwith-marketToken.png' />" alt="review 1"></div>
+				    <div class="review-list"><img src="<c:url value='../img/Walkwith-marketToken.png' />" alt="review 1"></div>
+				    <div class="review-list"><img src="<c:url value='../img/Walkwith-marketToken.png' />" alt="review 1"></div>
+				    <div class="review-list"><img src="<c:url value='../img/Walkwith-marketToken.png' />" alt="review 1"></div>
+				    <div class="review-list"><img src="<c:url value='../img/Walkwith-marketToken.png' />" alt="review 1"></div>
+				    <div class="review-list"><img src="<c:url value='../img/Walkwith-marketToken.png' />" alt="review 1"></div>
+				    <div class="review-list"><img src="<c:url value='../img/Walkwith-marketToken.png' />" alt="review 1"></div>
 				</div>
 			</div>
                     

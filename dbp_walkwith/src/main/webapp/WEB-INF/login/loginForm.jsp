@@ -9,12 +9,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>로그인</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<c:url value = '/css/login_view' />">
+    <script>
+    function login() {
+    	if (form.userId.value == "") {
+    		alert("사용자 ID를 입력하십시오.");
+    		form.userId.focus();
+    		return false;
+    	} 
+    	if (form.password.value == "") {
+    		alert("비밀번호를 입력하십시오.");
+    		form.password.focus();
+    		return false;
+    	}		
+    	form.submit();
+    }
+
+    function userCreate(targetUri) {
+    	form.action = targetUri;
+    	form.method="GET";		// register form 요청
+    	form.submit();
+    }
+    </script>
     <link rel="stylesheet" href="<c:url value = '/css/login_view.css' />">
 </head>
 <body>
     <div class="container">
         <div id="banner" class="d-flex align-items-center justify-content-center">
-            <a href="<c:url value = '/home' />" id="a"><img id="banner-logo" src="../../img/Walkwith-logo.png" alt="Walkwith Logo"></a>
+            <a href="<c:url value = '/home' />" id="a"><img id="banner-logo" src="../img/Walkwith-logo.png" alt="Walkwith Logo"></a>
         </div>
         <div class="container d-flex content-container">
             <div id="right-div" class="d-flex justify-content-center align-items-center">

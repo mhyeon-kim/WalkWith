@@ -9,6 +9,48 @@
     <title>회원가입</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<c:url value ='/css/review_view.css' />">
+    <script>
+    function userCreate() {
+    	if (form.userId.value == "") {
+    		alert("사용자 ID를 입력하십시오.");
+    		form.userId.focus();
+    		return false;
+    	} 
+    	if (form.password.value == "") {
+    		alert("비밀번호를 입력하십시오.");
+    		form.password.focus();
+    		return false;
+    	}
+    	if (form.password.value != form.password2.value) {
+    		alert("비밀번호가 일치하지 않습니다.");
+    		form.name.focus();
+    		return false;
+    	}
+    	if (form.name.value == "") {
+    		alert("이름을 입력하십시오.");
+    		form.name.focus();
+    		return false;
+    	}
+    	var emailExp = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+    	if(emailExp.test(form.email.value)==false) {
+    		alert("이메일 형식이 올바르지 않습니다.");
+    		form.email.focus();
+    		return false;
+    	}
+    	var phoneExp = /^\d{2,3}-\d{3,4}-\d{4}$/;
+    	if(phoneExp.test(form.phone.value)==false) {
+    		alert("전화번호 형식이 올바르지 않습니다.");
+    		form.phone.focus();
+    		return false;
+    	}
+    	form.submit();
+    }
+
+    function userList(targetUri) {
+    	form.action = targetUri;
+    	form.submit();
+    }
+    </script>
 </head>
 <body>
     <div class="container">

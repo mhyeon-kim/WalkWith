@@ -15,14 +15,14 @@
         @font-face {
             /* 국립박물관문화재단클래식 Light 폰트 적용 */
             font-family: "museum";
-            src: url("/font/museum.ttf") format("truetype");
+            src: url("../font/museum.ttf") format("truetype");
             font-weight: normal;
         }
 
         @font-face {
             /* EBS 훈민정음 새론 L 애플산돌고딕 폰트 적용 */
             font-family: "ebs";
-            src: url("/font/ebs.ttf") format("truetype");
+            src: url("../font/ebs.ttf") format("truetype");
             font-weight: normal;
         }
 
@@ -56,7 +56,7 @@
         }
 
         #left-div {
-            background-image: url("/img/Walkwith-div-left.png");
+            background-image: url("../img/Walkwith-div-left.png");
             background-repeat: no-repeat;
             width: 230px;
             height: 280px;
@@ -79,7 +79,7 @@
         }
 
         #right-div {
-            background-image: url("/img/walkwith-div-right.png");
+            background-image: url("../img/walkwith-div-right.png");
             width: 1200px;
             height: auto;
             margin-left: 20px;
@@ -97,7 +97,7 @@
         }
         
         #market_div_top {
-            background-image: url("/img/Walkwith-recommandedStore.png");
+            background-image: url("../img/Walkwith-recommandedStore.png");
             background-size: cover;
             border-radius: 10px;
             margin-bottom: 3%;
@@ -139,7 +139,7 @@
 <body>
     <div class="container">
         <<div id="banner">           
-            <a href="<c:url value='/home'/>" id="a"><img id="banner-img" src="<c:url value='/img/Walkwith-logo.png' />"></a>
+            <a href="<c:url value='/home'/>" id="a"><img id="banner-img" src="<c:url value='../img/Walkwith-logo.png' />"></a>
         </div>
         <div>
         	<a href="<c:url value='/login/loginForm' />" id="login"><span>로그인 하기 ></span></a>
@@ -159,23 +159,13 @@
             </ul>
         </div>
         <div id="right-div">
-            <div id="sort" align="right">
-                <span>정렬  |   </span>
-                <span>카페</span>
-                <span>  /  </span>
-                <span>병원</span>
-                <span>  /  </span>
-                <span>공원</span>
-                <span>  /  </span>
-                <span>관광지</span>
-            </div>
             <div id="rec">
                 <span>추천 매장</span>
             </div>
             <div id="market_div_top" align="center">
             <a href="<c:url value ='/market/market' />" id="a">
-                <img id="market_token_top" src="<c:url value='/img/Walkwith-marketToken.png' />"></a>
-                <img id="market_token_top" src="<c:url value='/img/Walkwith-marketToken.png' />">
+                <img id="market_token_top" src="<c:url value='../img/Walkwith-marketToken.png' />"></a>
+                <img id="market_token_top" src="<c:url value='../img/Walkwith-marketToken.png' />">
                 <img id="market_token_top" src="<c:url value='/img/Walkwith-marketToken.png' />">
                 <img id="market_token_top" src="<c:url value='/img/Walkwith-marketToken.png' />">
                 <img id="market_token_top" src="<c:url value='/img/Walkwith-marketToken.png' />">

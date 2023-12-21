@@ -15,7 +15,7 @@
 <body>
     <div class="container">
         <div id="banner">           
-            <a href="<c:url value='/home'/>" id="a"><img id="banner-img" src="<c:url value='/img/Walkwith-logo.png' />"></a>
+            <a href="<c:url value='/home'/>" id="a"><img id="banner-img" src="<c:url value='../img/Walkwith-logo.png' />"></a>
         </div>
         <div>
         	<a href="<c:url value='/login/loginForm' />" id="login"><span>로그인 하기 ></span></a>
@@ -36,7 +36,7 @@
             
 			<div id="right-div">
 				<div id="banner">
-					<img id="reser-title" src="<c:url value='/img/ReviewTitle.png' />" alt="Reservation Title">
+					<img id="reser-title" src="<c:url value='../img/ReviewTitle.png' />" alt="Reservation Title">
 				</div>
 				<div id="review-list">		
 				    <li>가게 이름</li>

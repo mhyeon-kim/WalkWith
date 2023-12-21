@@ -12,13 +12,13 @@
     <style>
         @font-face {
             font-family: "museum";
-            src: url("/font/museum.ttf") format("truetype");
+            src: url("../font/museum.ttf") format("truetype");
             font-weight: normal;
         }
 
         @font-face {
             font-family: "ebs";
-            src: url("/font/ebs.ttf") format("truetype");
+            src: url("../font/ebs.ttf") format("truetype");
             font-weight: normal;
         }
 
@@ -39,7 +39,7 @@
         }
 
         #left-div{
-            background-image: url("/img/Walkwith-div-left.png");
+            background-image: url("../img/Walkwith-div-left.png");
             background-repeat: no-repeat;
             width: 230px;
             height: 280px;
@@ -62,7 +62,7 @@
         }
 
         #right-div{
-            background-image: url("/img/walkwith-div-right.png");
+            background-image: url("../img/walkwith-div-right.png");
             width: 1200px;
             height: 670px;
             margin-left: 20px;
@@ -95,7 +95,7 @@
         }
 
         #second-right{
-            background-image: url("/img/Walkwith-recommandedStore.png");
+            background-image: url("../img/Walkwith-recommandedStore.png");
             background-size: cover;
             background-repeat: no-repeat;
             border-radius: 10px;
@@ -125,7 +125,7 @@
         #star-div{
             width: 180px;
             height: 50px;
-            background-image: url("/img/Walkwith-StarDiv.png");
+            background-image: url("../img/Walkwith-StarDiv.png");
             border-radius: 10px;
             background-size: cover;
             display: flex;
@@ -151,7 +151,7 @@
         }
 
         #store-introduct{
-            background-image: url("/img/Walkwith-MarketIntroduct.png");
+            background-image: url("../img/Walkwith-MarketIntroduct.png");
             height: 300px;
             margin-top: 10px;
             background-size: cover;
@@ -175,7 +175,7 @@
         }
 
         #sr-second{
-            background-image: url("/img/Walkwith-menuDiv.png");
+            background-image: url("../img/Walkwith-menuDiv.png");
             background-repeat: no-repeat;
             background-size: cover;
             border-radius: 10px;
@@ -203,7 +203,7 @@
         }
 
         #star-write {
-            background-image: url("/img/star.jpg");
+            background-image: url("../img/star.jpg");
         }
         
         #a{
@@ -225,7 +225,7 @@
 <body>
     <div class="container">
         <div id="banner">           
-            <a href="<c:url value='/home'/>" id="a"><img id="banner-img" src="<c:url value='/img/Walkwith-logo.png' />"></a>
+            <a href="<c:url value='/home'/>" id="a"><img id="banner-img" src="<c:url value='../img/Walkwith-logo.png' />"></a>
         </div>
         <div>
         	<a href="<c:url value='/login/loginForm' />" id="login"><span>로그인 하기 ></span></a>
@@ -245,9 +245,9 @@
             </div>
             <div id="right-div">
                 <div id="second-left">		
-                    <img id="store-pic" src="<c:url value='/img/Walkwith-market-Image.png' />"></img>
+                    <img id="store-pic" src="<c:url value='../img/Walkwith-market-Image.png' />"></img>
                     <div id="star-div">			
-                        <img id="star-img" src="<c:url value='/img/Walkwith-Reservation-Star.png' />">
+                        <img id="star-img" src="<c:url value='../img/Walkwith-Reservation-Star.png' />">
                         <span id="star-score">5.0</span>
                     </div>
                     <div id="store-introduct"></div>
@@ -257,14 +257,14 @@
                         <div style="display: flex; align-items: center;">
                             <span class="time-set">
                                 <input type="date" class="res-input">
-                                <img src="<c:url value='/img/Walkwith-DateDiv.png' />">
+                                <img src="<c:url value='../img/Walkwith-DateDiv.png' />">
                             </span>
                             <span class="time-set" style="margin-left : 10px;">
                                 <input type="time" class="res-input">
-                                <img src="<c:url value='/img/Walkwith-TimeDiv.png' />">
+                                <img src="<c:url value='../img/Walkwith-TimeDiv.png' />">
                             </span>				
                         </div>
-                    <button type="button" id="next-button"><img id="btn-img" src="<c:url value='/img/Walkwith-ReservNext.png' />"></button>
+                    <button type="button" id="next-button"><img id="btn-img" src="<c:url value='../img/Walkwith-ReservNext.png' />"></button>
                     </div>
                     <div id="sr-second">
                         <div class="menu-item">리뷰 내용</div>
@@ -272,7 +272,7 @@
                                 
                         </textarea>			
                     </div>
-                    <img src="<c:url value='/img/star.jpg' />" style="width: 200px;">
+                    <img src="<c:url value='../img/star.jpg' />" style="width: 200px;">
                 </div>
             </div>
         </div>

@@ -13,13 +13,13 @@
     <style>
         @font-face {
             font-family: "museum";
-            src: url("/font/museum.ttf") format("truetype");
+            src: url("../font/museum.ttf") format("truetype");
             font-weight: normal;
         }
 
         @font-face {
             font-family: "ebs";
-            src: url("/font/ebs.ttf") format("truetype");
+            src: url("../font/ebs.ttf") format("truetype");
             font-weight: normal;
         }
 
@@ -39,7 +39,7 @@
         }
 
         #left-div {
-            background-image: url("/img/Walkwith-div-left.png");
+            background-image: url("../img/Walkwith-div-left.png");
             background-repeat: no-repeat;
             width: 230px;
             height: 280px;
@@ -62,7 +62,7 @@
         }
 
         #right-div {
-            background-image: url("/img/walkwith-div-right.png");
+            background-image: url("../img/walkwith-div-right.png");
             width: 1200px;
             height: auto;
             margin-left: 20px;
@@ -94,7 +94,7 @@
         }
 
         #store-list {
-            background-image: url("/img/Walkwith-recommandedStore.png");
+            background-image: url("../img/Walkwith-recommandedStore.png");
             background-size: cover;
             border-radius: 10px;
             width: 100%;
@@ -134,7 +134,7 @@
         }
 
         #inside_div {
-            background-image: url("/img/Walkwith-InsideDiv.png");
+            background-image: url("../img/Walkwith-InsideDiv.png");
             background-size: cover;
             border-radius: 10px;
             width: 100%;
@@ -148,7 +148,7 @@
         }
 
         #review-menu {
-            background-image: url("/img/Walkwith-ReviewMenu.png");
+            background-image: url("../img/Walkwith-ReviewMenu.png");
             background-size: cover;
             border-radius: 10px;
             width: 180px;
@@ -157,7 +157,7 @@
         }
 
         #star-info {
-            background-image: url("/img/Walkwith-like-star.png");
+            background-image: url("../img/Walkwith-like-star.png");
             background-size: cover;
             border-radius: 10px;
             width: 180px;
@@ -175,7 +175,7 @@
         }
         
         #description {
-            background-image: url("/img/Walkwith-DescriptImage.png");
+            background-image: url("../img/Walkwith-DescriptImage.png");
             background-size: cover;
             border-radius: 10px;
             width: 70%;
@@ -267,7 +267,7 @@
 <body>
     <div class="container">
         <div id="banner">           
-            <a href="<c:url value='/home'/>" id="a"><img id="banner-img" src="<c:url value='/img/Walkwith-logo.png' />"></a>
+            <a href="<c:url value='/home'/>" id="a"><img id="banner-img" src="<c:url value='../img/Walkwith-logo.png' />"></a>
         </div>
         <div>
         	<a href="<c:url value='/login/loginForm' />" id="login"><span>로그인 하기 ></span></a>
@@ -290,34 +290,34 @@
             <div id="top-div">
                 <div id="market-token-div">
                     <div>
-                        <img id="market-token" src="<c:url value='/img/Walkwith-marketToken.png' />">
+                        <img id="market-token" src="<c:url value='../img/Walkwith-marketToken.png' />">
                     </div>
                     <div>
                         <div id="btn_div">
            					<a href="<c:url value ='/review/review_write' />" id="a">
-                            <img id="review_btn" src="<c:url value='/img/Walkwith-Reviewbtn.png' />"></a>
+                            <img id="review_btn" src="<c:url value='../img/Walkwith-Reviewbtn.png' />"></a>
                             <a href="<c:url value ='reservation/reservation' />" id="a"><img id="reservation_btn" src="<c:url value='/img/Walkwith-Reservationbtn.png' />"></a> 
                         </div>
                     </div>
                 </div>
                 <div id="market-pic-div">
-                    <img id="market-pic" src="<c:url value='/img/Walkwith-MarketPicture.png' />">
+                    <img id="market-pic" src="<c:url value='../img/Walkwith-MarketPicture.png' />">
                 </div>
                 <div id="spic-div">
                     <div id="spic-top-div">
-                        <img id="market-pic_small" src="<c:url value='/img/Walkwith-MarketPicture-Small.png' />">
-                        <img id="market-pic_small" src="<c:url value='/img/Walkwith-MarketPicture-Small.png' />">
+                        <img id="market-pic_small" src="<c:url value='../img/Walkwith-MarketPicture-Small.png' />">
+                        <img id="market-pic_small" src="<c:url value='../img/Walkwith-MarketPicture-Small.png' />">
                     </div>
                     <div id="spic-bottom-div">
-                        <img id="market-pic_small" src="<c:url value='/img/Walkwith-MarketPicture-Small.png' />">
-                        <img id="market-pic_small" src="<c:url value='/img/Walkwith-MarketPicture-Small.png' />">
+                        <img id="market-pic_small" src="<c:url value='../img/Walkwith-MarketPicture-Small.png' />">
+                        <img id="market-pic_small" src="<c:url value='../img/Walkwith-MarketPicture-Small.png' />">
                     </div>
                 </div>
             </div>
             <div id="inside_div">
                 <div id="inner-left-div">
                     <div id="star-info">
-                        <img id="star" src="<c:url value='/img/Walkwith-StarImage.png' />">
+                        <img id="star" src="<c:url value='../img/Walkwith-StarImage.png' />">
                         <span id="star_text">5.0</span>
                         <p/>
                         <span id="star_text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12345 Likes</span>
