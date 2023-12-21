@@ -58,7 +58,7 @@ public class AddReservationController implements Controller {
             request.setAttribute("creationFailed", true);
             request.setAttribute("exception", e);
             request.setAttribute("reservation", reservation);
-            return "/reservation/creationForm.jsp";
+            return "/reservation/reservation.jsp";
         }
     }
 

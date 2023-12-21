@@ -19,14 +19,17 @@ public class ViewReservationController implements Controller {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String userId = request.getParameter("userId");
-        List<ReservationDTO> reservations = reservationManager.findReservationsByUser(userId);
+        List<ReservationDTO> userReservations = reservationManager.findReservationsByUser(userId);
+        
+        int storeId = Integer.parseInt(request.getParameter("storeId"));  // 사용자가 선택한 가게의 ID를 가져옵니다.
+        List<ReservationDTO> storeReservations = reservationManager.findReservationsByStore(storeId);
 
-        request.setAttribute("reservations", reservations);
+        request.setAttribute("reservations", userReservations);
+        request.setAttribute("storeReservations", storeReservations);
 
         return "/reservation/reservation_view.jsp";
     }
 }
-
 
 
 //<% List<ReservationDTO> reservations = (List<ReservationDTO>) request.getAttribute("reservations"); %>

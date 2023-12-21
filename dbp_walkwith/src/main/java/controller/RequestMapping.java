@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import controller.customer.CreateCustomerController;
 import controller.recommand.SelectionStoreController;
+import controller.reservation.ReservationController;
 import controller.seller.CreateSellerController;
 
 public class RequestMapping {
@@ -58,6 +59,7 @@ public class RequestMapping {
         mappings.put("/reservation/reservation", new ForwardController("/reservation/reservation.jsp"));
         mappings.put("/reservation/reservation_view", new ForwardController("/reservation/reservation_view.jsp"));
         mappings.put("/reservation/reservation_update", new ForwardController("/reservation/reservation_update.jsp"));
+
         
         //review
         mappings.put("/review/review_view", new ForwardController("/review/review_view.jsp"));

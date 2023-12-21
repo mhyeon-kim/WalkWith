@@ -162,7 +162,7 @@ ALTER TABLE StoreCategory
 CREATE TABLE Reservation
 (
     reservationId        INTEGER  NOT NULL,
-    resDaTi              DATE  NOT NULL,
+    resDaTi              TimeStamp  NOT NULL,
     userId               VARCHAR2(20)  NOT NULL,
     storeId              INTEGER  NOT NULL,
     reComment            VARCHAR2(1000) NULL
@@ -271,6 +271,7 @@ INSERT INTO Category VALUES(category_seq.nextval, '음식점', 10);
 INSERT INTO Category VALUES(category_seq.nextval, '병원', 15);
 
 -- Customer 데이터 입력
+INSERT INTO Customer VALUES('admin', '테스트', 'admin', '010-5555-6666', 'admin@example.com');
 INSERT INTO Customer VALUES('user1', '이름1', 'password1', '010-1234-5678', 'user1@example.com');
 INSERT INTO Customer VALUES('user2', '이름2', 'password2', '010-2345-6789', 'user2@example.com');
 INSERT INTO Customer VALUES('user3', '이름3', 'password3', '010-3456-7890', 'user3@example.com');
@@ -285,6 +286,7 @@ INSERT INTO Pet VALUES(pet_seq.nextval, 'Lucy', 4, 'Dog', 'Labrador', 'user4', 1
 INSERT INTO Pet VALUES(pet_seq.nextval, 'Milo', 2, 'Cat', 'Siamese', 'user5', 0, NULL);
 
 -- Seller 데이터 입력
+INSERT INTO Seller VALUES('admin2', '테스트2', 'admin2', '010-6666-7777', 'admim2@example.com');
 INSERT INTO Seller VALUES('seller1', '판매자1', 'password1', '010-4567-8901', 'seller1@example.com');
 INSERT INTO Seller VALUES('seller2', '판매자2', 'password2', '010-5678-9012', 'seller2@example.com');
 INSERT INTO Seller VALUES('seller3', '판매자3', 'password3', '010-6789-0123', 'seller3@example.com');
@@ -292,6 +294,7 @@ INSERT INTO Seller VALUES('seller4', '판매자4', 'password4', '010-7890-1234',
 INSERT INTO Seller VALUES('seller5', '판매자5', 'password5', '010-8901-2345', 'seller5@example.com');
 
 -- Store 데이터 입력
+INSERT INTO Store VALUES(store_seq.nextval, '테스트', '02-123-4567', '09:00:00 - 18:00:00', 4.5, '테스트상점', 'admin2', '월,수,금', 50, NULL);
 INSERT INTO Store VALUES(store_seq.nextval, 'Store1', '02-123-4567', '09:00:00 - 18:00:00', 4.5, '상점설명1', 'seller1', '월,화,수,목', 100, NULL);
 INSERT INTO Store VALUES(store_seq.nextval, 'Store2', '02-234-5678', '10:00:00 - 19:00:00', 4.3, '상점설명2', 'seller2', '화,수,목,금', 200, NULL);
 INSERT INTO Store VALUES(store_seq.nextval, 'Store3', '02-345-6789', '11:00:00 - 20:00:00', 4.7, '상점설명3', 'seller3', '수,목,금,토', 300, NULL);

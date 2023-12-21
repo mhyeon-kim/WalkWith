@@ -46,25 +46,25 @@
 				                <th width="100" align="center">예약 ID</th>
 				                <th width="200" align="center">예약한 시간</th>
 				                <th width="200" align="center">가게명</th>
-				                <th width="100" align="center">예약 상태</th>
+				                <th width="100" align="center">예약 설명</th>
 				            </tr>
 				        </thead>
 				        <tbody>
-				            <tr>
-				                <td>1</td>
-				                <td>2023-11-30 13:00</td>
-				                <td>가게1</td>
-				                <td>예약 확정</td>
-				            </tr>
+							<c:forEach var="ReservationDTO" items="${reservations}">
+							    <tr>
+							        <td>${ReservationDTO.reservationId}</td>
+							        <td>${ReservationDTO.resDaTi}</td>
+							        <td>${ReservationDTO.sName}</td>
+							        <td>${ReservationDTO.comment}</td>
+							    </tr>
+							</c:forEach>
 				            <!-- 이런 식으로 다른 예약 정보를 추가할 수 있습니다 -->
 				        </tbody>
 				    </table>
 				</div>
 
 			
-			    <!-- 가게 입장의 예약 내역 -->
-			    <div id="store-view">
-			        <!-- 예약 내역을 나타내는 코드를 여기에 입력 -->
+
 			    </div>
 			</div>
                     
