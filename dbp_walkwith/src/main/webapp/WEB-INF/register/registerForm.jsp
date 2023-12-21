@@ -44,6 +44,8 @@
     		return false;
     	}
     	
+    	form.action = targetUri;
+    	form.method="GET";		// register form 요청
     	form.submit();
     }
 
@@ -62,23 +64,23 @@
                         <input type="text" id="ID" name="userId" maxlength="9" placeholder="아이디" class="form-control">
                     </div>
                     <div id="text" class="position-relative">
-                        <input type="password" id="PW" name="password" placeholder="비밀번호" class="form-control">
+                        <input type="password" id="uPassword" name="uPassword" placeholder="비밀번호" class="form-control">
                     </div>
                     <div id="text" class="position-relative">
-                        <input type="name" id="name" name="name" placeholder="이름" class="form-control">
+                        <input type="name" id="uName" name="uName" placeholder="이름" class="form-control">
                     </div>
                     <div id="text" class="position-relative">
-                        <input type="phone" id="phone" name="phone" placeholder="전화번호" class="form-control">
+                        <input type="phone" id="uPhone" name="uPhone" placeholder="전화번호" class="form-control">
                     </div>
                     <div id="text" class="position-relative">
-                        <input type="email" id="email" name="email" placeholder="이메일" class="form-control">
+                        <input type="email" id="uMail" name="uMail" placeholder="이메일" class="form-control">
                     </div>
                     <div>
                         <label><input type="radio" name="userType" value="customer" checked> 소비자</label>
                         <label><input type="radio" name="userType" value="seller"> 사업자</label>
                     </div>                    
                     <div>
-                       <input type="submit" id="btn" style=" margin-top: 25px; width: 100%;" value="회원가입" onclick="userCreate()" class="btn btn-primary"></a>
+                       <input type="button" id="btn" style=" margin-top: 25px; width: 100%;" value="회원가입" onclick="userCreate()" class="btn btn-primary"></a>
                     </div>
                     </div>
                 </form>
