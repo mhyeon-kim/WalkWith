@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import controller.customer.CreateCustomerController;
+import controller.recommand.SelectionStoreController;
 import controller.seller.CreateSellerController;
 
 public class RequestMapping {
@@ -50,6 +51,8 @@ public class RequestMapping {
         mappings.put("/market/market", new ForwardController("/market/market.jsp"));
         mappings.put("/market/market_menu", new ForwardController("/market/market_menu.jsp"));
         mappings.put("/market/market_update", new ForwardController("/market/market_update.jsp"));
+        mappings.put("/market/recommend", new SelectionStoreController("/market/market_menu.jsp"));
+        //mappings.put("/market/market_view", new ) marketView 컨트롤러 잇나요..? 잇어야 됨..
         
         //reservation
         mappings.put("/reservation/reservation", new ForwardController("/reservation/reservation.jsp"));
