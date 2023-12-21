@@ -20,7 +20,7 @@ public class ResourceFilter implements Filter {
     private static final List<String> resourcePrefixs = new ArrayList<>();
     static {
         resourcePrefixs.add("/css");
-        resourcePrefixs.add("/fonts");
+        resourcePrefixs.add("/font");
         resourcePrefixs.add("/img");
     }
 
