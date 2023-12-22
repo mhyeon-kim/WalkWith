@@ -183,12 +183,11 @@ if (!CustomerSessionUtils.hasLogined(request.getSession())) {
 				04. 실행되는지 확인
 			 --%>
             <div id="market_div_top" align="center">
-  				<c:forEach var="store" items="${storeList}">
-        			<a href="<c:url value='./market.jsp'/>" id="a">
-            			<img id="market_token_top" src="<c:url value='${store.sImage_path}'/>" />
-            			<input type="hidden" name="storeId" value="${store.storeId}" />
-        			</a>
-    			</c:forEach>
+  				<a id="a" href="<c:url value='/market/market' />"><img id="market_token" src="<c:url value='/img/Walkwith-marketToken.png' />"></a>
+                <img id="market_token" src="<c:url value='/img/Walkwith-marketToken.png' />">
+                <img id="market_token" src="<c:url value='/img/Walkwith-marketToken.png' />">                    
+                <img id="market_token" src="<c:url value='/img/Walkwith-marketToken.png' />">
+                <img id="market_token" src="<c:url value='/img/Walkwith-marketToken.png' />">
 			</div> 
             
             <div id="market_div" align="center">

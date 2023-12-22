@@ -18,7 +18,7 @@
 
         @font-face {
             font-family: "ebs";
-            src: url("/../font/ebs.ttf") format("truetype");
+            src: url("../font/ebs.ttf") format("truetype");
             font-weight: normal;
         }
 
@@ -264,7 +264,7 @@
                             </span>
                             <span class="time-set" style="margin-left : 10px;">
                                 <input type="time" class="res-input">
-                                <img src="/img/Walkwith-TimeDiv.png">
+                                <img src="<c:url value='/img/Walkwith-TimeDiv.png' />">
                             </span>
                         </div>
                     <button type="button" id="next-button"><img id="btn-img" src="<c:url value='/img/Walkwith-ReservNext.png' />"></button>

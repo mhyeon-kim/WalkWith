@@ -177,7 +177,7 @@
             <div id="right-div">
                 <div class="info-head">사용자 정보</div>
                 <div class="ra"><a id="ac" href="<c:url value='/user/cutomer_update' />">수정</a>
-                <a id="ac" href="<c:url value='/customer/delete' />">삭제</a>
+                <a id="ac" href="">삭제</a>
                 </div>
                 <div id="customer-div">   
                     <div class="info-menu"  style="margin-left: 15px;">
