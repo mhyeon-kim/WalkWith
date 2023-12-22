@@ -58,7 +58,7 @@
         </div>
         <div class="container d-flex content-container">
             <div id="right-div" class="d-flex justify-content-center align-items-center">
-                <form name="form" method="POST" action="<c:url value='/customer/register' />" class="register-form">
+                <form name="form" method="POST" action="<c:url value='/customer/register'/>" class="register-form">
                 <h1 class="text-center">회원가입</h1>
                     <div id="text" class="position-relative">
                         <input type="text" id="ID" name="userId" maxlength="9" placeholder="아이디" class="form-control">
@@ -80,7 +80,7 @@
                         <label><input type="radio" name="userType" value="seller"> 사업자</label>
                     </div>                    
                     <div>
-                       <input type="button" id="btn" style=" margin-top: 25px; width: 100%;" value="회원가입" onclick="userCreate()" class="btn btn-primary"></a>
+                       <input type="submit" id="btn" style=" margin-top: 25px; width: 100%;" value="회원가입" onclick="userCreate()" class="btn btn-primary"></a>
                     </div>
                     </div>
                 </form>
