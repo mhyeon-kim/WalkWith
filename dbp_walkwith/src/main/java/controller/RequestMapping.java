@@ -55,7 +55,7 @@ public class RequestMapping {
         //customer
         mappings.put("/customer/register", new CreateCustomerController());
         mappings.put("/customer/login", new LoginCustomerController());    
-        mappings.put("/customer/login", new LogoutCustomerController());    
+        mappings.put("/customer/logout", new LogoutCustomerController());    
         mappings.put("/customer/update", new UpdateCustomerController());
         mappings.put("/customer/delete", new DeleteCustomerController());
         mappings.put("/customer/view", new ViewCustomerController());
